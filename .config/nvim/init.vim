@@ -12,7 +12,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'airblade/vim-rooter'
   Plug 'tpope/vim-fugitive'
   Plug 'alvan/vim-closetag'
-  Plug 'arcticicestudio/nord-vim'
+  " Plug 'arcticicestudio/nord-vim'
   Plug 'itchyny/lightline.vim'
   Plug 'cocopon/iceberg.vim'
 call plug#end()
@@ -126,6 +126,7 @@ let g:lightline = {
       \ 'colorscheme': 'iceberg',
       \ 'component_function': {
       \   'fileformat': 'LightlineZero',
+      \   'filetype': 'LightlineZero',
       \   'fileencoding': 'LightlineZero',
       \ },
     \ }

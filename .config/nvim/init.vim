@@ -4,7 +4,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'sheerun/vim-polyglot'
   Plug 'preservim/nerdtree'
   Plug 'jiangmiao/auto-pairs'
-  " Plug 'sainnhe/everforest'
   Plug 'tpope/vim-commentary'
   Plug 'editorconfig/editorconfig-vim'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -12,10 +11,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'airblade/vim-rooter'
   Plug 'tpope/vim-fugitive'
   Plug 'alvan/vim-closetag'
-  " Plug 'arcticicestudio/nord-vim'
   Plug 'itchyny/lightline.vim'
-  " Plug 'cocopon/iceberg.vim'
-  Plug 'sonph/onehalf', {'rtp': 'vim/'}
+  Plug 'cocopon/iceberg.vim'
 call plug#end()
 
 set nohlsearch
@@ -42,7 +39,7 @@ set guifont=Inconsolata:h21
 syntax on
 set showmatch
 " let g:everforest_background = 'soft'
-colorscheme onehalfdark
+colorscheme iceberg
 
 set lazyredraw
 set scrolloff=6
@@ -130,7 +127,7 @@ let g:closetag_close_shortcut = '<leader>>'
 " statusline
 set noshowmode
 let g:lightline = {
-      \ 'colorscheme': 'onehalfdark',
+      \ 'colorscheme': 'iceberg',
       \ 'component_function': {
       \   'fileformat': 'LightlineZero',
       \   'filetype': 'LightlineZero',

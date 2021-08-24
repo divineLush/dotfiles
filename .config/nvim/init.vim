@@ -57,16 +57,16 @@ set autoindent
 set fileformat=unix
 
 " enable spell checking
-map <leader>s :setlocal spell! spelllang=en_us<CR>
+" map <leader>s :setlocal spell! spelllang=en_us<CR>
 
 " vertical split
-map <M-v> <C-w>v
+map <leader>sv <C-w>v
 
 " shortcutting split navigation
-map <M-h> <C-w>h
-map <M-j> <C-w>j
-map <M-k> <C-w>l
-map <M-l> <C-w>l
+map <leader>sh <C-w>h
+map <leader>sj <C-w>j
+map <leader>sk <C-w>k
+map <leader>sl <C-w>l
 
 " switching buffers
 map <leader>[ :bp<CR>
@@ -77,20 +77,20 @@ map <leader>k :bd<CR>
 map S :%s//g<Left><Left>
 
 " fzf
-map <C-p> :Files<CR>
+map <leader>ff :Files<CR>
 " ripgrep
-map <C-[> :Rg<CR>
+map <leader>fr :Rg<CR>
 " open buffers
-map <C-]> :Buffers<CR>
+map <leader>fb :Buffers<CR>
 " search inside current buffer
-map <C-l> :BLines<CR>
+map <leader>fl :BLines<CR>
 " search inside all opened buffers
-map <C-;> :Lines<CR>
+map <leader>fL :Lines<CR>
 let $FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*}"'
 
 " save and quit
-map <C-s> :w<CR>
-map <C-c> :q<CR>
+map <leader>w :w<CR>
+map <leader>q :q<CR>
 
 " git
 map <leader>gs :G<CR>
@@ -102,8 +102,8 @@ map <leader>gu :G pull<CR>
 autocmd BufWritePre * :%s/\s\+$//e
 
 " NERDTree
-map <C-n> :NERDTreeToggle<CR>
-map <C-f> :NERDTreeFind<CR>
+map <leader>nt :NERDTreeToggle<CR>
+map <leader>nf :NERDTreeFind<CR>
 let NERDTreeShowLineNumbers=1
 let NERDTreeShowHidden=1
 let g:NERDTreeWinSize=38

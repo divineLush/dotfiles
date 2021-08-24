@@ -14,7 +14,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'alvan/vim-closetag'
   " Plug 'arcticicestudio/nord-vim'
   Plug 'itchyny/lightline.vim'
-  Plug 'cocopon/iceberg.vim'
+  " Plug 'cocopon/iceberg.vim'
+  Plug 'sonph/onehalf', {'rtp': 'vim/'}
 call plug#end()
 
 set nohlsearch
@@ -39,8 +40,14 @@ set mouse=a
 set guifont=Inconsolata:h21
 
 syntax on
+set showmatch
 " let g:everforest_background = 'soft'
-colorscheme iceberg
+colorscheme onehalfdark
+
+set lazyredraw
+set scrolloff=6
+set nofoldenable
+set nospell
 
 " file type recognition
 filetype on
@@ -123,7 +130,7 @@ let g:closetag_close_shortcut = '<leader>>'
 " statusline
 set noshowmode
 let g:lightline = {
-      \ 'colorscheme': 'iceberg',
+      \ 'colorscheme': 'onehalfdark',
       \ 'component_function': {
       \   'fileformat': 'LightlineZero',
       \   'filetype': 'LightlineZero',

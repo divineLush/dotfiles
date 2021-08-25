@@ -13,9 +13,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'alvan/vim-closetag'
   Plug 'itchyny/lightline.vim'
   Plug 'sonph/onehalf', {'rtp': 'vim/'}
-  Plug 'chrisbra/Colorizer'
   Plug 'junegunn/vim-peekaboo'
-  Plug 'tpope/vim-eunuch'
+  Plug 'ap/vim-css-color'
 call plug#end()
 
 set nohlsearch
@@ -132,12 +131,9 @@ set noshowmode
 let g:lightline = {
       \ 'colorscheme': 'onehalfdark',
       \ 'component_function': {
-      \   'fileformat': 'LightlineZero',
-      \   'filetype': 'LightlineZero',
-      \   'fileencoding': 'LightlineZero',
+      \   'branch': 'FugitiveHead',
+      \ },
+      \ 'active': {
+      \   'right': [['lineinfo'], ['percent'], ['branch']],
       \ },
     \ }
-
-function! LightlineZero()
-  return ''
-endfunction

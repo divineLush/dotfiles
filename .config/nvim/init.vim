@@ -12,7 +12,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'tpope/vim-fugitive'
   Plug 'alvan/vim-closetag'
   Plug 'itchyny/lightline.vim'
-  Plug 'cocopon/iceberg.vim'
+  Plug 'sonph/onehalf', {'rtp': 'vim/'}
+  Plug 'chrisbra/Colorizer'
+  Plug 'junegunn/vim-peekaboo'
+  Plug 'tpope/vim-eunuch'
 call plug#end()
 
 set nohlsearch
@@ -39,7 +42,7 @@ set guifont=Inconsolata:h21
 syntax on
 set showmatch
 " let g:everforest_background = 'soft'
-colorscheme iceberg
+colorscheme onehalfdark
 
 set lazyredraw
 set scrolloff=6
@@ -127,7 +130,7 @@ let g:closetag_close_shortcut = '<leader>>'
 " statusline
 set noshowmode
 let g:lightline = {
-      \ 'colorscheme': 'iceberg',
+      \ 'colorscheme': 'onehalfdark',
       \ 'component_function': {
       \   'fileformat': 'LightlineZero',
       \   'filetype': 'LightlineZero',

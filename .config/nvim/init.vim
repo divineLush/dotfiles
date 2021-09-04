@@ -12,9 +12,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'tpope/vim-fugitive'
   Plug 'alvan/vim-closetag'
   Plug 'itchyny/lightline.vim'
-  Plug 'sonph/onehalf', {'rtp': 'vim/'}
   Plug 'junegunn/vim-peekaboo'
-  Plug 'ap/vim-css-color'
+  Plug 'cocopon/iceberg.vim'
 call plug#end()
 
 set nohlsearch
@@ -29,6 +28,11 @@ set noswapfile
 set t_Co=256
 set number
 
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+
 set ignorecase
 set smartcase
 set encoding=utf-8
@@ -40,8 +44,7 @@ set guifont=Inconsolata:h21
 
 syntax on
 set showmatch
-" let g:everforest_background = 'soft'
-colorscheme onehalfdark
+colorscheme iceberg
 
 set lazyredraw
 set scrolloff=6
@@ -129,7 +132,7 @@ let g:closetag_close_shortcut = '<leader>>'
 " statusline
 set noshowmode
 let g:lightline = {
-      \ 'colorscheme': 'onehalfdark',
+      \ 'colorscheme': 'iceberg',
       \ 'component_function': {
       \   'branch': 'FugitiveHead',
       \ },

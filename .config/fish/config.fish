@@ -42,6 +42,7 @@ alias unlock='sudo rm /var/lib/pacman/db.lck'    # remove pacman lock
 alias cleanup='sudo pacman -Rns (pacman -Qtdq)'  # remove orphaned packages
 
 # git
+alias gs='git status'
 alias gal='git add .'
 alias gbr='git branch'
 alias gch='git checkout'

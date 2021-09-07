@@ -20,9 +20,10 @@ export VISUAL="kate"
 # >--))))*>
 # )xxxxx[;;;;;;;;;>
 # >++('>
+# ><(((">
 
 _set_my_PS1() {
-    PS1='\u \W ><> '
+    PS1='\W ><> '
     if [ "$(whoami)" = "liveuser" ] ; then
         local iso_version="$(grep ^VERSION= /usr/lib/endeavouros-release 2>/dev/null | cut -d '=' -f 2)"
         if [ -n "$iso_version" ] ; then

@@ -2,7 +2,14 @@
 # ~/.bashrc
 #
 
+# vi-mode
 set -o vi
+bind -m vi-command 'Control-l: clear-screen'
+bind -m vi-insert 'Control-l: clear-screen'
+
+export TERM="xterm-256color"
+export EDITOR="nvim"
+export VISUAL="kate"
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -189,4 +196,23 @@ alias upd=UpdateAllPackages
 
 alias ef='_open_files_for_editing'     # 'ef' opens given file(s) for editing
 alias pacdiff=_Pacdiff
+
+alias n='nvim'
+alias gn='nvim-qt'
+
+alias ..='cd ..'
+alias ...='cd ../..'
+
+alias gs='git status'
+alias gal='git add .'
+alias gbr='git branch'
+alias gch='git checkout'
+alias gcl='git clone'
+alias gc='git commit -m'
+alias gf='git fetch'
+alias gu='git pull origin'
+alias gp='git push origin'
+alias gt='git tag'
+alias gnt='git tag -a'
+
 ################################################################################

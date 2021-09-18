@@ -86,15 +86,15 @@ map <leader>k :bd<CR>
 map S :%s//g<Left><Left>
 
 " fzf
-map <leader>ff :Files<CR>
+map <leader>f :Files<CR>
 " ripgrep
-map <leader>fr :Rg<CR>
+map <leader>r :Rg<CR>
 " open buffers
-map <leader>fb :Buffers<CR>
+map <leader>b :Buffers<CR>
 " search inside current buffer
-map <leader>fl :BLines<CR>
+map <leader>l :BLines<CR>
 " search inside all opened buffers
-map <leader>fL :Lines<CR>
+map <leader>L :Lines<CR>
 let $FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*}"'
 
 " save and quit

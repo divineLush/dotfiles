@@ -6,6 +6,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'jiangmiao/auto-pairs'
   Plug 'tpope/vim-commentary'
   Plug 'editorconfig/editorconfig-vim'
+  Plug 'neoclide/coc.nvim', { 'branch': 'release' }
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'airblade/vim-rooter'
@@ -120,6 +121,7 @@ let g:NERDTreeWinSize=38
 " macros
 let @a = "i() => {}\<Esc>6hi"
 let @i = "iif () {}\<Esc>3hi"
+let @c = "iconsole.log()\<Esc>i"
 
 " closetag
 let g:closetag_filenames = '*.html,*.js,*.ts,*.jsx,*.tsx,*.vue'
@@ -140,3 +142,22 @@ let g:lightline = {
       \   'right': [['lineinfo'], ['percent'], ['branch']],
       \ },
     \ }
+
+" coc
+let g:coc_global_extensions = [
+    \ 'coc-tsserver',
+    \ 'coc-json',
+    \ 'coc-html',
+    \ 'coc-css',
+    \ 'coc-eslint',
+    \ 'coc-stylelint',
+    \ 'coc-vetur',
+    \ 'coc-pyright',
+    \ ]
+
+map <leader>cd <Plug>(coc-definition)
+map <leader>ctd <Plug>(coc-type-definition)
+map <leader>ci <Plug>(coc-implementation)
+map <leader>cr <Plug>(coc-references)
+map <leader>c[ <Plug>(coc-diagnostic-prev)
+map <leader>c] <Plug>(coc-diagnostic-next)

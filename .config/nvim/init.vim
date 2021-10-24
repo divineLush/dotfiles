@@ -41,10 +41,12 @@ set hidden
 set cursorline
 
 set mouse=a
+set termguicolors
 set guifont=Inconsolata:h21
 
 syntax on
 set showmatch
+set background=dark
 colorscheme iceberg
 
 set lazyredraw
@@ -153,6 +155,7 @@ let g:coc_global_extensions = [
     \ 'coc-stylelint',
     \ 'coc-vetur',
     \ 'coc-pyright',
+    \ 'coc-clangd',
     \ ]
 
 map <leader>cd <Plug>(coc-definition)

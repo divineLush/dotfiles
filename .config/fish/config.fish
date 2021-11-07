@@ -5,6 +5,8 @@ set -U fish_user_paths $HOME/.local/bin $HOME/Applications $fish_user_paths
 ### EXPORT
 set fish_greeting                                 # Supresses fish's intro message
 set TERM "xterm-256color"                         # Sets the terminal type
+set EDITOR "nvim"
+set VISUAL "nvim-qt"
 
 ### "nvim" as manpager
 set -x MANPAGER "nvim -c 'set ft=man' -"

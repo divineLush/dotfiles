@@ -18,6 +18,8 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
+local vicious = require("vicious")
+
 -- Load Debian menu entries
 local debian = require("debian.menu")
 local has_fdo, freedesktop = pcall(require, "freedesktop")
@@ -52,6 +54,9 @@ end
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
 beautiful.font = "Inconsolata 14"
+beautiful.menu_height = 50
+beautiful.menu_width = 350
+beautiful.menu_submenu_icon = ""
 
 -- This is used later as the default terminal and editor to run.
 terminal = "kitty"
@@ -64,6 +69,9 @@ editor_cmd = terminal .. " -e " .. editor
 -- I suggest you to remap Mod4 to another key using xmodmap or other tools.
 -- However, you can use another modifier like Mod1, but it may interact with others.
 modkey = "Mod4"
+
+awful.util.spawn("nm-applet")
+awful.util.spawn("light-locker")
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
@@ -99,7 +107,7 @@ myawesomemenu = {
    { "quit", function() awesome.quit() end },
 }
 
-local menu_awesome = { "awesome", myawesomemenu, beautiful.awesome_icon }
+local menu_awesome = { "awesome", myawesomemenu }
 local menu_terminal = { "open terminal", terminal }
 
 if has_fdo then
@@ -118,19 +126,27 @@ else
 end
 
 
-mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
-                                     menu = mymainmenu })
+mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon, menu = mymainmenu })
 
 -- Menubar configuration
+-- menubar.icon_theme = ""
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
 -- }}}
 
 -- Keyboard map indicator and switcher
-mykeyboardlayout = awful.widget.keyboardlayout('us', 'ru')
+mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
+
+-- Memory usage widget
+memwidget = wibox.widget.textbox()
+vicious.register(memwidget, vicious.widgets.mem, "($1% $2MB/$3MB)", 13)
+
+-- Net widget
+-- netwidget = wibox.widget.textbox()
+-- vicious.register(netwidget, vicious.widgets.net)
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -234,6 +250,8 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             mykeyboardlayout,
+	    memwidget,
+	    -- netwidget,
             wibox.widget.systray(),
             mytextclock,
             s.mylayoutbox,

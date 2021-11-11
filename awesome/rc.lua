@@ -18,7 +18,7 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
-local vicious = require("vicious")
+-- local vicious = require("vicious")
 
 -- Load Debian menu entries
 local debian = require("debian.menu")
@@ -54,6 +54,8 @@ end
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
 beautiful.font = "Inconsolata 14"
+beautiful.useless_gap = 0
+beautiful.border_width = 0
 beautiful.menu_height = 50
 beautiful.menu_width = 350
 beautiful.menu_submenu_icon = ""
@@ -138,8 +140,8 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 mytextclock = wibox.widget.textclock()
 
 -- Memory usage widget
-memwidget = wibox.widget.textbox()
-vicious.register(memwidget, vicious.widgets.mem, "($1% $2MB/$3MB)", 13)
+-- memwidget = wibox.widget.textbox()
+-- vicious.register(memwidget, vicious.widgets.mem, "($1% $2MB/$3MB)", 13)
 
 -- Net widget
 -- netwidget = wibox.widget.textbox()
@@ -246,8 +248,7 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             mykeyboardlayout,
-	    memwidget,
-	    -- netwidget,
+	    --memwidget,
             wibox.widget.systray(),
             mytextclock,
             s.mylayoutbox,
@@ -366,7 +367,26 @@ globalkeys = gears.table.join(
               {description = "lua execute prompt", group = "awesome"}),
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"})
+              {description = "show the menubar", group = "launcher"}),
+    -- Volume
+    awful.key({ modkey, "v" }, "j",
+    		function() awful.util.spawn("amixer -D pulse sset Master 10%+") end,
+		{ description = "volume up" }),
+    awful.key({ modkey, "v" }, "k",
+    		function() awful.util.spawn("amixer -D pulse sset Master 10%-") end,
+		{ description = "volume down" }),
+    awful.key({ modkey, "v" }, "0",
+    		function() awful.util.spawn("amixer -D pulse sset Master 0") end,
+		{ description = "volume zero" }),
+    awful.key({ modkey, "v" }, "1",
+    		function() awful.util.spawn("amixer -D pulse sset Master 100%") end,
+		{ description = "volume full" }),
+    awful.key({ modkey, "v" }, "5",
+    		function() awful.util.spawn("amixer -D pulse sset Master 50%") end,
+		{ description = "volume half" }),
+    awful.key({ modkey, "v" }, "t",
+    		function() awful.util.spawn("amixer -D pulse sset Master toggle") end,
+		{ description = "volume toggle" })
 )
 
 clientkeys = gears.table.join(

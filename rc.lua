@@ -49,7 +49,9 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_themes_dir() .. "zenburn/theme.lua")
+beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+
+beautiful.font = "Inconsolata 14"
 
 -- This is used later as the default terminal and editor to run.
 terminal = "kitty"
@@ -83,6 +85,9 @@ awful.layout.layouts = {
     -- awful.layout.suit.corner.se,
 }
 -- }}}
+
+
+awful.screen.set_auto_dpi_enabled(true)
 
 -- {{{ Menu
 -- Create a launcher widget and a main menu
@@ -121,7 +126,7 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- }}}
 
 -- Keyboard map indicator and switcher
-mykeyboardlayout = awful.widget.keyboardlayout()
+mykeyboardlayout = awful.widget.keyboardlayout('us', 'ru')
 
 -- {{{ Wibar
 -- Create a textclock widget
@@ -214,7 +219,7 @@ awful.screen.connect_for_each_screen(function(s)
     }
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s })
+    s.mywibox = awful.wibar({ position = "bottom", height = 40, screen = s })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
@@ -268,6 +273,9 @@ globalkeys = gears.table.join(
         end,
         {description = "focus previous by index", group = "client"}
     ),
+    -- Keyboard layout manipulation
+    awful.key({ modkey            }, "0", function() awful.util.spawn("setxkbmap us") end),
+    awful.key({ modkey            }, "9", function() awful.util.spawn("setxkbmap ru") end),
     awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
               {description = "show main menu", group = "awesome"}),
 

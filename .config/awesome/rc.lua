@@ -53,7 +53,7 @@ end
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
-beautiful.font = "Inconsolata 14"
+beautiful.font = "Hack 12"
 -- beautiful.useless_gap = 0
 -- beautiful.border_width = 0
 beautiful.menu_height = 50
@@ -78,7 +78,7 @@ modkey = "Mod4"
 altkey = "Mod1"
 
 awful.util.spawn("nm-applet")
-awful.util.spawn("redshift -O 3400")
+awful.util.spawn("redshift -O 3200")
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
@@ -388,16 +388,16 @@ globalkeys = gears.table.join(
               {description = "show the menubar", group = "launcher"}),
     -- Brightness
     awful.key({ modkey, "b" }, "j",
-                function() os.execute("xbacklight -inc 10") end,
+                function() os.execute("sudo light -A 10") end,
 		{ description = "brightness up", group = "hotkeys" }),
     awful.key({ }, "XF86MonBrightnessUp",
-                function() os.execute("xbacklight -inc 10") end,
+                function() os.execute("sudo light -U 10") end,
 		{ description = "brightness up" }),
     awful.key({ modkey, "b" }, "k",
-                function() os.execute("xbacklight -dec 10") end,
+                function() os.execute("sudo light -A 10") end,
 		{ description = "brightness down", group = "hotkeys" }),
     awful.key({ }, "XF86MonBrightnessDown",
-                function() os.execute("xbacklight -dec 10") end,
+                function() os.execute("sudo light -U 10") end,
 		{ description = "brightness down" }),
     -- Volume
     awful.key({ modkey, "v" }, "j",

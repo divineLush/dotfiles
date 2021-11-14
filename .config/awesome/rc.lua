@@ -25,7 +25,6 @@ local debian = require("debian.menu")
 local has_fdo, freedesktop = pcall(require, "freedesktop")
 
 local bat_widget = require("widgets.battery")
-local bright_widget = require("widgets.brightness")
 local vol_widget = require("widgets.volume")
 
 -- {{{ Error handling
@@ -82,7 +81,8 @@ modkey = "Mod4"
 altkey = "Mod1"
 
 awful.util.spawn("nm-applet")
-awful.util.spawn("redshift -O 3200")
+awful.util.spawn("light -S 30")
+-- awful.util.spawn("redshift -O 3200")
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
@@ -271,7 +271,6 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             mykeyboardlayout,
 	        -- memwidget,
-            bright_widget,
             bat_widget,
             vol_widget,
             wibox.widget.systray(),
@@ -394,18 +393,12 @@ globalkeys = gears.table.join(
     awful.key({ modkey }, "p", function() menubar.show() end,
               {description = "show the menubar", group = "launcher"}),
     -- Brightness
-    awful.key({ modkey, "b" }, "j",
-                function() os.execute("sudo light -A 10") end,
-		{ description = "brightness up", group = "hotkeys" }),
     awful.key({ }, "XF86MonBrightnessUp",
-                function() os.execute("sudo light -U 10") end,
-		{ description = "brightness up" }),
-    awful.key({ modkey, "b" }, "k",
-                function() os.execute("sudo light -A 10") end,
-		{ description = "brightness down", group = "hotkeys" }),
+                function() os.execute("light -A 10") end,
+		{ description = "brightness up", group = "hotkeys" }),
     awful.key({ }, "XF86MonBrightnessDown",
-                function() os.execute("sudo light -U 10") end,
-		{ description = "brightness down" }),
+                function() os.execute("light -U 10") end,
+		{ description = "brightness down", group = "hotkeys" }),
     -- Volume
     awful.key({ modkey, "v" }, "j",
     		function() awful.util.spawn("amixer -D pulse sset Master 10%+") end,

@@ -24,6 +24,10 @@ require("awful.hotkeys_popup.keys")
 local debian = require("debian.menu")
 local has_fdo, freedesktop = pcall(require, "freedesktop")
 
+local bat_widget = require("widgets.battery")
+local bright_widget = require("widgets.brightness")
+local vol_widget = require("widgets.volume")
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -53,7 +57,7 @@ end
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
-beautiful.font = "Hack 12"
+beautiful.font = "Hack 10"
 -- beautiful.useless_gap = 0
 -- beautiful.border_width = 0
 beautiful.menu_height = 50
@@ -266,7 +270,10 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             mykeyboardlayout,
-	    --memwidget,
+	        -- memwidget,
+            bright_widget,
+            bat_widget,
+            vol_widget,
             wibox.widget.systray(),
             mytextclock,
             s.mylayoutbox,

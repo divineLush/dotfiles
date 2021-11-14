@@ -78,7 +78,7 @@ modkey = "Mod4"
 altkey = "Mod1"
 
 awful.util.spawn("nm-applet")
--- awful.util.spawn("redshift -O 3400")
+awful.util.spawn("redshift -O 3400")
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {

@@ -54,11 +54,11 @@ end
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
 beautiful.font = "Inconsolata 14"
-beautiful.useless_gap = 0
-beautiful.border_width = 0
+-- beautiful.useless_gap = 0
+-- beautiful.border_width = 0
 beautiful.menu_height = 50
 beautiful.menu_width = 350
-beautiful.menu_submenu_icon = ""
+-- beautiful.menu_submenu_icon = ""
 
 -- This is used later as the default terminal and editor to run.
 terminal = "kitty"
@@ -74,6 +74,7 @@ modkey = "Mod4"
 
 awful.util.spawn("nm-applet")
 awful.util.spawn("light-locker")
+-- awful.util.spawn("redshift -O 3200")
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
@@ -110,22 +111,34 @@ myawesomemenu = {
 }
 
 local menu_awesome = { "awesome", myawesomemenu }
-local menu_terminal = { "open terminal", terminal }
+local menu_debian = { "Debian", debian.menu.Debian_menu.Debian }
+local menu_terminal = { "log out", function() awesome.quit() end }
+local menu_logout = { "sleep", "systemctl suspend" }
+local menu_reboot = { "reboot", "systemctl reboot" }
+local menu_poweroff = { "poweroff", "systemctl poweroff" }
 
 if has_fdo then
     mymainmenu = freedesktop.menu.build({
         before = { menu_awesome },
-        after =  { menu_terminal }
+        after =  {
+            menu_debian,
+            menu_terminal,
+            menu_logout,
+            menu_reboot,
+            menu_poweroff
+        }
     })
 else
     mymainmenu = awful.menu({
         items = {
                   menu_awesome,
-                  { "Debian", debian.menu.Debian_menu.Debian },
+                  menu_debian,
                   menu_terminal,
                 }
     })
 end
+
+mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon, menu = mymainmenu })
 
 -- Menubar configuration
 -- menubar.icon_theme = ""
@@ -234,13 +247,14 @@ awful.screen.connect_for_each_screen(function(s)
     }
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "bottom", height = 40, screen = s })
+    s.mywibox = awful.wibar({ position = "top", height = 40, screen = s })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
+            mylauncher,
             s.mytaglist,
             s.mypromptbox,
         },
@@ -405,7 +419,19 @@ globalkeys = gears.table.join(
 		{ description = "volume half", group = "hotkeys" }),
     awful.key({ modkey, "v" }, "t",
     		function() awful.util.spawn("amixer -D pulse sset Master toggle") end,
-		{ description = "volume toggle", group = "hotkeys" })
+		{ description = "volume toggle", group = "hotkeys" }),
+    awful.key({ modkey }, "l",
+            function() awful.util.spawn("light-locker-command -l") end,
+        { description = "lock screen", group = "awesome" }),
+    awful.key({ modkey, "Shift" }, "p",
+            function() awful.util.spawn("systemctl poweroff") end,
+        { description = "poweroff" }),
+    awful.key({ modkey, "Shift" }, "s",
+            function() awful.util.spawn("systemctl suspend") end,
+        { description = "suspend" }),
+    awful.key({ modkey, "Shift" }, "r",
+            function() awful.util.spawn("systemctl reboot") end,
+        { description = "reboot" })
 )
 
 clientkeys = gears.table.join(

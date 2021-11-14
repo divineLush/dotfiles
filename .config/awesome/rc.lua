@@ -82,7 +82,7 @@ altkey = "Mod1"
 
 awful.util.spawn("nm-applet")
 awful.util.spawn("light -S 30")
--- awful.util.spawn("redshift -O 3200")
+awful.util.spawn("redshift -O 3200")
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
@@ -394,23 +394,23 @@ globalkeys = gears.table.join(
               {description = "show the menubar", group = "launcher"}),
     -- Brightness
     awful.key({ }, "XF86MonBrightnessUp",
-                function() os.execute("light -A 10") end,
+                function() os.execute("light -A 5") end,
 		{ description = "brightness up", group = "hotkeys" }),
     awful.key({ }, "XF86MonBrightnessDown",
-                function() os.execute("light -U 10") end,
+                function() os.execute("light -U 5") end,
 		{ description = "brightness down", group = "hotkeys" }),
     -- Volume
     awful.key({ modkey, "v" }, "j",
-    		function() awful.util.spawn("amixer -D pulse sset Master 10%+") end,
+    		function() awful.util.spawn("amixer -D pulse sset Master 5%+") end,
 		{ description = "volume up", group = "hotkeys" }),
     awful.key({ }, "XF86AudioRaiseVolume",
-    		function() awful.util.spawn("amixer -D pulse sset Master 10%+") end,
+    		function() awful.util.spawn("amixer -D pulse sset Master 5%+") end,
 		{ description = "volume up" }),
     awful.key({ modkey, "v" }, "k",
-    		function() awful.util.spawn("amixer -D pulse sset Master 10%-") end,
+    		function() awful.util.spawn("amixer -D pulse sset Master 5%-") end,
 		{ description = "volume down", group = "hotkeys" }),
     awful.key({  }, "XF86AudioLowerVolume",
-    		function() awful.util.spawn("amixer -D pulse sset Master 10%-") end,
+    		function() awful.util.spawn("amixer -D pulse sset Master 5%-") end,
 		{ description = "volume down" }),
     awful.key({ modkey, "v" }, "0",
     		function() awful.util.spawn("amixer -D pulse sset Master 0") end,
@@ -422,6 +422,9 @@ globalkeys = gears.table.join(
     		function() awful.util.spawn("amixer -D pulse sset Master 50%") end,
 		{ description = "volume half", group = "hotkeys" }),
     awful.key({ modkey, "v" }, "t",
+    		function() awful.util.spawn("amixer -D pulse sset Master toggle") end,
+		{ description = "volume toggle", group = "hotkeys" }),
+    awful.key({ }, "XF86AudioMute",
     		function() awful.util.spawn("amixer -D pulse sset Master toggle") end,
 		{ description = "volume toggle", group = "hotkeys" }),
     awful.key({ modkey }, "l",

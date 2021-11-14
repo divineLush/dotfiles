@@ -73,8 +73,7 @@ editor_cmd = terminal .. " -e " .. editor
 modkey = "Mod4"
 
 awful.util.spawn("nm-applet")
-awful.util.spawn("light-locker")
--- awful.util.spawn("redshift -O 3200")
+awful.util.spawn("redshift -O 3400")
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {

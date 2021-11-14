@@ -64,6 +64,10 @@ beautiful.menu_width = 350
 terminal = "kitty"
 editor = os.getenv("EDITOR") or "nvim"
 editor_cmd = terminal .. " -e " .. editor
+editor_gui = "geany"
+mediaplayer = "vlc"
+browser = "brave"
+filemanager = "pcmanfm"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -71,9 +75,10 @@ editor_cmd = terminal .. " -e " .. editor
 -- I suggest you to remap Mod4 to another key using xmodmap or other tools.
 -- However, you can use another modifier like Mod1, but it may interact with others.
 modkey = "Mod4"
+altkey = "Mod1"
 
 awful.util.spawn("nm-applet")
-awful.util.spawn("redshift -O 3400")
+-- awful.util.spawn("redshift -O 3400")
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
@@ -424,13 +429,25 @@ globalkeys = gears.table.join(
         { description = "lock screen", group = "awesome" }),
     awful.key({ modkey, "Shift" }, "p",
             function() awful.util.spawn("systemctl poweroff") end,
-        { description = "poweroff" }),
+        { description = "poweroff", group = "awesome" }),
     awful.key({ modkey, "Shift" }, "s",
             function() awful.util.spawn("systemctl suspend") end,
-        { description = "suspend" }),
+        { description = "suspend", group = "awesome" }),
     awful.key({ modkey, "Shift" }, "r",
             function() awful.util.spawn("systemctl reboot") end,
-        { description = "reboot" })
+        { description = "reboot", group = "awesome" }),
+    awful.key({ modkey, altkey }, "b",
+            function() awful.util.spawn("brave-browser") end,
+        { description = "launch brave", group = "web" }),
+    awful.key({ modkey, altkey }, "c",
+            function() awful.util.spawn("chromium") end,
+        { description = "launch chromium", group = "web" }),
+    awful.key({ modkey, altkey }, "f",
+            function() awful.util.spawn("firefox") end,
+        { description = "launch firefox", group = "web" }),
+    awful.key({ modkey }, "e",
+            function() awful.util.spawn("pcmanfm") end,
+        { description = "launch filemanager", group = "awesome" })
 )
 
 clientkeys = gears.table.join(

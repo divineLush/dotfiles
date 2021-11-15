@@ -83,9 +83,10 @@ altkey = "Mod1"
 -- Startup apps
 awful.util.spawn("nm-applet")
 awful.util.spawn("light -S 30")
-awful.util.spawn("tlp start")
+-- awful.util.spawn("tlp start")
 awful.util.spawn("redshift -O 3200")
 awful.util.spawn("amixer sset Master 20%")
+awful.util.spawn('setxkbmap -layout "us, ru" -option "grp:lalt_lshift_toggle"')
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {

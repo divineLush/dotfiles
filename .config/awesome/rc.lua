@@ -53,7 +53,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+beautiful.init(gears.filesystem.get_configuration_dir() .. "theme.lua")
 
 beautiful.font = "Hack 10"
 -- beautiful.useless_gap = 0
@@ -83,7 +83,7 @@ altkey = "Mod1"
 awful.util.spawn("nm-applet")
 awful.util.spawn("light -S 25")
 -- awful.util.spawn("tlp start")
-awful.util.spawn("redshift -O 3200")
+-- awful.util.spawn("redshift -O 3200")
 awful.util.spawn("amixer sset Master 20%")
 awful.util.spawn('setxkbmap -layout "us, ru" -option "grp:lalt_lshift_toggle"')
 
@@ -123,7 +123,7 @@ myawesomemenu = {
 
 local menu_awesome = { "awesome", myawesomemenu }
 local menu_debian = { "Debian", debian.menu.Debian_menu.Debian }
-local menu_terminal = { "log out", function() awesome.quit() end }
+-- local menu_terminal = { "log out", function() awesome.quit() end }
 local menu_logout = { "sleep", "systemctl suspend" }
 local menu_reboot = { "reboot", "systemctl reboot" }
 local menu_poweroff = { "poweroff", "systemctl poweroff" }

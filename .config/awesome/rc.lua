@@ -80,9 +80,12 @@ filemanager = "pcmanfm"
 modkey = "Mod4"
 altkey = "Mod1"
 
+-- Startup apps
 awful.util.spawn("nm-applet")
 awful.util.spawn("light -S 30")
+awful.util.spawn("tlp start")
 awful.util.spawn("redshift -O 3200")
+awful.util.spawn("amixer sset Master 20%")
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
@@ -396,17 +399,23 @@ globalkeys = gears.table.join(
     awful.key({ }, "XF86MonBrightnessUp",
                 function() os.execute("light -A 5") end,
 		{ description = "brightness up", group = "hotkeys" }),
+    awful.key({ modkey }, "]",
+                function() os.execute("light -A 5") end,
+		{ description = "brightness up", group = "hotkeys" }),
     awful.key({ }, "XF86MonBrightnessDown",
                 function() os.execute("light -U 5") end,
 		{ description = "brightness down", group = "hotkeys" }),
+    awful.key({ modkey }, "[",
+                function() os.execute("light -U 5") end,
+		{ description = "brightness down", group = "hotkeys" }),
     -- Volume
-    awful.key({ modkey, "v" }, "j",
+    awful.key({ modkey }, "'",
     		function() awful.util.spawn("amixer -D pulse sset Master 5%+") end,
 		{ description = "volume up", group = "hotkeys" }),
     awful.key({ }, "XF86AudioRaiseVolume",
     		function() awful.util.spawn("amixer -D pulse sset Master 5%+") end,
 		{ description = "volume up" }),
-    awful.key({ modkey, "v" }, "k",
+    awful.key({ modkey }, ";",
     		function() awful.util.spawn("amixer -D pulse sset Master 5%-") end,
 		{ description = "volume down", group = "hotkeys" }),
     awful.key({  }, "XF86AudioLowerVolume",

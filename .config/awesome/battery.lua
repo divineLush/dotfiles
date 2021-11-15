@@ -1,8 +1,8 @@
 -------------------------------------------------
--- Brightness widget
+-- Battery widget
 -------------------------------------------------
 
-local wibox = require("wibox")  -- Provides the widgets
+local wibox = require("wibox")
 local watch = require("awful.widget.watch")
 
 local text = wibox.widget{
@@ -16,8 +16,10 @@ widget:set_widget(text)
 -- widget:set_bg("#008800")
 -- widget:set_fg("#ffffff")
 
-watch("light -G", 10, function(widget, stdout, stderr, exitreason, exitcode)
-        text:set_text("Br: "..stdout)
+watch("acpi -b", 10, function(widget, stdout, stderr, exitreason, exitcode)
+        local val = string.match(stdout, "%d%d")
+        local msg = "[bat: "..val.."%]"
+        text:set_text(msg)
     end,
     widget
     )

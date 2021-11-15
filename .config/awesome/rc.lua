@@ -18,14 +18,11 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
--- local vicious = require("vicious")
-
 -- Load Debian menu entries
 local debian = require("debian.menu")
 local has_fdo, freedesktop = pcall(require, "freedesktop")
 
-local bat_widget = require("widgets.battery")
-local vol_widget = require("widgets.volume")
+local bat_widget = require("battery")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -164,14 +161,6 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
 
--- Memory usage widget
--- memwidget = wibox.widget.textbox()
--- vicious.register(memwidget, vicious.widgets.mem, "($1% $2MB/$3MB)", 13)
-
--- Net widget
--- netwidget = wibox.widget.textbox()
--- vicious.register(netwidget, vicious.widgets.net)
-
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
                     awful.button({ }, 1, function(t) t:view_only() end),
@@ -274,9 +263,7 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             mykeyboardlayout,
-	        -- memwidget,
             bat_widget,
-            vol_widget,
             wibox.widget.systray(),
             mytextclock,
             s.mylayoutbox,

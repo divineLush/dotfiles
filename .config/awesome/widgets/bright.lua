@@ -1,5 +1,5 @@
 -------------------------------------------------
--- Battery widget
+-- Bright widget
 -------------------------------------------------
 
 local wibox = require("wibox")
@@ -16,10 +16,9 @@ widget:set_widget(text)
 -- widget:set_bg("#008800")
 -- widget:set_fg("#ffffff")
 
-watch("acpi -b", 10, function(widget, stdout, stderr, exitreason, exitcode)
-        local val = string.match(stdout, "%d%d")
-        local msg = "[bat: "..val.."%]"
-        text:set_text(msg)
+watch("light", 10, function(widget, stdout, stderr, exitreason, exitcode)
+        local val = string.sub(stdout, 1, -5)
+        text:set_text(" bright: "..val.."]")
     end,
     widget
     )

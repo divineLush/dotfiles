@@ -18,7 +18,7 @@ widget:set_widget(text)
 
 watch("acpi -b", 10, function(widget, stdout, stderr, exitreason, exitcode)
         local val = string.match(stdout, "%d%d")
-        local msg = "[bat: "..val.."%"
+        local msg = "[bat: "..val..", "
         text:set_text(msg)
     end,
     widget

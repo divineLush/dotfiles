@@ -25,6 +25,7 @@ local has_fdo, freedesktop = pcall(require, "freedesktop")
 local bat_widget = require("widgets.battery")
 local vol_widget = require("widgets.volume")
 local bright_widget = require("widgets.bright")
+local sep_widget = require("widgets.separator")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -55,7 +56,7 @@ end
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_configuration_dir() .. "theme.lua")
 
-beautiful.font = "Hack 10"
+beautiful.font = "Hack 12"
 -- beautiful.useless_gap = 0
 -- beautiful.border_width = 0
 beautiful.menu_height = 50
@@ -205,14 +206,15 @@ local tasklist_buttons = gears.table.join(
 
 local function set_wallpaper(s)
     -- Wallpaper
-    if beautiful.wallpaper then
-        local wallpaper = beautiful.wallpaper
-        -- If wallpaper is a function, call it with the screen
-        if type(wallpaper) == "function" then
-            wallpaper = wallpaper(s)
-        end
-        gears.wallpaper.maximized(wallpaper, s, true)
-    end
+    gears.wallpaper.set("#353a50")
+    -- if beautiful.wallpaper then
+    --     local wallpaper = beautiful.wallpaper
+    --     -- If wallpaper is a function, call it with the screen
+    --     if type(wallpaper) == "function" then
+    --         wallpaper = wallpaper(s)
+    --     end
+    --     gears.wallpaper.maximized(wallpaper, s, true)
+    -- end
 end
 
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
@@ -265,9 +267,13 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             mykeyboardlayout,
+            sep_widget,
             bat_widget,
+            sep_widget,
             vol_widget,
+            sep_widget,
             bright_widget,
+            sep_widget,
             wibox.widget.systray(),
             mytextclock,
             s.mylayoutbox,

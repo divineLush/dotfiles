@@ -6,7 +6,7 @@ local awful = require("awful")
 local wibox = require("wibox")
 
 local text = wibox.widget{
-    font = "Hack 10",
+    font = "Hack 12",
     widget = wibox.widget.textbox,
 }
 
@@ -16,7 +16,7 @@ widget:set_widget(text)
 local function set_widget()
     awful.spawn.easy_async("light", function(out)
         local val = string.sub(out, 1, -2)
-        text:set_text("bright: "..val.."]")
+        text:set_text("bright: "..val)
     end)
 end
 

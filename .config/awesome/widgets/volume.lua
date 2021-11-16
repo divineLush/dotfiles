@@ -6,7 +6,7 @@ local awful = require("awful")
 local wibox = require("wibox")
 
 local text = wibox.widget{
-    font = "Hack 10",
+    font = "Hack 12",
     widget = wibox.widget.textbox,
 }
 
@@ -20,7 +20,7 @@ local function set_widget()
     awful.spawn.easy_async("amixer", function(out)
         local val = string.match(out, "%p%d%d%p%p")
         local raw_val = string.sub(val, 2, -3)
-        text:set_text("vol: "..raw_val..", ")
+        text:set_text("vol: "..raw_val)
     end)
 end
 

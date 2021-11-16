@@ -18,8 +18,14 @@ widget:set_widget(text)
 
 local function set_widget()
     awful.spawn.easy_async("amixer", function(out)
-        local val = string.match(out, "%p%d%d%p%p")
+        local val = string.match(out, "%[%d%d%%%]")
         local raw_val = string.sub(val, 2, -3)
+
+        local is_100 = string.find(out, "%[100%%") ~= nil
+        if is_100 then
+            raw_val = "100"
+        end
+
         text:set_text("vol: "..raw_val)
     end)
 end

@@ -14,9 +14,9 @@ local theme = {}
 theme.font          = "sans 8"
 
 theme.bg_normal     = "#161821"
-theme.bg_focus      = "#91acd1"
-theme.bg_urgent     = "#e27878"
-theme.bg_minimize   = "#e2a478"
+theme.bg_focus      = "#84a0c6"
+theme.bg_urgent     = "#e98989"
+theme.bg_minimize   = "#e9b189"
 theme.bg_systray    = theme.bg_normal
 
 theme.fg_normal     = "#c6c8d1"
@@ -96,8 +96,6 @@ theme.titlebar_maximized_button_normal_inactive = themes_path.."default/titlebar
 theme.titlebar_maximized_button_focus_inactive  = themes_path.."default/titlebar/maximized_focus_inactive.png"
 theme.titlebar_maximized_button_normal_active = themes_path.."default/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active  = themes_path.."default/titlebar/maximized_focus_active.png"
-
-theme.wallpaper = themes_path.."default/background.png"
 
 -- You can use your own layout icons like this:
 theme.layout_fairh = themes_path.."default/layouts/fairhw.png"

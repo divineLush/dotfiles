@@ -84,19 +84,19 @@ altkey = "Mod1"
 awful.util.spawn("nm-applet")
 awful.util.spawn("light -S 25")
 -- awful.util.spawn("tlp start")
--- awful.util.spawn("redshift -O 3400")
+awful.util.spawn("redshift -O 3400")
 awful.util.spawn("amixer sset Master 20%")
 awful.util.spawn('setxkbmap -layout "us, ru" -option "grp:lalt_lshift_toggle"')
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
-    -- awful.layout.suit.floating,
-    -- awful.layout.suit.max.fullscreen,
     awful.layout.suit.max,
     awful.layout.suit.tile,
-    -- awful.layout.suit.tile.left,
-    -- awful.layout.suit.tile.bottom,
-    -- awful.layout.suit.tile.top,
+    awful.layout.suit.tile.left,
+    awful.layout.suit.tile.bottom,
+    awful.layout.suit.tile.top,
+    awful.layout.suit.floating,
+    -- awful.layout.suit.max.fullscreen,
     -- awful.layout.suit.fair,
     -- awful.layout.suit.fair.horizontal,
     -- awful.layout.suit.spiral,

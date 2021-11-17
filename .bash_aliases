@@ -46,3 +46,12 @@ alias upd="sudo apt update && sudo apt upgrade"
 # brightness
 alias brightup="sudo light -A 10"
 alias brightdown="sudo light -U 10"
+
+# tar
+alias untar="tar -zxvf"
+alias listar="tar -tzf"
+
+# other goodies
+alias cl="clear"
+alias myip="curl ipinfo.io/ip"
+alias e="$EDITOR"

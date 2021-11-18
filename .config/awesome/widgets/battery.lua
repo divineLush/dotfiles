@@ -17,14 +17,15 @@ widget:set_widget(text)
 -- widget:set_fg("#ffffff")
 
 watch("acpi -b", 10, function(widget, stdout, stderr, exitreason, exitcode)
-        local val = string.match(stdout, "%d%d")
+        local perc = string.match(stdout, "%d%d%%")
+        local val = string.sub(perc, 1, -2)
         local is_100 = string.find(stdout, "100%%") ~= nil
 
         if is_100 then
             val = "100"
         end
 
-        local msg = "bat: "..val
+        local msg = "ba: "..val
         text:set_text(msg)
 
         local not_charging = string.find(stdout, "Charging") == nil
@@ -32,7 +33,7 @@ watch("acpi -b", 10, function(widget, stdout, stderr, exitreason, exitcode)
         local color = "#c6c8d1"
 
         if (not_charging) and (is_bat_low) then
-            color = "#e27878"
+            color = "#e98989"
         end
 
         widget:set_fg(color)

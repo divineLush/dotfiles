@@ -24,6 +24,7 @@ local has_fdo, freedesktop = pcall(require, "freedesktop")
 
 local bat_widget = require("widgets.battery")
 local vol_widget = require("widgets.volume")
+local mic_widget = require("widgets.mic")
 local bright_widget = require("widgets.bright")
 local sep_widget = require("widgets.separator")
 
@@ -84,8 +85,9 @@ altkey = "Mod1"
 awful.util.spawn("nm-applet")
 awful.util.spawn("light -S 25")
 -- awful.util.spawn("tlp start")
--- awful.util.spawn("redshift -O 3400")
+awful.util.spawn("redshift -O 3400")
 awful.util.spawn("amixer sset Master 20%")
+awful.util.spawn("amixer sset Capture nocap")
 awful.util.spawn('setxkbmap -layout "us, ru" -option "grp:lalt_lshift_toggle"')
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
@@ -272,6 +274,8 @@ awful.screen.connect_for_each_screen(function(s)
             sep_widget,
             vol_widget,
             sep_widget,
+            mic_widget,
+            sep_widget,
             bright_widget,
             sep_widget,
             wibox.widget.systray(),
@@ -434,6 +438,17 @@ globalkeys = gears.table.join(
     awful.key({ }, "XF86AudioMute",
     		function() awful.util.spawn("amixer -D pulse sset Master toggle") end,
 		{ description = "volume toggle", group = "hotkeys" }),
+    -- Mic
+    awful.key({ modkey }, "m",
+    		function() mic_widget:toggle() end,
+		{ description = "mic toggle", group = "hotkeys" }),
+    awful.key({ modkey }, "<",
+    		function() mic_widget:dec_vol() end,
+		{ description = "mic vol down", group = "hotkeys" }),
+    awful.key({ modkey }, ">",
+    		function() mic_widget:inc_vol() end,
+		{ description = "mic vol up", group = "hotkeys" }),
+    -- Other goodies
     awful.key({ modkey }, "l",
             function() awful.util.spawn("light-locker-command -l") end,
         { description = "lock screen", group = "awesome" }),

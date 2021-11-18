@@ -16,7 +16,7 @@ widget:set_widget(text)
 local function set_widget()
     awful.spawn.easy_async("light", function(out)
         local val = string.sub(out, 1, -2)
-        text:set_text("bright: "..val)
+        text:set_text("br: "..val)
     end)
 end
 

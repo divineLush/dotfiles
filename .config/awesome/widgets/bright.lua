@@ -15,8 +15,9 @@ widget:set_widget(text)
 
 local function set_widget()
     awful.spawn.easy_async("light", function(out)
-        local val = string.sub(out, 1, -2)
-        text:set_text("br: "..val)
+        local raw_val = string.sub(out, 1, -2)
+        local num_val = math.floor(tonumber(raw_val))
+        text:set_text("br: "..num_val)
     end)
 end
 
@@ -30,11 +31,11 @@ local function update_widget(cmd)
 end
 
 function widget:inc()
-    update_widget("light -A 5")
+    update_widget("light -A 5%")
 end
 
 function widget:dec()
-    update_widget("light -U 5")
+    update_widget("light -U 5%")
 end
 
 return widget

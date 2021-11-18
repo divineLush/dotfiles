@@ -26,6 +26,7 @@ local bat_widget = require("widgets.battery")
 local vol_widget = require("widgets.volume")
 local mic_widget = require("widgets.mic")
 local bright_widget = require("widgets.bright")
+-- local net_widget = require("widgets.network")
 local sep_widget = require("widgets.separator")
 
 -- {{{ Error handling
@@ -278,6 +279,7 @@ awful.screen.connect_for_each_screen(function(s)
             sep_widget,
             bright_widget,
             sep_widget,
+            -- net_widget,
             wibox.widget.systray(),
             mytextclock,
             s.mylayoutbox,

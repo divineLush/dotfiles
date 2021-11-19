@@ -13,9 +13,6 @@ local text = wibox.widget{
 local widget = wibox.widget.background()
 widget:set_widget(text)
 
--- widget:set_bg("#008800")
--- widget:set_fg("#ffffff")
-
 watch("acpi -b", 10, function(widget, stdout, stderr, exitreason, exitcode)
         local perc = string.match(stdout, "%d%d%%")
         local val = string.sub(perc, 1, -2)

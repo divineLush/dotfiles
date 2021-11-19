@@ -23,9 +23,6 @@ end
 
 set_widget()
 
--- widget:set_bg("#008800")
--- widget:set_fg("#ffffff")
-
 local function update_widget(cmd)
     awful.spawn.easy_async(cmd, set_widget)
 end

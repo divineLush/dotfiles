@@ -26,7 +26,7 @@ local bat_widget = require("widgets.battery")
 local vol_widget = require("widgets.volume")
 local mic_widget = require("widgets.mic")
 local bright_widget = require("widgets.bright")
--- local net_widget = require("widgets.network")
+local mem_widget = require("widgets.memory")
 local sep_widget = require("widgets.separator")
 
 -- {{{ Error handling
@@ -83,13 +83,13 @@ modkey = "Mod4"
 altkey = "Mod1"
 
 -- Startup apps
-awful.util.spawn("nm-applet")
-awful.util.spawn("light -S 25")
+awful.spawn("nm-applet")
+awful.spawn("light -S 25")
 -- awful.util.spawn("tlp start")
-awful.util.spawn("redshift -O 3400")
-awful.util.spawn("amixer sset Master 20%")
-awful.util.spawn("amixer sset Capture nocap")
-awful.util.spawn('setxkbmap -layout "us, ru" -option "grp:lalt_lshift_toggle"')
+-- awful.spawn("redshift -O 3400")
+awful.spawn("amixer sset Master 20%")
+awful.spawn("amixer sset Capture nocap")
+awful.spawn('setxkbmap -layout "us, ru" -option "grp:lalt_lshift_toggle"')
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
@@ -279,7 +279,7 @@ awful.screen.connect_for_each_screen(function(s)
             sep_widget,
             bright_widget,
             sep_widget,
-            -- net_widget,
+            mem_widget,
             wibox.widget.systray(),
             mytextclock,
             s.mylayoutbox,

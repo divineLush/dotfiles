@@ -1,5 +1,5 @@
 -------------------------------------------------
--- Network widget
+-- Memory widget
 -------------------------------------------------
 
 local wibox = require("wibox")
@@ -13,8 +13,12 @@ local text = wibox.widget{
 local widget = wibox.widget.background()
 widget:set_widget(text)
 
-watch("nmcli -t -f name connection show --active", 10, function(widget, stdout, stderr, exitreason, exitcode)
-        text:set_text(stdout)
+watch("free -m", 10, function(widget, stdout, stderr, exitreason, exitcode)
+        local raw = string.match(stdout, "%d+%s+%d+")
+        local strip_raw = string.match(raw, "%s+%d+")
+        local free = string.match(strip_raw, "%d+")
+
+        text:set_text("me: "..free)
     end,
     widget
     )

@@ -13,9 +13,6 @@ local text = wibox.widget{
 local widget = wibox.widget.background()
 widget:set_widget(text)
 
--- widget:set_bg("#008800")
--- widget:set_fg("#ffffff")
-
 local function set_widget()
     awful.spawn.easy_async("amixer", function(out)
         local is_on = string.find(out, "Capture.*%[on%]") ~= nil

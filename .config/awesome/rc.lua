@@ -26,7 +26,6 @@ local bat_widget = require("widgets.battery")
 local vol_widget = require("widgets.volume")
 local mic_widget = require("widgets.mic")
 local bright_widget = require("widgets.bright")
-local mem_widget = require("widgets.memory")
 local sep_widget = require("widgets.separator")
 
 -- {{{ Error handling
@@ -85,7 +84,7 @@ altkey = "Mod1"
 -- Startup apps
 awful.spawn("nm-applet")
 awful.spawn("light -S 25")
--- awful.util.spawn("tlp start")
+awful.util.spawn("tlp start")
 -- awful.spawn("redshift -O 3400")
 awful.spawn("amixer sset Master 20%")
 awful.spawn("amixer sset Capture nocap")
@@ -278,8 +277,6 @@ awful.screen.connect_for_each_screen(function(s)
             mic_widget,
             sep_widget,
             bright_widget,
-            sep_widget,
-            mem_widget,
             wibox.widget.systray(),
             mytextclock,
             s.mylayoutbox,

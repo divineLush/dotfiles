@@ -82,10 +82,9 @@ modkey = "Mod4"
 altkey = "Mod1"
 
 -- Startup apps
-awful.spawn("nm-applet")
 awful.spawn("light -S 25")
-awful.util.spawn("tlp start")
--- awful.spawn("redshift -O 3400")
+-- awful.util.spawn("tlp start")
+awful.spawn("redshift -O 3400")
 awful.spawn("amixer sset Master 20%")
 awful.spawn("amixer sset Capture nocap")
 awful.spawn('setxkbmap -layout "us, ru" -option "grp:lalt_lshift_toggle"')
@@ -277,6 +276,7 @@ awful.screen.connect_for_each_screen(function(s)
             mic_widget,
             sep_widget,
             bright_widget,
+            sep_widget,
             wibox.widget.systray(),
             mytextclock,
             s.mylayoutbox,

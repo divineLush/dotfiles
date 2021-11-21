@@ -449,7 +449,7 @@ globalkeys = gears.table.join(
 		{ description = "mic vol up", group = "hotkeys" }),
     -- Other goodies
     awful.key({ modkey }, "l",
-            function() awful.util.spawn("light-locker-command -l") end,
+            function() awful.util.spawn("dm-tool lock") end,
         { description = "lock screen", group = "awesome" }),
     awful.key({ modkey, "Shift" }, "p",
             function() awful.util.spawn("systemctl poweroff") end,

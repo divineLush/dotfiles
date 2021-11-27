@@ -53,6 +53,13 @@ alias brightdown="sudo light -U 10"
 alias untar="tar -zxvf"
 alias listar="tar -tzf"
 
+# docker
+alias dcl="docker-clean"
+alias dpr="docker system prune -a -f"
+alias dli="docker images -a"
+alias dlc="docker ps -a"
+alias dlv="docker volume ls"
+
 # other goodies
 alias cl="clear"
 alias myip="curl ipinfo.io/ip"

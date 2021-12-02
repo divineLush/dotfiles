@@ -61,6 +61,7 @@ alias dlc="docker ps -a"
 alias dlv="docker volume ls"
 
 # other goodies
+alias nqt="nvim-qt"
 alias cl="clear"
 alias myip="curl ipinfo.io/ip"
 alias e="$EDITOR"

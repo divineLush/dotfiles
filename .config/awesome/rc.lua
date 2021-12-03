@@ -57,7 +57,7 @@ end
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_configuration_dir() .. "theme.lua")
 
-beautiful.font = "Hack 12"
+beautiful.font = "Anonymous Pro Bold 12"
 -- beautiful.useless_gap = 0
 -- beautiful.border_width = 0
 beautiful.menu_height = 50
@@ -84,10 +84,9 @@ altkey = "Mod1"
 -- Startup apps
 awful.spawn("light -S 25")
 -- awful.util.spawn("tlp start")
-awful.spawn("redshift -O 3400")
+awful.spawn("redshift -O 3200")
 awful.spawn("amixer sset Master 20%")
 awful.spawn("amixer sset Capture nocap")
-awful.spawn('setxkbmap -layout "us, ru" -option "grp:lalt_lshift_toggle"')
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
@@ -151,7 +150,7 @@ else
     })
 end
 
-mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon, menu = mymainmenu })
+-- mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon, menu = mymainmenu })
 
 -- Menubar configuration
 -- menubar.icon_theme = ""
@@ -260,7 +259,7 @@ awful.screen.connect_for_each_screen(function(s)
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            mylauncher,
+            -- mylauncher,
             s.mytaglist,
             s.mypromptbox,
         },
@@ -350,7 +349,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
 
-    awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
+    awful.key({ modkey,           }, "q",     function () awful.tag.incmwfact( 0.05)          end,
               {description = "increase master width factor", group = "layout"}),
     awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)          end,
               {description = "decrease master width factor", group = "layout"}),
@@ -422,15 +421,6 @@ globalkeys = gears.table.join(
     awful.key({  }, "XF86AudioLowerVolume",
     		function() vol_widget:dec() end,
 		{ description = "volume down" }),
-    awful.key({ modkey, "v" }, "0",
-    		function() awful.util.spawn("amixer -D pulse sset Master 0") end,
-		{ description = "volume zero", group = "hotkeys" }),
-    awful.key({ modkey, "v" }, "1",
-    		function() awful.util.spawn("amixer -D pulse sset Master 100%") end,
-		{ description = "volume full", group = "hotkeys" }),
-    awful.key({ modkey, "v" }, "5",
-    		function() awful.util.spawn("amixer -D pulse sset Master 50%") end,
-		{ description = "volume half", group = "hotkeys" }),
     awful.key({ modkey, "v" }, "t",
     		function() awful.util.spawn("amixer -D pulse sset Master toggle") end,
 		{ description = "volume toggle", group = "hotkeys" }),

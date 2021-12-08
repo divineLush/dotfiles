@@ -57,12 +57,9 @@ end
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_configuration_dir() .. "theme.lua")
 
-beautiful.font = "Anonymous Pro Bold 12"
--- beautiful.useless_gap = 0
--- beautiful.border_width = 0
-beautiful.menu_height = 50
-beautiful.menu_width = 350
--- beautiful.menu_submenu_icon = ""
+-- beautiful.menu_height = 50
+-- beautiful.menu_width = 350
+-- beautiful.menu_submenu_icon = beautiful.awesome_icon
 
 -- This is used later as the default terminal and editor to run.
 terminal = "kitty"
@@ -87,6 +84,7 @@ awful.spawn("light -S 25")
 awful.spawn("redshift -O 3200")
 awful.spawn("amixer sset Master 20%")
 awful.spawn("amixer sset Capture nocap")
+awful.spawn("setxkbmap -layout 'us,ru' -option 'grp:alt_shift_toggle'")
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
@@ -150,7 +148,7 @@ else
     })
 end
 
--- mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon, menu = mymainmenu })
+mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon, menu = mymainmenu })
 
 -- Menubar configuration
 -- menubar.icon_theme = ""
@@ -225,7 +223,7 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ "1", "2", "3", "4" }, s, awful.layout.layouts[1])
+    awful.tag({ "1", "2", "3", "4", "5" }, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -259,7 +257,7 @@ awful.screen.connect_for_each_screen(function(s)
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            -- mylauncher,
+            mylauncher,
             s.mytaglist,
             s.mypromptbox,
         },

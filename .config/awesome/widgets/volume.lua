@@ -6,7 +6,7 @@ local awful = require("awful")
 local wibox = require("wibox")
 
 local text = wibox.widget{
-    font = "Anonymous Pro Bold 12",
+    font = "Julia Mono 12",
     widget = wibox.widget.textbox,
 }
 

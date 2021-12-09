@@ -148,7 +148,7 @@ else
     })
 end
 
-mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon, menu = mymainmenu })
+-- mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon, menu = mymainmenu })
 
 -- Menubar configuration
 -- menubar.icon_theme = ""
@@ -257,7 +257,7 @@ awful.screen.connect_for_each_screen(function(s)
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            mylauncher,
+            -- mylauncher,
             s.mytaglist,
             s.mypromptbox,
         },
@@ -411,20 +411,17 @@ globalkeys = gears.table.join(
     		function() vol_widget:inc() end,
 		{ description = "volume up", group = "hotkeys" }),
     awful.key({ }, "XF86AudioRaiseVolume",
-    		function() vol_widget:inc() end,
-		{ description = "volume up" }),
+    		function() vol_widget:inc() end),
     awful.key({ modkey }, ";",
     		function() vol_widget:dec() end,
 		{ description = "volume down", group = "hotkeys" }),
     awful.key({  }, "XF86AudioLowerVolume",
-    		function() vol_widget:dec() end,
-		{ description = "volume down" }),
+    		function() vol_widget:dec() end),
     awful.key({ modkey, "v" }, "t",
     		function() awful.util.spawn("amixer -D pulse sset Master toggle") end,
 		{ description = "volume toggle", group = "hotkeys" }),
     awful.key({ }, "XF86AudioMute",
-    		function() awful.util.spawn("amixer -D pulse sset Master toggle") end,
-		{ description = "volume toggle", group = "hotkeys" }),
+    		function() awful.util.spawn("amixer -D pulse sset Master toggle") end),
     -- Mic
     awful.key({ modkey }, "m",
     		function() mic_widget:toggle() end,
@@ -436,7 +433,7 @@ globalkeys = gears.table.join(
     		function() mic_widget:inc_vol() end,
 		{ description = "mic vol up", group = "hotkeys" }),
     -- Other goodies
-    awful.key({ modkey }, "l",
+    awful.key({ modkey }, "q",
             function() awful.util.spawn("dm-tool lock") end,
         { description = "lock screen", group = "awesome" }),
     awful.key({ modkey, "Shift" }, "p",
@@ -450,13 +447,19 @@ globalkeys = gears.table.join(
         { description = "reboot", group = "awesome" }),
     awful.key({ modkey, altkey }, "b",
             function() awful.util.spawn("brave-browser") end,
-        { description = "launch brave", group = "web" }),
+        { description = "launch brave", group = "apps" }),
     awful.key({ modkey, altkey }, "c",
-            function() awful.util.spawn("chromium") end,
-        { description = "launch chromium", group = "web" }),
+            function() awful.util.spawn("flatpak run org.chromium.Chromium") end,
+        { description = "launch chromium", group = "apps" }),
     awful.key({ modkey, altkey }, "f",
-            function() awful.util.spawn("firefox") end,
-        { description = "launch firefox", group = "web" }),
+            function() awful.util.spawn("flatpak run org.mozilla.firefox") end,
+        { description = "launch firefox", group = "apps" }),
+    awful.key({ modkey, altkey }, "t",
+            function() awful.util.spawn("flatpak run org.telegram.desktop") end,
+        { description = "launch telegram", group = "apps" }),
+    awful.key({ modkey, altkey }, "k",
+            function() awful.util.spawn("keepassxc") end,
+        { description = "launch keepassxc", group = "apps" }),
     awful.key({ modkey }, "e",
             function() awful.util.spawn("pcmanfm") end,
         { description = "launch filemanager", group = "awesome" })

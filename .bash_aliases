@@ -45,10 +45,6 @@ alias gsha="git stash apply"
 # update debian system
 alias upd="sudo apt update && sudo apt upgrade"
 
-# brightness
-alias brightup="sudo light -A 10"
-alias brightdown="sudo light -U 10"
-
 # tar
 alias untar="tar -zxvf"
 alias listar="tar -tzf"
@@ -61,6 +57,7 @@ alias dlc="docker ps -a"
 alias dlv="docker volume ls"
 
 # other goodies
+alias rr="ranger"
 alias nqt="nvim-qt"
 alias cl="clear"
 alias myip="curl ipinfo.io/ip"

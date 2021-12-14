@@ -25,9 +25,9 @@ local has_fdo, freedesktop = pcall(require, "freedesktop")
 local bat_widget = require("widgets.battery")
 local vol_widget = require("widgets.volume")
 local mic_widget = require("widgets.mic")
+local bright_widget = require("widgets.bright")
 local sep_widget = require("widgets.separator")
-
-local timer = require("helpers.timer")
+local timer_widget = require("widgets.timer")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -271,7 +271,11 @@ awful.screen.connect_for_each_screen(function(s)
             sep_widget,
             vol_widget,
             sep_widget,
+            bright_widget,
+            sep_widget,
             mic_widget,
+            sep_widget,
+            timer_widget,
             sep_widget,
             wibox.widget.systray(),
             mytextclock,
@@ -390,24 +394,24 @@ globalkeys = gears.table.join(
               end,
               {description = "lua execute prompt", group = "awesome"}),
     -- Player
-    awful.key({ modkey, altkey }, "]", function() awful.util.spawn("playerctl -a next") end,
+    awful.key({ modkey }, "=", function() awful.util.spawn("playerctl -a next") end,
               {description = "next song", group = "hotkeys"}),
-    awful.key({ modkey, altkey }, "[", function() awful.util.spawn("playerctl -a previous") end,
+    awful.key({ modkey }, "-", function() awful.util.spawn("playerctl -a previous") end,
               {description = "previous song", group = "hotkeys"}),
-    awful.key({ modkey, altkey }, "p", function() awful.util.spawn("playerctl -a play-pause") end,
+    awful.key({ modkey }, "0", function() awful.util.spawn("playerctl -a play-pause") end,
               {description = "toggle player", group = "hotkeys"}),
     -- Brightness
     awful.key({ }, "XF86MonBrightnessUp",
-                function() awful.util.spawn("light -A 5%") end,
+                function() bright_widget:inc() end,
 		{ description = "brightness up", group = "hotkeys" }),
     awful.key({ modkey }, "]",
-                function() awful.util.spawn("light -A 5%") end,
+                function() bright_widget:inc() end,
 		{ description = "brightness up", group = "hotkeys" }),
     awful.key({ }, "XF86MonBrightnessDown",
-                function() awful.util.spawn("light -U 5%") end,
+                function() bright_widget:dec() end,
 		{ description = "brightness down", group = "hotkeys" }),
     awful.key({ modkey }, "[",
-                function() awful.util.spawn("light -U 5%") end,
+                function() bright_widget:dec() end,
 		{ description = "brightness down", group = "hotkeys" }),
     -- Volume
     awful.key({ modkey }, "'",
@@ -437,11 +441,8 @@ globalkeys = gears.table.join(
 		{ description = "mic vol up", group = "hotkeys" }),
     -- Timer
     awful.key({ modkey }, "t",
-    		function() timer:start() end,
-		{ description = "start timer", group = "hotkeys" }),
-    awful.key({ modkey, "Shift" }, "t",
-    		function() timer:stop() end,
-		{ description = "stop timer", group = "hotkeys" }),
+    		function() timer_widget:toggle() end,
+		{ description = "toggle timer", group = "hotkeys" }),
     -- Other goodies
     awful.key({ modkey }, "q",
             function() awful.util.spawn("dm-tool lock") end,

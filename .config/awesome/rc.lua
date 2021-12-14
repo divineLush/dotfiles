@@ -27,7 +27,6 @@ local vol_widget = require("widgets.volume")
 local mic_widget = require("widgets.mic")
 local sep_widget = require("widgets.separator")
 
-local bright = require("helpers.bright")
 local timer = require("helpers.timer")
 
 -- {{{ Error handling
@@ -83,7 +82,7 @@ altkey = "Mod1"
 -- Startup apps
 awful.spawn("light -S 25")
 -- awful.util.spawn("tlp start")
-awful.spawn("redshift -O 3200")
+-- awful.spawn("redshift -O 3200")
 awful.spawn("amixer sset Master 20%")
 awful.spawn("amixer sset Capture nocap")
 awful.spawn("setxkbmap -layout 'us,ru' -option 'grp:alt_shift_toggle'")
@@ -390,21 +389,25 @@ globalkeys = gears.table.join(
                   }
               end,
               {description = "lua execute prompt", group = "awesome"}),
-    -- Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"}),
+    -- Player
+    awful.key({ modkey, altkey }, "]", function() awful.util.spawn("playerctl -a next") end,
+              {description = "next song", group = "hotkeys"}),
+    awful.key({ modkey, altkey }, "[", function() awful.util.spawn("playerctl -a previous") end,
+              {description = "previous song", group = "hotkeys"}),
+    awful.key({ modkey, altkey }, "p", function() awful.util.spawn("playerctl -a play-pause") end,
+              {description = "toggle player", group = "hotkeys"}),
     -- Brightness
     awful.key({ }, "XF86MonBrightnessUp",
-                function() bright:inc() end,
+                function() awful.util.spawn("light -A 5%") end,
 		{ description = "brightness up", group = "hotkeys" }),
     awful.key({ modkey }, "]",
-                function() bright:inc() end,
+                function() awful.util.spawn("light -A 5%") end,
 		{ description = "brightness up", group = "hotkeys" }),
     awful.key({ }, "XF86MonBrightnessDown",
-                function() bright:dec() end,
+                function() awful.util.spawn("light -U 5%") end,
 		{ description = "brightness down", group = "hotkeys" }),
     awful.key({ modkey }, "[",
-                function() bright:dec() end,
+                function() awful.util.spawn("light -U 5%") end,
 		{ description = "brightness down", group = "hotkeys" }),
     -- Volume
     awful.key({ modkey }, "'",

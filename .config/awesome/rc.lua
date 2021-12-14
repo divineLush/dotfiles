@@ -25,8 +25,10 @@ local has_fdo, freedesktop = pcall(require, "freedesktop")
 local bat_widget = require("widgets.battery")
 local vol_widget = require("widgets.volume")
 local mic_widget = require("widgets.mic")
-local bright_widget = require("widgets.bright")
 local sep_widget = require("widgets.separator")
+
+local bright = require("helpers.bright")
+local timer = require("helpers.timer")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -272,8 +274,6 @@ awful.screen.connect_for_each_screen(function(s)
             sep_widget,
             mic_widget,
             sep_widget,
-            bright_widget,
-            sep_widget,
             wibox.widget.systray(),
             mytextclock,
             s.mylayoutbox,
@@ -395,16 +395,16 @@ globalkeys = gears.table.join(
               {description = "show the menubar", group = "launcher"}),
     -- Brightness
     awful.key({ }, "XF86MonBrightnessUp",
-                function() bright_widget:inc() end,
+                function() bright:inc() end,
 		{ description = "brightness up", group = "hotkeys" }),
     awful.key({ modkey }, "]",
-                function() bright_widget:inc() end,
+                function() bright:inc() end,
 		{ description = "brightness up", group = "hotkeys" }),
     awful.key({ }, "XF86MonBrightnessDown",
-                function() bright_widget:dec() end,
+                function() bright:dec() end,
 		{ description = "brightness down", group = "hotkeys" }),
     awful.key({ modkey }, "[",
-                function() bright_widget:dec() end,
+                function() bright:dec() end,
 		{ description = "brightness down", group = "hotkeys" }),
     -- Volume
     awful.key({ modkey }, "'",
@@ -432,6 +432,13 @@ globalkeys = gears.table.join(
     awful.key({ modkey }, ">",
     		function() mic_widget:inc_vol() end,
 		{ description = "mic vol up", group = "hotkeys" }),
+    -- Timer
+    awful.key({ modkey }, "t",
+    		function() timer:start() end,
+		{ description = "start timer", group = "hotkeys" }),
+    awful.key({ modkey, "Shift" }, "t",
+    		function() timer:stop() end,
+		{ description = "stop timer", group = "hotkeys" }),
     -- Other goodies
     awful.key({ modkey }, "q",
             function() awful.util.spawn("dm-tool lock") end,

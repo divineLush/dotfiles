@@ -23,7 +23,7 @@ watch("acpi -b", 10, function(widget, stdout, stderr, exitreason, exitcode)
             val = "100"
         end
 
-        local msg = "ba: "..val
+        local msg = "ba:"..val
         text:set_text(msg)
 
         local not_charging = string.find(stdout, "Charging") == nil

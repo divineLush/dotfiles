@@ -26,8 +26,8 @@ local bat_widget = require("widgets.battery")
 local vol_widget = require("widgets.volume")
 local mic_widget = require("widgets.mic")
 local bright_widget = require("widgets.bright")
-local sep_widget = require("widgets.separator")
 local timer_widget = require("widgets.timer")
+local sep_widget = require("widgets.separator")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -266,17 +266,15 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             mykeyboardlayout,
-            sep_widget,
             bat_widget,
             sep_widget,
             vol_widget,
             sep_widget,
-            bright_widget,
-            sep_widget,
             mic_widget,
             sep_widget,
-            timer_widget,
+            bright_widget,
             sep_widget,
+            timer_widget,
             wibox.widget.systray(),
             mytextclock,
             s.mylayoutbox,
@@ -424,26 +422,25 @@ globalkeys = gears.table.join(
 		{ description = "volume down", group = "hotkeys" }),
     awful.key({  }, "XF86AudioLowerVolume",
     		function() vol_widget:dec() end),
-    awful.key({ modkey, "v" }, "t",
-    		function() awful.util.spawn("amixer -D pulse sset Master toggle") end,
+    awful.key({ modkey }, "v",
+    		function() vol_widget:toggle() end,
 		{ description = "volume toggle", group = "hotkeys" }),
     awful.key({ }, "XF86AudioMute",
-    		function() awful.util.spawn("amixer -D pulse sset Master toggle") end),
+    		function() vol_widget:toggle() end),
     -- Mic
     awful.key({ modkey }, "m",
     		function() mic_widget:toggle() end,
 		{ description = "mic toggle", group = "hotkeys" }),
-    awful.key({ modkey }, "<",
+    awful.key({ modkey }, ",",
     		function() mic_widget:dec_vol() end,
 		{ description = "mic vol down", group = "hotkeys" }),
-    awful.key({ modkey }, ">",
+    awful.key({ modkey }, ".",
     		function() mic_widget:inc_vol() end,
 		{ description = "mic vol up", group = "hotkeys" }),
-    -- Timer
-    awful.key({ modkey }, "t",
-    		function() timer_widget:toggle() end,
-		{ description = "toggle timer", group = "hotkeys" }),
     -- Other goodies
+    awful.key({ modkey }, "t",
+            function() timer_widget:toggle() end,
+        { description = "launch workrave", group = "awesome" }),
     awful.key({ modkey }, "q",
             function() awful.util.spawn("dm-tool lock") end,
         { description = "lock screen", group = "awesome" }),
@@ -456,6 +453,12 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift" }, "r",
             function() awful.util.spawn("systemctl reboot") end,
         { description = "reboot", group = "awesome" }),
+    awful.key({ modkey, altkey }, "o",
+            function() awful.util.spawn("obs") end,
+        { description = "launch brave", group = "apps" }),
+    awful.key({ modkey, altkey }, "p",
+            function() awful.util.spawn("flameshot") end,
+        { description = "launch brave", group = "apps" }),
     awful.key({ modkey, altkey }, "b",
             function() awful.util.spawn("brave-browser") end,
         { description = "launch brave", group = "apps" }),

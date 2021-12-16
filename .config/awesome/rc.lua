@@ -81,8 +81,8 @@ altkey = "Mod1"
 
 -- Startup apps
 awful.spawn("light -S 25")
--- awful.util.spawn("tlp start")
--- awful.spawn("redshift -O 3200")
+awful.spawn("tlp start")
+awful.spawn("redshift -O 3200")
 awful.spawn("amixer sset Master 20%")
 awful.spawn("amixer sset Capture nocap")
 awful.spawn("setxkbmap -layout 'us,ru' -option 'grp:alt_shift_toggle'")
@@ -315,8 +315,6 @@ globalkeys = gears.table.join(
         {description = "focus previous by index", group = "client"}
     ),
     -- Keyboard layout manipulation
-    awful.key({ modkey            }, "0", function() awful.util.spawn("setxkbmap us") end),
-    awful.key({ modkey            }, "9", function() awful.util.spawn("setxkbmap ru") end),
     awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
               {description = "show main menu", group = "awesome"}),
 
@@ -441,7 +439,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey }, "t",
             function() timer_widget:toggle() end,
         { description = "launch workrave", group = "awesome" }),
-    awful.key({ modkey }, "q",
+    awful.key({ modkey }, "z",
             function() awful.util.spawn("dm-tool lock") end,
         { description = "lock screen", group = "awesome" }),
     awful.key({ modkey, "Shift" }, "p",

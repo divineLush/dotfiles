@@ -8,7 +8,7 @@ local naughty = require("naughty")
 
 
 local text = wibox.widget {
-    font = "Hack 12",
+    font = "Iosevka Fixed 12",
     widget = wibox.widget.textbox,
 }
 

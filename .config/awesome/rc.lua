@@ -81,7 +81,7 @@ altkey = "Mod1"
 -- Startup apps
 awful.spawn("light -S 25")
 awful.spawn("tlp start")
-awful.spawn("redshift -O 3200")
+-- awful.spawn("redshift -O 3200")
 awful.spawn("amixer sset Master 20%")
 awful.spawn("amixer sset Capture nocap")
 awful.spawn("setxkbmap -layout 'us,ru' -option 'grp:alt_shift_toggle'")
@@ -223,7 +223,7 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ "1", "2", "3", "4", "5", "6" }, s, awful.layout.layouts[1])
+    awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()

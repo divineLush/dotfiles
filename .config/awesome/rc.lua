@@ -25,7 +25,6 @@ local has_fdo, freedesktop = pcall(require, "freedesktop")
 local bat_widget = require("widgets.battery")
 local vol_widget = require("widgets.volume")
 local mic_widget = require("widgets.mic")
-local bright_widget = require("widgets.bright")
 local timer_widget = require("widgets.timer")
 local sep_widget = require("widgets.separator")
 
@@ -224,7 +223,7 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ "1", "2", "3", "4", "5" }, s, awful.layout.layouts[1])
+    awful.tag({ "1", "2", "3", "4", "5", "6" }, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -271,8 +270,6 @@ awful.screen.connect_for_each_screen(function(s)
             vol_widget,
             sep_widget,
             mic_widget,
-            sep_widget,
-            bright_widget,
             sep_widget,
             timer_widget,
             wibox.widget.systray(),
@@ -398,16 +395,16 @@ globalkeys = gears.table.join(
               {description = "toggle player", group = "hotkeys"}),
     -- Brightness
     awful.key({ }, "XF86MonBrightnessUp",
-                function() bright_widget:inc() end,
+                function() awful.util.spawn("light -A 5%") end,
 		{ description = "brightness up", group = "hotkeys" }),
     awful.key({ modkey }, "]",
-                function() bright_widget:inc() end,
+                function() awful.util.spawn("light -A 5%") end,
 		{ description = "brightness up", group = "hotkeys" }),
     awful.key({ }, "XF86MonBrightnessDown",
-                function() bright_widget:dec() end,
+                function() awful.util.spawn("light -U 5%")end,
 		{ description = "brightness down", group = "hotkeys" }),
     awful.key({ modkey }, "[",
-                function() bright_widget:dec() end,
+                function() awful.util.spawn("light -U 5%") end,
 		{ description = "brightness down", group = "hotkeys" }),
     -- Volume
     awful.key({ modkey }, "'",

@@ -23,12 +23,12 @@ local debian = require("debian.menu")
 local has_fdo, freedesktop = pcall(require, "freedesktop")
 
 local bat_widget = require("widgets.battery")
-local mic_widget = require("widgets.mic")
 local timer_widget = require("widgets.timer")
 local sep_widget = require("widgets.separator")
 
 local vol_helper = require("helpers.vol")
 local bright_helper = require("helpers.bright")
+local mic_helper = require("helpers.mic")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -268,11 +268,11 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             mykeyboardlayout,
+            sep_widget,
             bat_widget,
             sep_widget,
-            mic_widget,
-            sep_widget,
             timer_widget,
+            sep_widget,
             wibox.widget.systray(),
             mytextclock,
             s.mylayoutbox,
@@ -425,13 +425,16 @@ globalkeys = gears.table.join(
     		function() vol_helper:toggle() end),
     -- Mic
     awful.key({ modkey }, "m",
-    		function() mic_widget:toggle() end,
+    		function() mic_helper:toggle() end,
+		{ description = "mic toggle", group = "hotkeys" }),
+    awful.key({ }, "XF86AudioMicMute",
+    		function() mic_helper:toggle() end,
 		{ description = "mic toggle", group = "hotkeys" }),
     awful.key({ modkey }, ",",
-    		function() mic_widget:dec_vol() end,
+    		function() mic_helper:dec_vol() end,
 		{ description = "mic vol down", group = "hotkeys" }),
     awful.key({ modkey }, ".",
-    		function() mic_widget:inc_vol() end,
+    		function() mic_helper:inc_vol() end,
 		{ description = "mic vol up", group = "hotkeys" }),
     -- Other goodies
     awful.key({ modkey }, "t",

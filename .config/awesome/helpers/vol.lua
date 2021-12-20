@@ -19,7 +19,7 @@ local function set_volume()
 
         local msg_muted = ''
         if raw_muted then
-            msg_muted = ' and muted'
+            msg_muted = ' muted'
         end
 
         naughty.notify({ title = "Fun Fact!", text = "Volume = "..raw_val..msg_muted })

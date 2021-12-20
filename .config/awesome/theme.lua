@@ -11,7 +11,7 @@ local themes_path = gfs.get_themes_dir()
 
 local theme = {}
 
-theme.font          = "DejaVu Sans Condensed 12"
+theme.font          = "DejaVu Sans 11"
 
 theme.bg_normal     = "#161821"
 theme.bg_focus      = "#84a0c6"
@@ -123,7 +123,7 @@ theme.awesome_icon = theme_assets.awesome_icon(
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
 theme.icon_theme = 'Papirus-Dark'
--- theme.wallpaper = "~/Pictures/wallpaper1.jpg"
+-- theme.wallpaper = "~/Pictures/wallpaper2.jpg"
 
 return theme
 

@@ -23,10 +23,12 @@ local debian = require("debian.menu")
 local has_fdo, freedesktop = pcall(require, "freedesktop")
 
 local bat_widget = require("widgets.battery")
-local vol_widget = require("widgets.volume")
 local mic_widget = require("widgets.mic")
 local timer_widget = require("widgets.timer")
 local sep_widget = require("widgets.separator")
+
+local vol_helper = require("helpers.vol")
+local bright_helper = require("helpers.bright")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -59,6 +61,7 @@ beautiful.init(gears.filesystem.get_configuration_dir() .. "theme.lua")
 
 -- beautiful.menu_height = 50
 -- beautiful.menu_width = 350
+-- beautiful.font = "DejaVu Sans 11"
 -- beautiful.menu_submenu_icon = beautiful.awesome_icon
 
 -- This is used later as the default terminal and editor to run.
@@ -148,7 +151,7 @@ else
     })
 end
 
--- mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon, menu = mymainmenu })
+mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon, menu = mymainmenu })
 
 -- Menubar configuration
 -- menubar.icon_theme = ""
@@ -257,7 +260,7 @@ awful.screen.connect_for_each_screen(function(s)
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            -- mylauncher,
+            mylauncher,
             s.mytaglist,
             s.mypromptbox,
         },
@@ -266,8 +269,6 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             mykeyboardlayout,
             bat_widget,
-            sep_widget,
-            vol_widget,
             sep_widget,
             mic_widget,
             sep_widget,
@@ -395,33 +396,33 @@ globalkeys = gears.table.join(
               {description = "toggle player", group = "hotkeys"}),
     -- Brightness
     awful.key({ }, "XF86MonBrightnessUp",
-                function() awful.util.spawn("light -A 5%") end,
+                function() bright_helper:inc() end,
 		{ description = "brightness up", group = "hotkeys" }),
     awful.key({ modkey }, "]",
-                function() awful.util.spawn("light -A 5%") end,
+                function() bright_helper:inc() end,
 		{ description = "brightness up", group = "hotkeys" }),
     awful.key({ }, "XF86MonBrightnessDown",
-                function() awful.util.spawn("light -U 5%")end,
+                function() bright_helper:dec() end,
 		{ description = "brightness down", group = "hotkeys" }),
     awful.key({ modkey }, "[",
-                function() awful.util.spawn("light -U 5%") end,
+                function() bright_helper:dec() end,
 		{ description = "brightness down", group = "hotkeys" }),
     -- Volume
     awful.key({ modkey }, "'",
-    		function() vol_widget:inc() end,
+    		function() vol_helper:inc() end,
 		{ description = "volume up", group = "hotkeys" }),
     awful.key({ }, "XF86AudioRaiseVolume",
-    		function() vol_widget:inc() end),
+    		function() vol_helper:inc() end),
     awful.key({ modkey }, ";",
-    		function() vol_widget:dec() end,
+    		function() vol_helper:dec() end,
 		{ description = "volume down", group = "hotkeys" }),
     awful.key({  }, "XF86AudioLowerVolume",
-    		function() vol_widget:dec() end),
+    		function() vol_helper:dec() end),
     awful.key({ modkey }, "v",
-    		function() vol_widget:toggle() end,
+    		function() vol_helper:toggle() end,
 		{ description = "volume toggle", group = "hotkeys" }),
     awful.key({ }, "XF86AudioMute",
-    		function() vol_widget:toggle() end),
+    		function() vol_helper:toggle() end),
     -- Mic
     awful.key({ modkey }, "m",
     		function() mic_widget:toggle() end,

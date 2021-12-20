@@ -4,12 +4,11 @@
 
 local wibox = require("wibox")
 local gears = require("gears")
-local beautiful = require("beautiful")
 local naughty = require("naughty")
 
 
 local text = wibox.widget {
-    font = tostring(beautiful.get().font),
+    font = "DejaVu Sans 11",
     widget = wibox.widget.textbox,
 }
 

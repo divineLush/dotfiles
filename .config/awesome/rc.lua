@@ -433,7 +433,7 @@ globalkeys = gears.table.join(
             function() timer_widget:toggle() end,
         { description = "launch workrave", group = "awesome" }),
     awful.key({ modkey }, "z",
-            function() awful.util.spawn("dm-tool lock") end,
+            function() awful.util.spawn("physlock") end,
         { description = "lock screen", group = "awesome" }),
     awful.key({ modkey, "Shift" }, "p",
             function() awful.util.spawn("systemctl poweroff") end,

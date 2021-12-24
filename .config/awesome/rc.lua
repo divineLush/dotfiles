@@ -81,14 +81,6 @@ filemanager = "pcmanfm"
 modkey = "Mod4"
 altkey = "Mod1"
 
--- Startup apps
-awful.spawn("light -S 25")
-awful.spawn("tlp start")
-awful.spawn("redshift -O 3200")
-awful.spawn("amixer sset Master 20%")
-awful.spawn("amixer sset Capture nocap")
-awful.spawn("setxkbmap -layout 'us,ru' -option 'grp:alt_shift_toggle'")
-
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
     awful.layout.suit.max,

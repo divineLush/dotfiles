@@ -69,7 +69,7 @@ terminal = "kitty"
 editor = os.getenv("EDITOR") or "nvim"
 editor_cmd = terminal .. " -e " .. editor
 editor_gui = "geany"
-mediaplayer = "vlc"
+mediaplayer = "mpv"
 browser = "brave"
 filemanager = "pcmanfm"
 
@@ -80,6 +80,14 @@ filemanager = "pcmanfm"
 -- However, you can use another modifier like Mod1, but it may interact with others.
 modkey = "Mod4"
 altkey = "Mod1"
+
+-- Startup apps
+awful.spawn("light -S 25")
+awful.spawn("tlp start")
+awful.spawn("redshift -O 3200")
+awful.spawn("amixer sset Master 20%")
+awful.spawn("amixer sset Capture nocap")
+awful.spawn("setxkbmap -layout 'us,ru' -option 'grp:alt_shift_toggle'")
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
@@ -433,7 +441,7 @@ globalkeys = gears.table.join(
             function() timer_widget:toggle() end,
         { description = "launch workrave", group = "awesome" }),
     awful.key({ modkey }, "z",
-            function() awful.util.spawn("physlock") end,
+            function() awful.util.spawn("xscreensaver-command -lock") end,
         { description = "lock screen", group = "awesome" }),
     awful.key({ modkey, "Shift" }, "p",
             function() awful.util.spawn("systemctl poweroff") end,

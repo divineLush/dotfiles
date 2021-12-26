@@ -42,7 +42,6 @@ set cursorline
 
 set mouse=a
 set termguicolors
-set guifont=Inconsolata:h21
 
 syntax on
 set showmatch
@@ -109,6 +108,8 @@ map <leader>gs :G<CR>
 map <leader>gc :G commit<CR>
 map <leader>gp :G push<CR>
 map <leader>gu :G pull<CR>
+map <leader>gd :G diff<CR>
+map <leader>gl :G log<CR>
 
 " delete trailing whitespace
 autocmd BufWritePre * :%s/\s\+$//e
@@ -126,15 +127,16 @@ let @i = "iif () {}\<Esc>3hi"
 let @c = "iconsole.log()\<Esc>i"
 
 " closetag
-let g:closetag_filenames = '*.html,*.js,*.ts,*.jsx,*.tsx,*.vue'
-let g:closetag_xhtml_filenames = '*.xml,*.xhtml,*.js,*.ts,*.jsx,*.tsx,*.vue'
-let g:closetag_filetypes = 'html,js,ts,jsx,tsx,vue'
-let g:closetag_xhtml_filetypes = 'xml,xhtml,jsx,tsx,vue'
+let g:closetag_filenames = '*.html,*.js,*.ts,*.jsx,*.tsx,*.vue,*.eta,*.squirrely'
+let g:closetag_xhtml_filenames = '*.xml,*.xhtml,*.js,*.ts,*.jsx,*.tsx,*.vue,*.eta,.*squirrely'
+let g:closetag_filetypes = 'html,js,ts,jsx,tsx,vue,eta,squirrely'
+let g:closetag_xhtml_filetypes = 'xml,xhtml,jsx,tsx,vue,eta,squirrely'
 let g:closetag_shortcut = '>'
 let g:closetag_close_shortcut = '<leader>>'
 
 " statusline
 set noshowmode
+
 let g:lightline = {
       \ 'colorscheme': 'iceberg',
       \ 'component_function': {

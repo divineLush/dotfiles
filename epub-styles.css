@@ -1,0 +1,15 @@
+@page {
+    margin: 20px;
+    background-color: #161828;
+    color: #c6c8d1;
+}
+
+html, body, div, p, * {
+    background-color: #161828;
+    color: #c6c8d1;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 105%;
+}

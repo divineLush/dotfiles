@@ -18,16 +18,14 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
--- Load Debian menu entries
-local debian = require("debian.menu")
 local has_fdo, freedesktop = pcall(require, "freedesktop")
 
 local bat_widget = require("widgets.battery")
 local timer_widget = require("widgets.timer")
 local sep_widget = require("widgets.separator")
 
-local vol_helper = require("helpers.vol")
 local bright_helper = require("helpers.bright")
+local vol_helper = require("helpers.vol")
 local mic_helper = require("helpers.mic")
 
 -- {{{ Error handling
@@ -68,10 +66,6 @@ beautiful.init(gears.filesystem.get_configuration_dir() .. "theme.lua")
 terminal = "kitty"
 editor = os.getenv("EDITOR") or "nvim"
 editor_cmd = terminal .. " -e " .. editor
-editor_gui = "geany"
-mediaplayer = "mpv"
-browser = "brave"
-filemanager = "pcmanfm"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -82,8 +76,7 @@ modkey = "Mod4"
 altkey = "Mod1"
 
 -- Startup apps
-awful.spawn("light -S 25")
-awful.spawn("tlp start")
+awful.spawn("brightnessctl set 23%")
 awful.spawn("redshift -O 3200")
 awful.spawn("amixer sset Master 20%")
 awful.spawn("amixer sset Capture nocap")
@@ -124,7 +117,6 @@ myawesomemenu = {
 }
 
 local menu_awesome = { "awesome", myawesomemenu }
-local menu_debian = { "Debian", debian.menu.Debian_menu.Debian }
 -- local menu_terminal = { "log out", function() awesome.quit() end }
 local menu_logout = { "sleep", "systemctl suspend" }
 local menu_reboot = { "reboot", "systemctl reboot" }
@@ -134,7 +126,6 @@ if has_fdo then
     mymainmenu = freedesktop.menu.build({
         before = { menu_awesome },
         after =  {
-            menu_debian,
             menu_terminal,
             menu_logout,
             menu_reboot,
@@ -145,7 +136,6 @@ else
     mymainmenu = awful.menu({
         items = {
                   menu_awesome,
-                  menu_debian,
                   menu_terminal,
                 }
     })
@@ -207,15 +197,15 @@ local tasklist_buttons = gears.table.join(
 
 local function set_wallpaper(s)
     -- Wallpaper
-    gears.wallpaper.set("#353a50")
-    -- if beautiful.wallpaper then
-    --     local wallpaper = beautiful.wallpaper
-    --     -- If wallpaper is a function, call it with the screen
-    --     if type(wallpaper) == "function" then
-    --         wallpaper = wallpaper(s)
-    --     end
-    --     gears.wallpaper.maximized(wallpaper, s, true)
-    -- end
+    -- gears.wallpaper.set("#353a50")
+    if beautiful.wallpaper then
+        local wallpaper = beautiful.wallpaper
+        -- If wallpaper is a function, call it with the screen
+        if type(wallpaper) == "function" then
+            wallpaper = wallpaper(s)
+        end
+        gears.wallpaper.maximized(wallpaper, s, true)
+    end
 end
 
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
@@ -454,21 +444,21 @@ globalkeys = gears.table.join(
         { description = "reboot", group = "awesome" }),
     awful.key({ modkey, altkey }, "o",
             function() awful.util.spawn("obs") end,
-        { description = "launch brave", group = "apps" }),
+        { description = "launch obs", group = "apps" }),
     awful.key({ modkey, altkey }, "p",
             function() awful.util.spawn("flameshot") end,
-        { description = "launch brave", group = "apps" }),
+        { description = "launch flameshot", group = "apps" }),
     awful.key({ modkey, altkey }, "b",
-            function() awful.util.spawn("brave-browser") end,
+            function() awful.util.spawn("brave") end,
         { description = "launch brave", group = "apps" }),
     awful.key({ modkey, altkey }, "c",
-            function() awful.util.spawn("flatpak run org.chromium.Chromium") end,
+            function() awful.util.spawn("chromium") end,
         { description = "launch chromium", group = "apps" }),
     awful.key({ modkey, altkey }, "f",
-            function() awful.util.spawn("flatpak run org.mozilla.firefox") end,
+            function() awful.util.spawn("firefox") end,
         { description = "launch firefox", group = "apps" }),
     awful.key({ modkey, altkey }, "t",
-            function() awful.util.spawn("flatpak run org.telegram.desktop") end,
+            function() awful.util.spawn("telegram-desktop") end,
         { description = "launch telegram", group = "apps" }),
     awful.key({ modkey, altkey }, "k",
             function() awful.util.spawn("keepassxc") end,

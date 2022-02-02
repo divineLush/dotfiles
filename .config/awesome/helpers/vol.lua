@@ -31,11 +31,11 @@ local function update_volume(cmd)
 end
 
 function helper:inc()
-    update_volume("amixer -D pulse sset Master 5%+")
+    update_volume("amixer -D pulse sset Master 3%+")
 end
 
 function helper:dec()
-    update_volume("amixer -D pulse sset Master 5%-")
+    update_volume("amixer -D pulse sset Master 3%-")
 end
 
 function helper:toggle()

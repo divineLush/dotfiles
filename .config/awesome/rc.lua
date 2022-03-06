@@ -465,7 +465,13 @@ globalkeys = gears.table.join(
         { description = "launch keepassxc", group = "apps" }),
     awful.key({ modkey }, "e",
             function() awful.util.spawn("pcmanfm") end,
-        { description = "launch filemanager", group = "awesome" })
+        { description = "launch filemanager", group = "awesome" }),
+    awful.key({ modkey }, "u",
+            function() awful.screen.focus_relative(-1) end,
+        { description = "prev screen", group = "awesome" }),
+    awful.key({ modkey }, "i",
+            function() awful.screen.focus_relative(1) end,
+        { description = "next screen", group = "awesome" })
 )
 
 clientkeys = gears.table.join(

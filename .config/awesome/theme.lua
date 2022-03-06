@@ -125,7 +125,7 @@ theme.awesome_icon = theme_assets.awesome_icon(
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
 theme.icon_theme = 'Papirus-Dark'
-theme.wallpaper = "~/Wallpapers/alena-aenami-serenity-1k (1).jpg"
+theme.wallpaper = "~/Wallpapers/wallpaper.png"
 
 return theme
 

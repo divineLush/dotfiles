@@ -18,6 +18,9 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
+local xresources = require("beautiful.xresources")
+local dpi = xresources.apply_dpi
+
 local has_fdo, freedesktop = pcall(require, "freedesktop")
 
 local bat_widget = require("widgets.battery")
@@ -56,11 +59,6 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_configuration_dir() .. "theme.lua")
-
--- beautiful.menu_height = 50
--- beautiful.menu_width = 350
--- beautiful.font = "DejaVu Sans 11"
--- beautiful.menu_submenu_icon = beautiful.awesome_icon
 
 -- This is used later as the default terminal and editor to run.
 terminal = "kitty"
@@ -243,7 +241,7 @@ awful.screen.connect_for_each_screen(function(s)
     }
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", height = 40, screen = s })
+    s.mywibox = awful.wibar({ position = "top", height = dpi(23), screen = s })
 
     -- Add widgets to the wibox
     s.mywibox:setup {

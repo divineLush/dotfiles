@@ -3,3 +3,4 @@
 	email = alvipath@yahoo.com
 [core]
 	autocrlf = input
+	eol = lf

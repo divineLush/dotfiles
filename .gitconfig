@@ -4,3 +4,8 @@
 [core]
 	autocrlf = input
 	eol = lf
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto

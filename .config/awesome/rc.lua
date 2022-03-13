@@ -75,7 +75,7 @@ altkey = "Mod1"
 
 -- Startup apps
 awful.spawn("brightnessctl set 23%")
-awful.spawn("redshift -O 3500")
+awful.spawn("redshift -O 3400")
 awful.spawn("amixer sset Master 20%")
 awful.spawn("amixer sset Capture nocap")
 awful.spawn("setxkbmap -layout 'us,ru' -option 'grp:alt_shift_toggle'")
@@ -241,7 +241,7 @@ awful.screen.connect_for_each_screen(function(s)
     }
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", height = dpi(23), screen = s })
+    s.mywibox = awful.wibar({ position = "top", height = dpi(22), screen = s })
 
     -- Add widgets to the wibox
     s.mywibox:setup {

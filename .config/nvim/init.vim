@@ -20,7 +20,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'alvan/vim-closetag'
   Plug 'itchyny/lightline.vim'
   Plug 'junegunn/vim-peekaboo'
-  Plug 'cocopon/iceberg.vim'
+  Plug 'romainl/Apprentice'
 call plug#end()
 
 set nohlsearch
@@ -52,7 +52,7 @@ set termguicolors
 syntax on
 set showmatch
 set background=dark
-colorscheme iceberg
+colorscheme apprentice
 
 set lazyredraw
 set scrolloff=6
@@ -144,7 +144,7 @@ let g:closetag_close_shortcut = '<leader>>'
 set noshowmode
 
 let g:lightline = {
-      \ 'colorscheme': 'iceberg',
+      \ 'colorscheme': 'apprentice',
       \ 'component_function': {
       \   'branch': 'FugitiveHead',
       \ },

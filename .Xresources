@@ -1,37 +1,29 @@
 Xft.dpi: 166
 Xcursor.theme: Vanilla-DMZ-AA
 Xcursor.size: 48
-URxvt.font: xft:Hack:size=12
-URxvt.boldFont: xft:JetBrains Mono Medium:size=12
+
+URxvt.font: xft:Hack:size=14
 URxvt.scrollBar: false
 URxvt.perl-ext-common:resize-font
 URxvt.keysym.C-minus:resize-font:smaller
 URxvt.keysym.C-equal:resize-font:bigger
 URxvt.keysym.C-0:resize-font:reset
 
-*background: #161821
-*foreground: #c6c8d1
-! Black + DarkGrey
-*color0:  #161821
-*color8:  #6b7089
-! DarkRed + Red
-*color1:  #e27878
-*color9:  #e98989
-! DarkGreen + Green
-*color2:  #b4be82
-*color10: #c0ca8e
-! DarkYellow + Yellow
-*color3:  #e2a478
-*color11: #e9b189
-! DarkBlue + Blue
-*color4:  #84a0c6
-*color12: #91acd1
-! DarkMagenta + Magenta
-*color5:  #a093c7
-*color13: #ada0d3
-! DarkCyan + Cyan
-*color6:  #89b8c2
-*color14: #95c4ce
-! LightGrey + White
-*color7:  #c6c8d1
-*color15: #d2d4de
+*.foreground: #BCBCBC
+*.background: #262626
+*.color0:     #1C1C1C
+*.color8:     #444444
+*.color1:     #AF5F5F
+*.color9:     #FF8700
+*.color2:     #5F875F
+*.color10:    #87AF87
+*.color3:     #87875F
+*.color11:    #FFFFAF
+*.color4:     #5F87AF
+*.color12:    #87AFD7
+*.color5:     #5F5F87
+*.color13:    #8787AF
+*.color6:     #5F8787
+*.color14:    #5FAFAF
+*.color7:     #6C6C6C
+*.color15:    #FFFFFF

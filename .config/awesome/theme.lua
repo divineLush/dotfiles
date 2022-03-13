@@ -13,14 +13,14 @@ local theme = {}
 
 theme.font          = "Hack 11"
 
-theme.bg_normal     = "#161821"
-theme.bg_focus      = "#84a0c6"
-theme.bg_urgent     = "#e98989"
+theme.bg_normal     = "#262626"
+theme.bg_focus      = "#5f875f"
+theme.bg_urgent     = "#af5f5f"
 theme.bg_minimize   = "#e9b189"
 theme.bg_systray    = theme.bg_normal
 
-theme.fg_normal     = "#c6c8d1"
-theme.fg_focus      = theme.bg_normal
+theme.fg_normal     = "#bcbcbc"
+theme.fg_focus      = theme.fg_normal
 theme.fg_urgent     = theme.bg_normal
 theme.fg_minimize   = theme.bg_normal
 
@@ -125,7 +125,7 @@ theme.awesome_icon = theme_assets.awesome_icon(
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
 theme.icon_theme = 'Papirus-Dark'
-theme.wallpaper = "~/Wallpapers/wallpaper.png"
+-- theme.wallpaper = "~/Wallpapers/wallpaper.png"
 
 return theme
 

@@ -20,7 +20,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'alvan/vim-closetag'
   Plug 'itchyny/lightline.vim'
   Plug 'junegunn/vim-peekaboo'
-  Plug 'morhetz/gruvbox'
+  Plug 'cocopon/iceberg.vim'
 call plug#end()
 
 set nohlsearch
@@ -52,8 +52,7 @@ set termguicolors
 syntax on
 set showmatch
 set background=dark
-colorscheme gruvbox
-g:gruvbox_contrast_dark="soft"
+colorscheme iceberg
 
 set lazyredraw
 set scrolloff=6
@@ -145,7 +144,7 @@ let g:closetag_close_shortcut = '<leader>>'
 set noshowmode
 
 let g:lightline = {
-      \ 'colorscheme': 'gruvbox',
+      \ 'colorscheme': 'iceberg',
       \ 'component_function': {
       \   'branch': 'FugitiveHead',
       \ },

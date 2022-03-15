@@ -1,0 +1,118 @@
+env:
+  TERM: alacritty
+
+window:
+  opacity: 1
+  padding:
+    x: 2
+    y: 4
+
+  title: Alacritty
+
+  dynamic_padding: false
+
+  class:
+    instance: Alacritty
+    general: Alacritty
+
+  gtk_theme_variant: None
+
+scrolling:
+  history: 1000
+  multiplier: 1
+
+font:
+  normal:
+    family: Hack
+    style: Regular
+
+  bold:
+    family: Hack
+    style: Bold
+
+  italic:
+    family: Hack
+    style: Italic
+
+  bold_italic:
+    family: Hack
+    style: Bold Italic
+
+  size: 12
+
+draw_bold_text_with_bright_colors: false
+
+selection:
+  semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
+  save_to_clipboard: true
+
+mouse:
+  double_click: { threshold: 300 }
+  triple_click: { threshold: 300 }
+
+  hints:
+    launcher:
+      program: xdg-open
+      args: []
+
+    modifiers: None
+
+mouse_bindings:
+  - { mouse: Middle, action: Copy }
+
+key_bindings:
+  - { key: P, mods: Control, action: Paste }
+  - { key: Y, mods: Control, action: Copy }
+  - { key: U, mods: Control, action: ScrollToTop }
+  - { key: D, mods: Control, action: ScrollToBottom }
+  - { key: K, mods: Control, action: ScrollLineUp }
+  - { key: J, mods: Control, action: ScrollLineDown }
+  - { key: U, mods: Alt, action: ScrollPageUp }
+  - { key: D, mods: Alt, action: ScrollPageDown }
+  - { key: K, mods: Alt, action: ScrollHalfPageUp }
+  - { key: J, mods: Alt, action: ScrollHalfPageDown }
+
+colors:
+  primary:
+    # hard contrast background - '#1d2021'
+    background:        &gruvbox_dark_bg '#32302f'
+    # soft contrast background - '#32302f'
+    foreground:        '#ebdbb2'
+    bright_foreground: '#fbf1c7'
+    dim_foreground:    '#a89984'
+  cursor:
+    text:   CellBackground
+    cursor: CellForeground
+  vi_mode_cursor:
+    text:   CellBackground
+    cursor: CellForeground
+  selection:
+    text:       CellBackground
+    background: CellForeground
+  bright:
+    black:   '#928374'
+    red:     '#fb4934'
+    green:   '#b8bb26'
+    yellow:  '#fabd2f'
+    blue:    '#83a598'
+    magenta: '#d3869b'
+    cyan:    '#8ec07c'
+    white:   '#ebdbb2'
+  normal:
+    black:   *gruvbox_dark_bg
+    red:     '#cc241d'
+    green:   '#98971a'
+    yellow:  '#d79921'
+    blue:    '#458588'
+    magenta: '#b16286'
+    cyan:    '#689d6a'
+    white:   '#a89984'
+  dim:
+    black:   '#32302f'
+    red:     '#9d0006'
+    green:   '#79740e'
+    yellow:  '#b57614'
+    blue:    '#076678'
+    magenta: '#8f3f71'
+    cyan:    '#427b58'
+    white:   '#928374'

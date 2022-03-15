@@ -16,7 +16,7 @@ theme.font          = "Hack 11"
 theme.bg_normal     = "#282828"
 theme.bg_focus      = "#79740e"
 theme.bg_urgent     = "#cc241d"
-theme.bg_minimize   = "#e9b189"
+theme.bg_minimize   = "#b16286"
 theme.bg_systray    = theme.bg_normal
 
 theme.fg_normal     = "#ebdbb2"

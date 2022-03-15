@@ -75,7 +75,7 @@ altkey = "Mod1"
 
 -- Startup apps
 awful.spawn("brightnessctl set 23%")
-awful.spawn("redshift -O 3400")
+awful.spawn("redshift -O 3500")
 awful.spawn("amixer sset Master 20%")
 awful.spawn("amixer sset Capture nocap")
 awful.spawn("setxkbmap -layout 'us,ru' -option 'grp:alt_shift_toggle'")
@@ -195,14 +195,15 @@ local tasklist_buttons = gears.table.join(
 
 local function set_wallpaper(s)
     -- Wallpaper
-    if beautiful.wallpaper then
-        local wallpaper = beautiful.wallpaper
-        -- If wallpaper is a function, call it with the screen
-        if type(wallpaper) == "function" then
-            wallpaper = wallpaper(s)
-        end
-        gears.wallpaper.maximized(wallpaper, s, true)
-    end
+    gears.wallpaper.set("#7c6f64")
+    -- if beautiful.wallpaper then
+    --     local wallpaper = beautiful.wallpaper
+    --     -- If wallpaper is a function, call it with the screen
+    --     if type(wallpaper) == "function" then
+    --         wallpaper = wallpaper(s)
+    --     end
+    --     gears.wallpaper.maximized(wallpaper, s, true)
+    -- end
 end
 
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
@@ -592,7 +593,6 @@ awful.rules.rules = {
                      border_color = beautiful.border_normal,
                      focus = awful.client.focus.filter,
                      raise = true,
-                     -- size_hints_honor = false,
                      keys = clientkeys,
                      buttons = clientbuttons,
                      screen = awful.screen.preferred,

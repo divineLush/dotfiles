@@ -5,7 +5,7 @@ window:
   opacity: 1
   padding:
     x: 2
-    y: 4
+    y: 2
 
   title: Alacritty
 
@@ -71,6 +71,7 @@ key_bindings:
   - { key: B, mods: Alt, action: ScrollPageDown }
   - { key: U, mods: Alt, action: ScrollHalfPageUp }
   - { key: D, mods: Alt, action: ScrollHalfPageDown }
+  - { key: N, mods: Alt, action: SpawnNewInstance }
 
 colors:
   primary:

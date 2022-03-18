@@ -21,8 +21,8 @@ theme.bg_systray    = theme.bg_normal
 
 theme.fg_normal     = "#ebdbb2"
 theme.fg_focus      = theme.fg_normal
-theme.fg_urgent     = theme.bg_normal
-theme.fg_minimize   = theme.bg_normal
+theme.fg_urgent     = theme.fg_normal
+theme.fg_minimize   = theme.fg_normal
 
 theme.useless_gap   = dpi(0)
 theme.border_width  = dpi(2)

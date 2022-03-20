@@ -1,7 +1,7 @@
 set mouse=a
 
 if exists(':GuiFont')
-    GuiFont Hack:h14
+    GuiFont Hack:h12
 endif
 
 if exists(':GuiTabline')

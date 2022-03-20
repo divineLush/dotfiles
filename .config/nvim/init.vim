@@ -161,10 +161,13 @@ let g:coc_global_extensions = [
     \ 'coc-html',
     \ 'coc-css',
     \ 'coc-eslint',
+    \ 'coc-prettier',
     \ 'coc-stylelint',
     \ 'coc-vetur',
     \ 'coc-pyright',
     \ 'coc-clangd',
+    \ 'coc-markdownlint',
+    \ 'coc-sh',
     \ ]
 
 map <leader>cd <Plug>(coc-definition)
@@ -173,3 +176,4 @@ map <leader>ci <Plug>(coc-implementation)
 map <leader>cr <Plug>(coc-references)
 map <leader>c[ <Plug>(coc-diagnostic-prev)
 map <leader>c] <Plug>(coc-diagnostic-next)
+map <leader>cp <Plug>(coc-format-selected)

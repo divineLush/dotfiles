@@ -32,10 +32,10 @@ gears.timer {
 
                 local not_charging = status_letter == "d"
                 local is_bat_low = tonumber(capacity) < 21
-                local color = "#ebdbb2"
+                local color = "#d2d4de"
 
                 if (not_charging) and (is_bat_low) then
-                    color = "#cc241d"
+                    color = "#b4be82"
                 end
 
                 widget:set_fg(color)

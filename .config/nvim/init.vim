@@ -52,8 +52,8 @@ set termguicolors
 syntax on
 set showmatch
 set background=dark
+let g:gruvbox_contrast_dark="soft"
 colorscheme gruvbox
-g:gruvbox_contrast_dark="soft"
 
 set lazyredraw
 set scrolloff=6

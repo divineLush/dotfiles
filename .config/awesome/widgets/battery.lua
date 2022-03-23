@@ -35,13 +35,13 @@ gears.timer {
                 local color = "#d2d4de"
 
                 if (not_charging) and (is_bat_low) then
-                    color = "#b4be82"
+                    color = "#e27878"
                 end
 
                 widget:set_fg(color)
             else
                 text:set_text("ba:full")
-                widget:set_fg("#689d6a")
+                widget:set_fg("#b4be82")
             end
         end)
     end

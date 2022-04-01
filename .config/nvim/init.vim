@@ -20,6 +20,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'alvan/vim-closetag'
   Plug 'itchyny/lightline.vim'
   Plug 'junegunn/vim-peekaboo'
+  Plug 'tpope/vim-surround'
   Plug 'cocopon/iceberg.vim'
 call plug#end()
 

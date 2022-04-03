@@ -10,8 +10,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'sheerun/vim-polyglot'
   Plug 'jiangmiao/auto-pairs'
   Plug 'tpope/vim-commentary'
-  Plug 'lambdalisue/fern.vim'
-  Plug 'lambdalisue/fern-hijack.vim'
   Plug 'editorconfig/editorconfig-vim'
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -123,26 +121,25 @@ map <leader>gl :G log<CR>
 " delete trailing whitespace
 autocmd BufWritePre * :%s/\s\+$//e
 
-" Disable netrw.
-let g:loaded_netrw  = 1
-let g:loaded_netrwPlugin = 1
-let g:loaded_netrwSettings = 1
-let g:loaded_netrwFileHandlers = 1
+" netrw
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_winsize = 30
+let g:netrw_keepdir = 0
+map <leader>n :Lexplore %:p:h<CR>
 
-" Fern
-map <leader>n :Fern . -reveal=%<CR>
-
-function! FernInit() abort
-    map <buffer><nowait>r <Plug>(fern-action-remove)<CR>
-    map <buffer><nowait>h <Plug>(fern-action-leave)<CR>
-    map <buffer><nowait>l <Plug>(fern-action-enter)<CR>
-    map <buffer><nowait>d <Plug>(fern-action-new-dir)<CR>
-    map <buffer><nowait>f <Plug>(fern-action-new-file)<CR>
+function! NetrwMapping()
+  map <buffer> H u
+  map <buffer> h -^
+  map <buffer> l <CR>
+  map <buffer> . gh
+  map <buffer> P <C-w>z
+  map <buffer> L <CR>:Lexplore<CR>
 endfunction
 
-augroup FernGroup
+augroup netrw_mapping
   autocmd!
-  autocmd FileType fern call FernInit()
+  autocmd filetype netrw call NetrwMapping()
 augroup END
 
 " macros

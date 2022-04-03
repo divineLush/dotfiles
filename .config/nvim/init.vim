@@ -11,6 +11,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'jiangmiao/auto-pairs'
   Plug 'tpope/vim-commentary'
   Plug 'lambdalisue/fern.vim'
+  Plug 'lambdalisue/fern-hijack.vim'
   Plug 'editorconfig/editorconfig-vim'
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }

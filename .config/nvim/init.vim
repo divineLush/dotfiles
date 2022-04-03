@@ -10,6 +10,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'sheerun/vim-polyglot'
   Plug 'jiangmiao/auto-pairs'
   Plug 'tpope/vim-commentary'
+  Plug 'lambdalisue/fern.vim'
   Plug 'editorconfig/editorconfig-vim'
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -121,11 +122,27 @@ map <leader>gl :G log<CR>
 " delete trailing whitespace
 autocmd BufWritePre * :%s/\s\+$//e
 
-" netrw
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_winsize = 35
-map <leader>n :Lexplore<CR>
+" Disable netrw.
+let g:loaded_netrw  = 1
+let g:loaded_netrwPlugin = 1
+let g:loaded_netrwSettings = 1
+let g:loaded_netrwFileHandlers = 1
+
+" Fern
+map <leader>n :Fern . -reveal=%<CR>
+
+function! FernInit() abort
+    map <buffer><nowait>r <Plug>(fern-action-remove)<CR>
+    map <buffer><nowait>h <Plug>(fern-action-leave)<CR>
+    map <buffer><nowait>l <Plug>(fern-action-enter)<CR>
+    map <buffer><nowait>d <Plug>(fern-action-new-dir)<CR>
+    map <buffer><nowait>f <Plug>(fern-action-new-file)<CR>
+endfunction
+
+augroup FernGroup
+  autocmd!
+  autocmd FileType fern call FernInit()
+augroup END
 
 " macros
 let @a = "i() => {}\<Esc>6hi"

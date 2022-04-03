@@ -8,8 +8,8 @@ endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'sheerun/vim-polyglot'
-  Plug 'preservim/nerdtree'
   Plug 'jiangmiao/auto-pairs'
+  Plug 'lambdalisue/fern.vim'
   Plug 'tpope/vim-commentary'
   Plug 'editorconfig/editorconfig-vim'
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
@@ -22,6 +22,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'junegunn/vim-peekaboo'
   Plug 'tpope/vim-surround'
   Plug 'cocopon/iceberg.vim'
+  Plug 'antoinemadec/FixCursorHold.nvim'
 call plug#end()
 
 set nohlsearch
@@ -121,12 +122,24 @@ map <leader>gl :G log<CR>
 " delete trailing whitespace
 autocmd BufWritePre * :%s/\s\+$//e
 
-" NERDTree
-map <leader>nt :NERDTreeToggle<CR>
-map <leader>nf :NERDTreeFind<CR>
-let NERDTreeShowLineNumbers=1
-let NERDTreeShowHidden=1
-let g:NERDTreeWinSize=38
+" Disable netrw.
+let g:loaded_netrw  = 1
+let g:loaded_netrwPlugin = 1
+let g:loaded_netrwSettings = 1
+let g:loaded_netrwFileHandlers = 1
+
+" Fern
+map <leader>n :Fern . -reveal=%<CR>
+
+function! FernInit() abort
+    map <buffer><nowait>h <Plug>(fern-action-leave)<CR>
+    map <buffer><nowait>l <Plug>(fern-action-enter)<CR>
+endfunction
+
+augroup FernGroup
+  autocmd!
+  autocmd FileType fern call FernInit()
+augroup END
 
 " macros
 let @a = "i() => {}\<Esc>6hi"

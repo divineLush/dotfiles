@@ -17,11 +17,11 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'airblade/vim-rooter'
   Plug 'tpope/vim-fugitive'
   Plug 'alvan/vim-closetag'
+  Plug 'itchyny/lightline.vim'
   Plug 'junegunn/vim-peekaboo'
   Plug 'tpope/vim-surround'
+  Plug 'cocopon/iceberg.vim'
   Plug 'antoinemadec/FixCursorHold.nvim'
-  Plug 'owickstrom/vim-colors-paramount'
-  Plug 'jaredgorski/fogbell.vim'
 call plug#end()
 
 set nohlsearch
@@ -53,7 +53,7 @@ set termguicolors
 syntax on
 set showmatch
 set background=dark
-colorscheme fogbell
+colorscheme iceberg
 
 set lazyredraw
 set scrolloff=6
@@ -126,7 +126,6 @@ let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_winsize = 30
 let g:netrw_keepdir = 0
-map <leader>e :Lexplore<CR>
 map <leader>n :Lexplore %:p:h<CR>
 
 function! NetrwMapping()
@@ -155,6 +154,19 @@ let g:closetag_filetypes = 'html,js,ts,jsx,tsx,vue,eta,squirrely'
 let g:closetag_xhtml_filetypes = 'xml,xhtml,jsx,tsx,vue,eta,squirrely'
 let g:closetag_shortcut = '>'
 let g:closetag_close_shortcut = '<leader>>'
+
+" statusline
+set noshowmode
+
+let g:lightline = {
+      \ 'colorscheme': 'iceberg',
+      \ 'component_function': {
+      \   'branch': 'FugitiveHead',
+      \ },
+      \ 'active': {
+      \   'right': [['lineinfo'], ['percent'], ['branch']],
+      \ },
+    \ }
 
 " coc
 let g:coc_global_extensions = [

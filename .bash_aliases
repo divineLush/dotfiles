@@ -34,6 +34,8 @@ alias dlc="docker ps -a"
 alias dlv="docker volume ls"
 
 alias upd="sudo pacman -Syu --noconfirm && paru -Sua --noconfirm"
+alias key_upd="sudo pacman -Sy archlinux-keyring && pacman -Su"
+alias orphans="sudo pacman -Qtdq | sudo pacman -Rns -"
 
 alias rss="newsboat"
 alias rr="ranger"
@@ -46,3 +48,4 @@ alias wr="curl wttr.in/?format='%l:+%C+%t\n'"
 alias moon="curl wttr.in/Moon"
 alias space="df -h"
 alias vpn="sudo openvpn --config"
+alias showip="ip addr show wlan0"

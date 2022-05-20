@@ -34,7 +34,7 @@ alias dlc="docker ps -a"
 alias dlv="docker volume ls"
 
 alias upd="sudo pacman -Syu --noconfirm && paru -Sua --noconfirm"
-alias key_upd="sudo pacman -Sy archlinux-keyring && pacman -Su"
+alias key_upd="sudo pacman -Sy archlinux-keyring && sudo pacman -Su"
 alias orphans="sudo pacman -Qtdq | sudo pacman -Rns -"
 
 alias rss="newsboat"

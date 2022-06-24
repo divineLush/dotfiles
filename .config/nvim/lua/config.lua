@@ -4,8 +4,8 @@ o.swapfile = false
 o.dir = '/tmp'
 o.smartcase = true
 o.laststatus = 2
-o.hlsearch = true
-o.incsearch = false
+o.hlsearch = false
+o.incsearch = true
 o.ignorecase = true
 o.lazyredraw = true
 o.termguicolors = true
@@ -19,6 +19,7 @@ local wo = vim.wo
 wo.wrap = false
 wo.foldenable = false
 wo.cursorline = true
+wo.relativenumber = true
 
 -- buffer-local options
 local bo = vim.bo
@@ -29,10 +30,18 @@ bo.softtabstop = 2
 bo.fileformat = 'unix'
 
 -- strip trailing whitespace
-vim.cmd([[autocmd BufWritePre * :%s/\s\+$//e]])
+vim.cmd[[autocmd BufWritePre * :%s/\s\+$//e]]
 
-vim.opt.clipboard = 'unnamedplus'
-vim.opt.number = true
+local opt = vim.opt
+opt.clipboard = 'unnamedplus'
+opt.number = true
 
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+local g = vim.g
+g.loaded_netrw = 1
+g.loaded_netrwPlugin = 1
+g.closetag_filenames = '*.html,*.js,*.ts,*.jsx,*.tsx,*.vue,*.eta,*.squirrely'
+g.closetag_xhtml_filenames = '*.xml,*.xhtml,*.js,*.ts,*.jsx,*.tsx,*.vue,*.eta,.*squirrely'
+g.closetag_filetypes = 'html,js,ts,jsx,tsx,vue,eta,squirrely'
+g.closetag_xhtml_filetypes = 'xml,xhtml,jsx,tsx,vue,eta,squirrely'
+g.closetag_shortcut = '>'
+g.closetag_close_shortcut = '<leader>>'

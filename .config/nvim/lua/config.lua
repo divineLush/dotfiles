@@ -16,7 +16,6 @@ o.mouse = 'a'
 
 -- window-local options
 local wo = vim.wo
-wo.number = false
 wo.wrap = false
 wo.foldenable = false
 wo.cursorline = true
@@ -33,6 +32,7 @@ bo.fileformat = 'unix'
 vim.cmd([[autocmd BufWritePre * :%s/\s\+$//e]])
 
 vim.opt.clipboard = 'unnamedplus'
+vim.opt.number = true
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1

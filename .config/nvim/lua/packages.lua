@@ -7,9 +7,27 @@ require('packer').startup(function()
   use 'nvim-treesitter/nvim-treesitter'
   use 'kyazdani42/nvim-tree.lua'
   use 'neovim/nvim-lspconfig'
-  use 'williamboman/nvim-lsp-installer'
   use 'nvim-lua/plenary.nvim'
   use 'nvim-telescope/telescope.nvim'
   use 'rebelot/kanagawa.nvim'
-  use "lukas-reineke/indent-blankline.nvim"
 end)
+
+require'lspconfig'.pyright.setup{}
+require'lspconfig'.tsserver.setup{}
+-- require'lspconfig'.sumneko_lua.setup{}
+-- require'lspconfig'.vimls.setup{}
+require'lspconfig'.vuels.setup{}
+require'lspconfig'.svelte.setup{}
+require'lspconfig'.tsserver.setup{}
+require'lspconfig'.jsonls.setup{}
+require'lspconfig'.html.setup{}
+require'lspconfig'.graphql.setup{}
+require'lspconfig'.eslint.setup{}
+require'lspconfig'.dockerls.setup{}
+require'lspconfig'.angularls.setup{}
+require'lspconfig'.awk_ls.setup{}
+require'lspconfig'.cssls.setup {}
+require'lspconfig'.cssmodules_ls.setup{}
+require'lspconfig'.stylelint_lsp.setup{}
+require'lspconfig'.bashls.setup{}
+require'lspconfig'.diagnosticls.setup{}

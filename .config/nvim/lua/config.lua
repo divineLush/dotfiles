@@ -19,7 +19,6 @@ local wo = vim.wo
 wo.wrap = false
 wo.foldenable = false
 wo.cursorline = true
-wo.relativenumber = true
 
 -- buffer-local options
 local bo = vim.bo

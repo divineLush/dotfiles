@@ -13,13 +13,13 @@ local theme = {}
 
 theme.font          = "Hack 11"
 
-theme.bg_normal     = "#161821"
-theme.bg_focus      = "#84a0c6"
-theme.bg_urgent     = "#e27878"
-theme.bg_minimize   = "#a093c7"
+theme.bg_normal     = "#1F1F28"
+theme.bg_focus      = "#7E9CD8"
+theme.bg_urgent     = "#C34043"
+theme.bg_minimize   = "#957FB8"
 theme.bg_systray    = theme.bg_normal
 
-theme.fg_normal     = "#d2d4de"
+theme.fg_normal     = "#DCD7BA"
 theme.fg_focus      = theme.bg_normal
 theme.fg_urgent     = theme.bg_normal
 theme.fg_minimize   = theme.bg_normal

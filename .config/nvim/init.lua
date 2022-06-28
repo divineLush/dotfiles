@@ -6,5 +6,6 @@ require('plugins/gitsigns')
 require('plugins/lualine')
 require('plugins/nvimtree')
 require('plugins/treesitter')
+require('plugins/autopairs')
 
 vim.cmd("colorscheme kanagawa")

@@ -1,17 +1,20 @@
 require('packer').startup(function()
   use 'wbthomason/packer.nvim'
   use 'nvim-lualine/lualine.nvim'
-  use 'jiangmiao/auto-pairs'
-  use 'tpope/vim-commentary'
+  use 'windwp/nvim-autopairs'
   use 'editorconfig/editorconfig-vim'
   use 'nvim-treesitter/nvim-treesitter'
   use 'kyazdani42/nvim-tree.lua'
   use 'kyazdani42/nvim-web-devicons'
   use 'nvim-lua/plenary.nvim'
   use 'nvim-telescope/telescope.nvim'
-  use 'alvan/vim-closetag'
+  use 'windwp/nvim-ts-autotag'
   use 'rebelot/kanagawa.nvim'
   use 'lewis6991/gitsigns.nvim'
+  use {
+    'numToStr/Comment.nvim',
+    config = function() require('Comment').setup() end
+  }
   -- use 'neovim/nvim-lspconfig'
   -- use 'williamboman/nvim-lsp-installer'
   -- use 'hrsh7th/nvim-cmp'

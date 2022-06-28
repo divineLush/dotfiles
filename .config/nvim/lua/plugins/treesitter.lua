@@ -1,6 +1,7 @@
 require'nvim-treesitter.configs'.setup {
   ensure_installed = {
 	  'c',
+	  'cpp',
 	  'lua',
 	  'go',
 	  'javascript',
@@ -19,11 +20,23 @@ require'nvim-treesitter.configs'.setup {
 	  'yaml',
 	  'svelte',
 	  'graphql',
+	  'dockerfile',
+	  'elixir',
+	  'markdown',
+	  'pug',
+	  'todotxt',
+	  'comment',
   },
   sync_install = false,
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = false,
+  },
+  indent = {
+    enable = false,
+  },
+  autotag = {
+    enable = true,
   },
 }
 

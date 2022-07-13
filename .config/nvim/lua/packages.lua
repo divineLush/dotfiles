@@ -5,7 +5,6 @@ require('packer').startup(function()
   use 'editorconfig/editorconfig-vim'
   use 'nvim-treesitter/nvim-treesitter'
   use 'kyazdani42/nvim-tree.lua'
-  use 'kyazdani42/nvim-web-devicons'
   use 'nvim-lua/plenary.nvim'
   use 'nvim-telescope/telescope.nvim'
   use 'windwp/nvim-ts-autotag'

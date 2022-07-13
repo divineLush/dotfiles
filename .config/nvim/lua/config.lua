@@ -16,7 +16,7 @@ o.mouse = 'a'
 
 -- window-local options
 local wo = vim.wo
-wo.wrap = false
+wo.wrap = true
 wo.foldenable = false
 wo.cursorline = true
 
@@ -34,7 +34,7 @@ bo.fileformat = 'unix'
 vim.cmd[[autocmd BufWritePre * :%s/\s\+$//e]]
 vim.cmd('filetype on')
 vim.cmd('filetype plugin on')
--- vim.cmd("filetype indent on")
+vim.cmd('filetype indent on')
 
 local opt = vim.opt
 opt.clipboard = 'unnamedplus'

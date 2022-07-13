@@ -1,11 +1,11 @@
 require('config')
 require('keybinds')
 require('packages')
+require('plugins/autopairs')
 require('plugins/gitsigns')
 -- require('plugins/lsp')
 require('plugins/lualine')
 require('plugins/nvimtree')
 require('plugins/treesitter')
-require('plugins/autopairs')
 
 vim.cmd("colorscheme kanagawa")

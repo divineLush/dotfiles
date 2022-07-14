@@ -12,6 +12,9 @@ map('n', '<leader>k', ':bd<cr>', options)
 map('n', '<leader>w', ':w<cr>', options)
 map('n', '<leader>q', ':q<cr>', options)
 
+-- prettier
+map('n', '<leader>p', ':silent %!prettier --stdin-filepath %<CR>', options)
+
 -- vertical split
 map('n', '<leader>sv', '<C-w>v', options)
 

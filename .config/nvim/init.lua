@@ -8,4 +8,5 @@ require('plugins/lualine')
 require('plugins/nvimtree')
 require('plugins/treesitter')
 
-vim.cmd("colorscheme kanagawa")
+vim.g.substrata_italic_keywords = true
+vim.cmd("colorscheme substrata")

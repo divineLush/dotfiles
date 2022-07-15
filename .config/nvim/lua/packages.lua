@@ -8,8 +8,8 @@ require('packer').startup(function()
   use 'nvim-lua/plenary.nvim'
   use 'nvim-telescope/telescope.nvim'
   use 'windwp/nvim-ts-autotag'
-  use 'rebelot/kanagawa.nvim'
   use 'lewis6991/gitsigns.nvim'
+  use 'kvrohit/substrata.nvim'
   use {
     'numToStr/Comment.nvim',
     config = function() require('Comment').setup() end

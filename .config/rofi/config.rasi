@@ -9,11 +9,15 @@ configuration {
 @theme "/dev/null"
 
 * {
-  bg: #191c25;
-  fg: #b5b4c9;
-  focus: #8296b0;
+  bg: #16161D;
+  bg-alt: #2A2A37;
+
+  fg: #DCD7BA;
+
+  focus: #7E9CD8;
 
   background-color: @bg;
+
   border: 0;
   margin: 0;
   padding: 0;
@@ -43,7 +47,7 @@ element-text {
 }
 
 entry {
-  background-color: @bg;
+  background-color: @bg-alt;
   padding: 16 4;
   text-color: @fg;
 }
@@ -64,7 +68,7 @@ mainbox {
 }
 
 prompt {
-  background-color: @bg;
+  background-color: @bg-alt;
   enabled: true;
   padding: 16;
   text-color: @fg;

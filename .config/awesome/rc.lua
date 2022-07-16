@@ -74,7 +74,7 @@ altkey = "Mod1"
 
 -- Startup apps
 awful.spawn("brightnessctl set 23%")
--- awful.spawn("redshift -O 3500")
+awful.spawn("redshift -O 3500")
 awful.spawn("amixer sset Master 20%")
 awful.spawn("amixer sset Capture nocap")
 awful.spawn("setxkbmap -layout 'us,ru' -option 'grp:alt_shift_toggle'")

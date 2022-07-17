@@ -72,14 +72,6 @@ editor_cmd = terminal .. " -e " .. editor
 modkey = "Mod4"
 altkey = "Mod1"
 
--- Startup apps
-awful.spawn("brightnessctl set 23%")
-awful.spawn("redshift -O 3500")
-awful.spawn("amixer sset Master 20%")
-awful.spawn("amixer sset Capture nocap")
-awful.spawn("setxkbmap -layout 'us,ru' -option 'grp:alt_shift_toggle'")
-awful.spawn("conky")
-
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
     awful.layout.suit.max,
@@ -701,3 +693,11 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+
+-- Startup apps
+awful.spawn("brightnessctl set 23%")
+awful.spawn("redshift -O 3500")
+awful.spawn("amixer sset Master 20%")
+awful.spawn("amixer sset Capture nocap")
+awful.spawn("setxkbmap -layout 'us,ru' -option 'grp:alt_shift_toggle'")
+awful.spawn("conky")

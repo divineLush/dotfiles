@@ -13,22 +13,21 @@ o.showmatch = true
 o.showmode = false
 o.scrolloff = 6
 o.mouse = 'a'
+o.expandtab = true
+o.shiftwidth = 2
+o.tabstop = 2
+o.softtabstop = 2
+o.smartindent = false
+o.autoindent = true
+o.copyindent = true
+o.title = true
+o.fileformat = 'unix'
 
 -- window-local options
 local wo = vim.wo
 wo.wrap = true
 wo.foldenable = false
 wo.cursorline = true
-
--- buffer-local options
-local bo = vim.bo
-bo.expandtab = true
-bo.shiftwidth = 2
-bo.tabstop = 2
-bo.softtabstop = 2
-bo.smartindent = false
-bo.autoindent = true
-bo.fileformat = 'unix'
 
 -- strip trailing whitespace
 vim.cmd[[autocmd BufWritePre * :%s/\s\+$//e]]

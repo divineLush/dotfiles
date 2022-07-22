@@ -1,4 +1,7 @@
 require('lualine').setup {
+  options = {
+    theme = 'neobones'
+  },
   sections = {
     lualine_a = {'mode'},
     lualine_b = {'branch', 'diff'},

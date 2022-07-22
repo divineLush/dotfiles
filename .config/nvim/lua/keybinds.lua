@@ -15,6 +15,9 @@ map('n', '<leader>q', ':q<cr>', options)
 -- prettier
 map('n', '<leader>p', ':silent %!prettier --stdin-filepath %<CR>', options)
 
+-- show full path
+map('n', '<leader>L', ':! ls %:p<CR>', options)
+
 -- vertical split
 map('n', '<leader>sv', '<C-w>v', options)
 
@@ -32,7 +35,7 @@ map('n', '<leader>e', ':NvimTreeToggle<cr>', options)
 map('n', '<leader>n', ':NvimTreeFindFile<cr>', options)
 
 -- telescope
-map('n', '<leader>f', '<cmd>Telescope find_files<cr>', options)
+map('n', '<leader>f', '<cmd>Telescope fd<cr>', options)
 map('n', ';', '<cmd>Telescope current_buffer_fuzzy_find<cr>', options)
 map('n', '<leader>s', '<cmd>Telescope grep_string<cr>', options)
 map('n', '<leader>fg', '<cmd>Telescope git_files<cr>', options)

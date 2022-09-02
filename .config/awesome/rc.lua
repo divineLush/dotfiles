@@ -434,11 +434,14 @@ globalkeys = gears.table.join(
     awful.key({ modkey, altkey }, "p",
             function() awful.util.spawn("flameshot") end,
         { description = "launch flameshot", group = "apps" }),
-    awful.key({ modkey, altkey }, "b",
-            function() awful.util.spawn("brave") end,
-        { description = "launch brave", group = "apps" }),
+    -- awful.key({ modkey, altkey }, "b",
+    --         function() awful.util.spawn("brave") end,
+    --     { description = "launch brave", group = "apps" }),
     awful.key({ modkey, altkey }, "c",
             function() awful.util.spawn("chromium") end,
+        { description = "launch chromium", group = "apps" }),
+    awful.key({ modkey, altkey }, "m",
+            function() awful.util.spawn("thunderbird") end,
         { description = "launch chromium", group = "apps" }),
     awful.key({ modkey, altkey }, "f",
             function() awful.util.spawn("firefox") end,
@@ -700,4 +703,4 @@ awful.spawn("redshift -O 3500")
 awful.spawn("amixer sset Master 20%")
 awful.spawn("amixer sset Capture nocap")
 awful.spawn("setxkbmap -layout 'us,ru' -option 'grp:alt_shift_toggle'")
-awful.spawn("conky")
+-- awful.spawn("conky")

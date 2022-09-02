@@ -1,6 +1,7 @@
 alias ls="ls --color=auto"
 alias ll="ls -alh"
 alias l="ls -lh"
+alias cow="ls -hla | cowsay -n"
 
 alias ..="cd .."
 alias ...="cd ../.."

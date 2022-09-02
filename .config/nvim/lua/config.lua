@@ -1,5 +1,5 @@
 -- global options
-local o = vim.o
+local o = vim.opt
 o.swapfile = false
 o.dir = '/tmp'
 o.smartcase = true
@@ -22,6 +22,8 @@ o.autoindent = true
 o.copyindent = true
 o.title = true
 o.fileformat = 'unix'
+o.clipboard = 'unnamedplus'
+o.number = true
 
 -- window-local options
 local wo = vim.wo
@@ -34,10 +36,6 @@ vim.cmd[[autocmd BufWritePre * :%s/\s\+$//e]]
 vim.cmd('filetype on')
 vim.cmd('filetype plugin on')
 vim.cmd('filetype indent on')
-
-local opt = vim.opt
-opt.clipboard = 'unnamedplus'
-opt.number = true
 
 local g = vim.g
 g.loaded_netrw = 1

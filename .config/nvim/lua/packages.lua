@@ -10,13 +10,8 @@ require('packer').startup(function()
   use 'windwp/nvim-ts-autotag'
   use 'lewis6991/gitsigns.nvim'
   use {
-    "mcchrish/zenbones.nvim",
-    -- requires = "rktjmp/lush.nvim",
-    config = function()
-      vim.g.neobones = { darkness = 'warm' }
-      vim.g.zenbones_compat = 1
-      vim.cmd 'colorscheme neobones'
-    end
+    "rebelot/kanagawa.nvim",
+    config = function() vim.cmd 'colorscheme kanagawa' end
   }
   use {
     'numToStr/Comment.nvim',

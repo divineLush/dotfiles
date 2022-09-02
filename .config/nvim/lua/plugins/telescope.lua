@@ -32,16 +32,11 @@ require("telescope").setup({
     },
   },
   pickers = {
-    oldfiles = {
-      mappings = multi_open_mappings,
-    },
     find_files = {
       follow = true,
-      mappings = multi_open_mappings,
     },
     buffers = {
       sort_mru = true,
-      mappings = multi_open_mappings,
     },
   },
 })

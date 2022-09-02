@@ -2,8 +2,7 @@
 local map = vim.api.nvim_set_keymap
 map('n', '<Space>', '', {})
 
-local g = vim.g
-g.mapleader = ' '
+vim.g.mapleader = ' '
 
 options = { noremap = true }
 map('n', '<leader>]', ':bn<cr>', options)

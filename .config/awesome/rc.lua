@@ -22,7 +22,6 @@ local dpi = xresources.apply_dpi
 
 local has_fdo, freedesktop = pcall(require, "freedesktop")
 
-local bat_widget = require("widgets.battery")
 local timer_widget = require("widgets.timer")
 local sep_widget = require("widgets.separator")
 
@@ -241,8 +240,6 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             mykeyboardlayout,
             sep_widget,
-            bat_widget,
-            sep_widget,
             timer_widget,
             sep_widget,
             wibox.widget.systray(),
@@ -434,14 +431,8 @@ globalkeys = gears.table.join(
     awful.key({ modkey, altkey }, "p",
             function() awful.util.spawn("flameshot") end,
         { description = "launch flameshot", group = "apps" }),
-    -- awful.key({ modkey, altkey }, "b",
-    --         function() awful.util.spawn("brave") end,
-    --     { description = "launch brave", group = "apps" }),
     awful.key({ modkey, altkey }, "c",
             function() awful.util.spawn("chromium") end,
-        { description = "launch chromium", group = "apps" }),
-    awful.key({ modkey, altkey }, "m",
-            function() awful.util.spawn("thunderbird") end,
         { description = "launch chromium", group = "apps" }),
     awful.key({ modkey, altkey }, "f",
             function() awful.util.spawn("firefox") end,
@@ -699,8 +690,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- Startup apps
 awful.spawn("brightnessctl set 23%")
-awful.spawn("redshift -O 3500")
+awful.spawn("redshift -O 3400")
 awful.spawn("amixer sset Master 20%")
 awful.spawn("amixer sset Capture nocap")
 awful.spawn("setxkbmap -layout 'us,ru' -option 'grp:alt_shift_toggle'")
--- awful.spawn("conky")

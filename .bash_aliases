@@ -1,7 +1,6 @@
 alias ls="ls --color=auto"
 alias ll="ls -alh"
 alias l="ls -lh"
-alias cow="ls -hla | cowsay -n"
 
 alias ..="cd .."
 alias ...="cd ../.."
@@ -58,3 +57,4 @@ alias space="df -h"
 alias vpn="sudo openvpn --config"
 alias showip="ip addr show wlan0"
 alias vpn_import="sudo nmcli connection import type wireguard file ~/vishnyakova.conf"
+alias bat="cat /sys/class/power_supply/BAT*/uevent"

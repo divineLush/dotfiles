@@ -56,18 +56,18 @@ map('n', '<leader>gp', ':! git push -u origin<cr>', options)
 map('n', '<leader>gr', ':! git reset<cr>', options)
 
 -- lsp
--- local kmap = vim.keymap
--- local lspopts = { noremap=true, silent=true }
--- kmap.set('n', 'd[', vim.diagnostic.goto_prev, lspopts)
--- kmap.set('n', 'd]', vim.diagnostic.goto_next, lspopts)
--- kmap.set('n', 'cD', vim.lsp.buf.declaration, lspopts)
--- kmap.set('n', 'cd', vim.lsp.buf.definition, lspopts)
--- kmap.set('n', 'ck', vim.lsp.buf.hover, lspopts)
--- kmap.set('n', 'ci', vim.lsp.buf.implementation, lspopts)
--- kmap.set('n', 'cs', vim.lsp.buf.signature_help, lspopts)
--- kmap.set('n', 'cl', function()
---   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
--- end, lspopts)
--- kmap.set('n', 'ct', vim.lsp.buf.type_definition, lspopts)
--- kmap.set('n', 'cr', vim.lsp.buf.references, lspopts)
--- kmap.set('n', 'cf', vim.lsp.buf.formatting, lspopts)
+local kmap = vim.keymap.set
+local lspopts = { noremap = true, silent = true }
+kmap('n', 'd[', vim.diagnostic.goto_prev, lspopts)
+kmap('n', 'd]', vim.diagnostic.goto_next, lspopts)
+kmap('n', 'cD', vim.lsp.buf.declaration, lspopts)
+kmap('n', 'cd', vim.lsp.buf.definition, lspopts)
+kmap('n', 'ck', vim.lsp.buf.hover, lspopts)
+kmap('n', 'ci', vim.lsp.buf.implementation, lspopts)
+kmap('n', 'cs', vim.lsp.buf.signature_help, lspopts)
+kmap('n', 'cl', function()
+  print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+end, lspopts)
+kmap('n', 'ct', vim.lsp.buf.type_definition, lspopts)
+kmap('n', 'cr', vim.lsp.buf.references, lspopts)
+kmap('n', 'cf', vim.lsp.buf.formatting, lspopts)

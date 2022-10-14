@@ -1,5 +1,6 @@
 require('packer').startup(function()
   use 'wbthomason/packer.nvim'
+  use 'kyazdani42/nvim-web-devicons'
   use 'nvim-lualine/lualine.nvim'
   use 'windwp/nvim-autopairs'
   use 'editorconfig/editorconfig-vim'
@@ -17,6 +18,7 @@ require('packer').startup(function()
     'numToStr/Comment.nvim',
     config = function() require('Comment').setup() end
   }
+  use({"L3MON4D3/LuaSnip", tag = "v<CurrentMajor>.*"})
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'

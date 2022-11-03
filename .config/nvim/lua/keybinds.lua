@@ -1,5 +1,7 @@
 -- maps
 local map = vim.api.nvim_set_keymap
+local kmap = vim.keymap.set
+
 map('n', '<Space>', '', {})
 
 vim.g.mapleader = ' '
@@ -34,29 +36,31 @@ map('n', '<leader>e', ':NvimTreeToggle<cr>', options)
 map('n', '<leader>n', ':NvimTreeFindFile<cr>', options)
 
 -- telescope
-map('n', '<leader>f', '<cmd>Telescope fd<cr>', options)
-map('n', ';', '<cmd>Telescope current_buffer_fuzzy_find<cr>', options)
-map('n', '<leader>s', '<cmd>Telescope grep_string<cr>', options)
-map('n', '<leader>fg', '<cmd>Telescope git_files<cr>', options)
-map('n', '<leader>h', '<cmd>Telescope search_history<cr>', options)
-map('n', '<leader>r', '<cmd>Telescope live_grep<cr>', options)
-map('n', '<leader>b', '<cmd>Telescope buffers<cr>', options)
-map('n', '<leader>gs', '<cmd>Telescope git_status<cr>', options)
-map('n', '<leader>gl', '<cmd>Telescope git_commits<cr>', options)
-map('n', '<leader>gbl', '<cmd>Telescope git_bcommits<cr>', options)
+local telescope = require('telescope.builtin')
+kmap('n', '<leader>f', telescope.find_files, options)
+kmap('n', '<leader>c', telescope.commands, options)
+kmap('n', ';', telescope.current_buffer_fuzzy_find, options)
+kmap('n', '"', telescope.registers, options)
+kmap('n', '<leader>s', telescope.grep_string, options)
+kmap('n', '<leader>fg', telescope.git_files, options)
+kmap('n', '<leader>h', telescope.search_history, options)
+kmap('n', '<leader>r', telescope.live_grep, options)
+kmap('n', '<leader>b', telescope.buffers, options)
 
--- git
-map('n', '<leader>gs', ':! git status<cr>', options)
-map('n', '<leader>gd', ':! git diff<cr>', options)
-map('n', '<leader>gl', ':! git log --oneline<cr>', options)
-map('n', '<leader>gc', ':! git commit<cr>', options)
-map('n', '<leader>ga', ':! git add .<cr>', options)
-map('n', '<leader>gu', ':! git pull origin<cr>', options)
-map('n', '<leader>gp', ':! git push -u origin<cr>', options)
-map('n', '<leader>gr', ':! git reset<cr>', options)
+-- telescope git
+kmap('n', '<leader>gs', telescope.git_status, options)
+kmap('n', '<leader>gc', telescope.git_commits, options)
+kmap('n', '<leader>gbc', telescope.git_bcommits, options)
+kmap('n', '<leader>gh', telescope.git_stash, options)
+kmap('n', '<leader>gB', telescope.git_branches, options)
+
+-- telescope lsp
+kmap('n', '<leader>lr', telescope.lsp_references, options)
+kmap('n', '<leader>li', telescope.lsp_implementations, options)
+kmap('n', '<leader>ld', telescope.lsp_definitions, options)
+kmap('n', '<leader>ltd', telescope.lsp_type_definitions, options)
 
 -- lsp
-local kmap = vim.keymap.set
 local lspopts = { noremap = true, silent = true }
 kmap('n', 'd[', vim.diagnostic.goto_prev, lspopts)
 kmap('n', 'd]', vim.diagnostic.goto_next, lspopts)

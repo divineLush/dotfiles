@@ -46,4 +46,11 @@ require'lspconfig'.elixirls.setup {}
 require'lspconfig'.gopls.setup {}
 require'lspconfig'.bashls.setup {}
 
-vim.cmd[[autocmd BufEnter * lua vim.diagnostic.disable()]]
+vim.diagnostic.disable()
+-- vim.diagnostic.config({
+  -- disable = true,
+  -- virtual_text = false,
+  -- signs = true,
+  -- update_in_insert = false,
+-- })
+-- vim.cmd[[autocmd BufEnter * lua vim.diagnostic.disable()]]

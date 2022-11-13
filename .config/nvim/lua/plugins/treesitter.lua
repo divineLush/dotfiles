@@ -1,6 +1,9 @@
 require'nvim-treesitter.configs'.setup {
   ensure_installed = {
 	  'c',
+	  'clojure',
+	  'gitignore',
+	  'git_rebase',
 	  'cpp',
 	  'lua',
 	  'go',

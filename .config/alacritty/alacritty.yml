@@ -38,7 +38,7 @@ font:
     family: Hack
     style: Bold Italic
 
-  size: 12
+  size: 11.5
 
 draw_bold_text_with_bright_colors: false
 
@@ -73,35 +73,36 @@ key_bindings:
   - { key: D, mods: Alt, action: ScrollHalfPageDown }
   - { key: N, mods: Alt, action: SpawnNewInstance }
 
-# TokyoNight Alacritty Colors
+# Kanagawa Alacritty Colors
 colors:
-  # Default colors
   primary:
-    background: '0x222436'
-    foreground: '0xc8d3f5'
+    background: '0x1f1f28'
+    foreground: '0xdcd7ba'
 
-  # Normal colors
   normal:
-    black:   '0x1b1d2b'
-    red:     '0xff757f'
-    green:   '0xc3e88d'
-    yellow:  '0xffc777'
-    blue:    '0x82aaff'
-    magenta: '0xc099ff'
-    cyan:    '0x86e1fc'
-    white:   '0x828bb8'
+    black:   '0x090618'
+    red:     '0xc34043'
+    green:   '0x76946a'
+    yellow:  '0xc0a36e'
+    blue:    '0x7e9cd8'
+    magenta: '0x957fb8'
+    cyan:    '0x6a9589'
+    white:   '0xc8c093'
 
-  # Bright colors
   bright:
-    black:   '0x444a73'
-    red:     '0xff757f'
-    green:   '0xc3e88d'
-    yellow:  '0xffc777'
-    blue:    '0x82aaff'
-    magenta: '0xc099ff'
-    cyan:    '0x86e1fc'
-    white:   '0xc8d3f5'
+    black:   '0x727169'
+    red:     '0xe82424'
+    green:   '0x98bb6c'
+    yellow:  '0xe6c384'
+    blue:    '0x7fb4ca'
+    magenta: '0x938aa9'
+    cyan:    '0x7aa89f'
+    white:   '0xdcd7ba'
+
+  selection:
+    background: '0x2d4f67'
+    foreground: '0xc8c093'
 
   indexed_colors:
-    - { index: 16, color: '0xff966c' }
-    - { index: 17, color: '0xc53b53' }
+    - { index: 16, color: '0xffa066' }
+    - { index: 17, color: '0xff5d62' }

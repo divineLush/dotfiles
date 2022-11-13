@@ -29,6 +29,8 @@ local bright_helper = require("helpers.bright")
 local vol_helper = require("helpers.vol")
 local mic_helper = require("helpers.mic")
 
+awesome.set_preferred_icon_size(32)
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -225,7 +227,7 @@ awful.screen.connect_for_each_screen(function(s)
     }
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", height = dpi(22), screen = s })
+    s.mywibox = awful.wibar({ position = "top", height = dpi(20), screen = s })
 
     -- Add widgets to the wibox
     s.mywibox:setup {

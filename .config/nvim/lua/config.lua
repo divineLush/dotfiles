@@ -24,6 +24,7 @@ o.title = true
 o.fileformat = 'unix'
 o.clipboard = 'unnamedplus'
 o.number = true
+o.rnu = true
 vim.o.termguicolors = true
 
 -- window-local options

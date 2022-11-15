@@ -75,3 +75,15 @@ prompt {
   padding: 16;
   text-color: @fg;
 }
+
+element-icon {
+  size: 32;
+  border: 0px;
+  vertical-align: 0.5;
+  horizontal-align: 0.5;
+}
+
+element-text, element-icon {
+  background-color: inherit;
+  text-color: inherit;
+}

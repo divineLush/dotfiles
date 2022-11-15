@@ -10,6 +10,7 @@ options = { noremap = true }
 map('n', '<leader>]', ':bn<cr>', options)
 map('n', '<leader>[', ':bp<cr>', options)
 map('n', '<leader>k', ':bd<cr>', options)
+map('n', '<leader>K', ':bd!<cr>', options)
 map('n', '<leader>w', ':w<cr>', options)
 map('n', '<leader>q', ':q<cr>', options)
 
@@ -59,6 +60,7 @@ kmap('n', '<leader>lr', telescope.lsp_references, options)
 kmap('n', '<leader>li', telescope.lsp_implementations, options)
 kmap('n', '<leader>ld', telescope.lsp_definitions, options)
 kmap('n', '<leader>ltd', telescope.lsp_type_definitions, options)
+kmap('n', '<leader>d', vim.diagnostic.open_float, options)
 
 -- lsp
 local lspopts = { noremap = true, silent = true }

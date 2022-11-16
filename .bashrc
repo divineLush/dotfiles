@@ -5,7 +5,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-PS1='[\u@\h \W]\$ '
+PS1='\u@\h \W\[\e[32m\]\$\e[m\] '
 
 set -o vi
 bind -m vi-command 'Control-l: clear-screen'

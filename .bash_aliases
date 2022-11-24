@@ -62,3 +62,4 @@ alias vpn_import="sudo nmcli connection import type wireguard file ~/vishnyakova
 alias bat="cat /sys/class/power_supply/BAT*/uevent"
 alias rmlock="sudo rm /var/lib/pacman/db.lck"
 alias mount_usb="udisksctl mount -b"
+alias blue="sudo systemctl start bluetooth.service && bluetoothctl"

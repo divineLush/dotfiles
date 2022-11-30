@@ -35,7 +35,6 @@ alias gsha="git stash apply"
 alias untar="tar -zxvf"
 alias listar="tar -tzf"
 
-alias dstart="sudo systemctl start docker.service ; systemctl start containerd.service"
 alias dcl="docker-clean"
 alias dpr="docker system prune -a -f"
 alias dli="docker images -a"
@@ -62,4 +61,3 @@ alias vpn_import="sudo nmcli connection import type wireguard file ~/vishnyakova
 alias bat="cat /sys/class/power_supply/BAT*/uevent"
 alias rmlock="sudo rm /var/lib/pacman/db.lck"
 alias mount_usb="udisksctl mount -b"
-alias blue="sudo systemctl start bluetooth.service && bluetoothctl"

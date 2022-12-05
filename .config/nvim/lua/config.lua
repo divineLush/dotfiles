@@ -23,7 +23,6 @@ o.fileformat = 'unix'
 o.clipboard = 'unnamedplus'
 o.number = true
 o.rnu = true
-vim.o.termguicolors = true
 
 -- window-local options
 local wo = vim.wo
@@ -32,11 +31,12 @@ wo.foldenable = false
 wo.cursorline = true
 
 -- strip trailing whitespace
-vim.cmd[[autocmd BufWritePre * :%s/\s\+$//e]]
-vim.cmd('filetype on')
+vim.cmd[[autocmd BufWritePre * :%s/\s\+$//e]] vim.cmd('filetype on')
 vim.cmd('filetype plugin on')
 vim.cmd('filetype indent on')
 
 local g = vim.g
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
+g.neovide_scale_factor = 0.75
+g.neovide_scroll_animation_length = 0.4

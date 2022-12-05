@@ -35,7 +35,6 @@ alias gsha="git stash apply"
 alias untar="tar -zxvf"
 alias listar="tar -tzf"
 
-alias dstart="sudo systemctl start docker.service ; systemctl start containerd.service"
 alias dcl="docker-clean"
 alias dpr="docker system prune -a -f"
 alias dli="docker images -a"

@@ -57,9 +57,6 @@ mouse:
 
     modifiers: None
 
-mouse_bindings:
-  - { mouse: Middle, action: Copy }
-
 key_bindings:
   - { key: P, mods: Control, action: Paste }
   - { key: Y, mods: Control, action: Copy }
@@ -71,7 +68,8 @@ key_bindings:
   - { key: B, mods: Alt, action: ScrollPageDown }
   - { key: U, mods: Alt, action: ScrollHalfPageUp }
   - { key: D, mods: Alt, action: ScrollHalfPageDown }
-  - { key: N, mods: Alt, action: SpawnNewInstance }
+  # - { key: N, mods: Alt, action: SpawnNewInstance }
+  - { key: N, mods: Alt, action: CreateNewWindow }
 
 # Kanagawa Alacritty Colors
 colors:

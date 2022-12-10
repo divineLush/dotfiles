@@ -76,7 +76,7 @@ kmap('n', 'cl', function()
 end, lspopts)
 kmap('n', 'ct', vim.lsp.buf.type_definition, lspopts)
 kmap('n', 'cr', vim.lsp.buf.references, lspopts)
-kmap('n', 'cf', vim.lsp.buf.formatting, lspopts)
+kmap('n', 'cf', vim.lsp.buf.format, lspopts)
 kmap('n', 'ca', vim.lsp.buf.code_action, lspopts)
 
 -- vim.cmd[[autocmd BufNewFile, BufRead *.vue set filetype=vue]]

@@ -38,5 +38,5 @@ vim.cmd('filetype indent on')
 local g = vim.g
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
-g.neovide_scale_factor = 0.75
-g.neovide_scroll_animation_length = 0.4
+g.neovide_scale_factor = 0.8
+g.neovide_scroll_animation_length = 0.2

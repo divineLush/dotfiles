@@ -7,8 +7,12 @@ cmp.setup({
         require('ls').lsp_expand(args.body)
       end,
     },
+    completion = {
+      completeopt = 'menu,menuone,noinsert',
+    },
     window = {
-      completion = cmp.config.window.bordered(), documentation = cmp.config.window.bordered(),
+      completion = cmp.config.window.bordered(),
+      documentation = cmp.config.window.bordered(),
     },
     mapping = cmp.mapping.preset.insert({
       ['<C-b>'] = cmp.mapping.scroll_docs(-4),
@@ -21,8 +25,6 @@ cmp.setup({
           cmp.select_next_item()
         elseif ls.expand_or_jumpable() then
           ls.expand_or_jump()
-        elseif has_words_before() then
-          cmp.complete()
         else
           fallback()
         end

@@ -73,7 +73,7 @@ require'lspconfig'.bashls.setup {}
 -- vim.diagnostic.disable()
 vim.diagnostic.config({
   -- disable = true,
-  -- signs = true,
+  signs = false,
   virtual_text = false,
   update_in_insert = false,
 })

@@ -19,6 +19,12 @@ require('packer').startup(function()
       vim.cmd 'colorscheme kanagawa'
     end
   }
+  use {
+    'goolord/alpha-nvim',
+    config = function ()
+      require'alpha'.setup(require'alpha.themes.startify'.config)
+    end
+  }
   -- use {
   --   'folke/tokyonight.nvim',
   --   config = function()

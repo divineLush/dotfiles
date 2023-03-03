@@ -27,7 +27,6 @@ local sep_widget = require("widgets.separator")
 
 local bright_helper = require("helpers.bright")
 local vol_helper = require("helpers.vol")
-local mic_helper = require("helpers.mic")
 
 awesome.set_preferred_icon_size(32)
 
@@ -398,19 +397,6 @@ globalkeys = gears.table.join(
 		{ description = "volume toggle", group = "hotkeys" }),
     awful.key({ }, "XF86AudioMute",
     		function() vol_helper:toggle() end),
-    -- Mic
-    awful.key({ modkey }, "m",
-    		function() mic_helper:toggle() end,
-		{ description = "mic toggle", group = "hotkeys" }),
-    awful.key({ }, "XF86AudioMicMute",
-    		function() mic_helper:toggle() end,
-		{ description = "mic toggle", group = "hotkeys" }),
-    awful.key({ modkey }, ",",
-    		function() mic_helper:dec_vol() end,
-		{ description = "mic vol down", group = "hotkeys" }),
-    awful.key({ modkey }, ".",
-    		function() mic_helper:inc_vol() end,
-		{ description = "mic vol up", group = "hotkeys" }),
     -- Other goodies
     awful.key({ modkey }, "t",
             function() timer_widget:toggle() end,
@@ -692,7 +678,6 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- Startup apps
 awful.spawn("brightnessctl set 23%")
-awful.spawn("redshift -O 3400")
-awful.spawn("amixer sset Master 20%")
-awful.spawn("amixer sset Capture nocap")
+awful.spawn("redshift -O 3500")
+awful.spawn("amixer -D pipewire sset Master 18%")
 awful.spawn("setxkbmap -layout 'us,ru' -option 'grp:alt_shift_toggle'")

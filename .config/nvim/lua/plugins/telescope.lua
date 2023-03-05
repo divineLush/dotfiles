@@ -9,7 +9,7 @@ require("telescope").setup({
       width = 0.85,
       preview_cutoff = 0,
     },
-    file_ignore_patterns = { "node_modules", ".git" },
+    file_ignore_patterns = { "node_modules", ".git", ".vscode" },
     path_display = { truncate = 1 },
     set_env = { ["COLORTERM"] = "truecolor" },
     mappings = {

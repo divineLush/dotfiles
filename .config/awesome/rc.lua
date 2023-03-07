@@ -422,6 +422,9 @@ globalkeys = gears.table.join(
     awful.key({ modkey, altkey }, "c",
             function() awful.util.spawn("chromium") end,
         { description = "launch chromium", group = "apps" }),
+    awful.key({ modkey, altkey }, "l",
+            function() awful.util.spawn("lite-xl") end,
+        { description = "launch firefox", group = "apps" }),
     awful.key({ modkey, altkey }, "f",
             function() awful.util.spawn("firefox") end,
         { description = "launch firefox", group = "apps" }),
@@ -678,6 +681,5 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- Startup apps
 awful.spawn("brightnessctl set 23%")
-awful.spawn("redshift -O 3500")
 awful.spawn("amixer -D pipewire sset Master 18%")
 awful.spawn("setxkbmap -layout 'us,ru' -option 'grp:alt_shift_toggle'")

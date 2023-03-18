@@ -440,6 +440,9 @@ globalkeys = gears.table.join(
     awful.key({ modkey }, "u",
             function() awful.screen.focus_relative(-1) end,
         { description = "prev screen", group = "awesome" }),
+    awful.key({ modkey, altkey }, "v",
+            function() awful.util.spawn("pavucontrol") end,
+        { description = "launch pavucontrol", group = "apps" }),
     awful.key({ modkey }, "i",
             function() awful.screen.focus_relative(1) end,
         { description = "next screen", group = "awesome" })

@@ -14,9 +14,10 @@ require('packer').startup(function()
   use 'windwp/nvim-ts-autotag'
   use 'lewis6991/gitsigns.nvim'
   use {
-    'rebelot/kanagawa.nvim',
+    'catppuccin/nvim',
+    as = 'catppuccin',
     config = function()
-      vim.cmd 'colorscheme kanagawa'
+      vim.cmd 'colorscheme catppuccin-latte'
     end
   }
   use {

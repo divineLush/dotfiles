@@ -75,10 +75,10 @@ altkey = "Mod1"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
     awful.layout.suit.max,
-    -- awful.layout.suit.tile,
+    awful.layout.suit.tile,
     awful.layout.suit.tile.left,
-    -- awful.layout.suit.tile.bottom,
-    -- awful.layout.suit.tile.top,
+    awful.layout.suit.tile.bottom,
+    awful.layout.suit.tile.top,
     awful.layout.suit.floating,
     -- awful.layout.suit.max.fullscreen,
     -- awful.layout.suit.fair,
@@ -245,7 +245,7 @@ awful.screen.connect_for_each_screen(function(s)
             sep_widget,
             wibox.widget.systray(),
             mytextclock,
-            -- s.mylayoutbox,
+            s.mylayoutbox,
         },
     }
 end)

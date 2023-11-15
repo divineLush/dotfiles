@@ -1,6 +1,6 @@
+require('plugins')
 require('config')
 require('keybinds')
-require('plug')
 require('plugins/autopairs')
 require('plugins/gitsigns')
 require('plugins/cmp')

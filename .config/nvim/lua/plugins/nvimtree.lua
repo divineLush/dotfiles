@@ -3,12 +3,6 @@ require("nvim-tree").setup({
   view = {
     side = 'left',
     adaptive_size = true,
-    mappings = {
-      list = {
-        { key = "h", action = "dir_up" },
-        { key = "l", action = "edit" },
-      },
-    },
   },
   renderer = {
     icons = {

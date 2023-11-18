@@ -1,11 +1,11 @@
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable",
+    'git',
+    'clone',
+    '--filter=blob:none',
+    'https://github.com/folke/lazy.nvim.git',
+    '--branch=stable',
     lazypath,
   })
 end
@@ -40,7 +40,13 @@ local plugins = {
       require'alpha'.setup(require'alpha.themes.startify'.config)
     end
   },
-  { 'numToStr/Comment.nvim', lazy = false },
+  {
+    'numToStr/Comment.nvim',
+    lazy = false,
+    config = function ()
+      require('Comment').setup()
+    end
+  },
   'neovim/nvim-lspconfig',
   'hrsh7th/nvim-cmp',
   'hrsh7th/cmp-nvim-lsp',

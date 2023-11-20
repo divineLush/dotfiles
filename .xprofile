@@ -1,0 +1,4 @@
+xscreensaver &
+picom -b &
+redshift -O 3300 &
+xrdb ~/.Xresources

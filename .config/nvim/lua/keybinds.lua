@@ -13,6 +13,7 @@ map('n', '<leader>k', ':bd<cr>', options)
 map('n', '<leader>K', ':bd!<cr>', options)
 map('n', '<leader>w', ':w<cr>', options)
 map('n', '<leader>q', ':q<cr>', options)
+map('n', '<leader>i', ':e!<cr>', options)
 
 -- prettier
 map('n', '<leader>p', ':silent %!prettier --stdin-filepath %<CR>', options)

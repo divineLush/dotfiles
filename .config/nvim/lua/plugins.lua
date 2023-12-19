@@ -13,7 +13,6 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
   'nvim-tree/nvim-web-devicons',
-  'nvim-lualine/lualine.nvim',
   'windwp/nvim-autopairs',
   'editorconfig/editorconfig-vim',
   { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
@@ -33,12 +32,6 @@ local plugins = {
   {
     'catppuccin/nvim',
     as = 'catppuccin',
-  },
-  {
-    'goolord/alpha-nvim',
-    config = function ()
-      require'alpha'.setup(require'alpha.themes.startify'.config)
-    end
   },
   {
     'numToStr/Comment.nvim',

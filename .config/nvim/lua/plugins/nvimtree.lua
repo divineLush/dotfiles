@@ -13,7 +13,7 @@ require("nvim-tree").setup({
       },
     },
   },
-  filters = {
-    dotfiles = true,
-  },
+  -- filters = {
+  --   dotfiles = true,
+  -- },
 })

@@ -4,7 +4,7 @@
 }
 
 window#waybar {
-    background-color: rgba(43, 48, 59, 0.3);
+    background-color: rgba(30, 30, 46, .6);
     color: #cdd6f4;
     transition-property: background-color;
     transition-duration: .5s;
@@ -32,7 +32,7 @@ button:hover {
 }
 
 #workspaces button:hover {
-    background: rgba(0, 0, 0, 0.2);
+    background-color: rgba(30, 30, 46, .9);
 }
 
 #workspaces button.active {
@@ -41,12 +41,13 @@ button:hover {
 }
 
 #workspaces button.focused {
-    background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
+    background-color: rgba(30, 30, 46, .9);
+    box-shadow: inset 0 -3px #cdd6f4;
 }
 
 #workspaces button.urgent {
-    background-color: #eb4d4b;
+    background-color: #f38ba8;
+    color: #1e1e2e;
 }
 
 #clock,
@@ -93,8 +94,7 @@ button:hover {
 
 /* Using steps() instead of linear as a timing function to limit cpu usage */
 #battery.critical:not(.charging) {
-    background-color: #f53c3c;
-    color: #ffffff;
+    background-color: #f38ba8;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: steps(12);

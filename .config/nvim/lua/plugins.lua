@@ -1,11 +1,11 @@
-local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
-    'git',
-    'clone',
-    '--filter=blob:none',
-    'https://github.com/folke/lazy.nvim.git',
-    '--branch=stable',
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable",
     lazypath,
   })
 end
@@ -26,10 +26,13 @@ local plugins = {
     name = 'catppuccin',
     priority = 1000,
     config = function ()
-      require'catppuccin'.setup({
+      require('catppuccin').setup({
+        flavour = 'mocha',
         transparent_background = true,
+        no_italic = true,
+        no_underline = true,
       })
-      vim.cmd.colorscheme 'catppuccin-mocha'
+      vim.cmd.colorscheme 'catppuccin'
     end
   },
   {
@@ -43,6 +46,12 @@ local plugins = {
       require('Comment').setup()
     end
   },
+  {
+    'norcalli/nvim-colorizer.lua',
+    config = function ()
+      require('colorizer').setup()
+    end
+  },
   'neovim/nvim-lspconfig',
   'hrsh7th/nvim-cmp',
   'hrsh7th/cmp-nvim-lsp',
@@ -51,10 +60,7 @@ local plugins = {
   'hrsh7th/cmp-cmdline',
   'rafamadriz/friendly-snippets',
   'saadparwaiz1/cmp_luasnip',
-  {
-    'L3MON4D3/LuaSnip',
-    version = 'v2.*'
-  }
+  'L3MON4D3/LuaSnip',
 }
 
 local opts = {}

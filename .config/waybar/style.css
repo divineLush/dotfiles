@@ -1,10 +1,10 @@
 * {
-    font-family: MartianMono Nerd Font;
-    font-size: 11px;
+    font-family: Hack;
+    font-size: 12px;
 }
 
 window#waybar {
-    background-color: rgba(30, 30, 46, .6);
+    background-color: rgba(30, 30, 46, .7);
     color: #cdd6f4;
     transition-property: background-color;
     transition-duration: .5s;

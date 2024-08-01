@@ -1,11 +1,13 @@
+@import "colors.css";
+
 * {
     font-family: Hack;
     font-size: 12px;
 }
 
 window#waybar {
-    background-color: rgba(30, 30, 46, .7);
-    color: #cdd6f4;
+    background-color: alpha(@base, .8);
+    color: @text;
     transition-property: background-color;
     transition-duration: .5s;
 }
@@ -22,32 +24,32 @@ button {
 
 button:hover {
     background: inherit;
-    box-shadow: inset 0 -3px #89b4fa;
+    box-shadow: inset 0 -3px @pink;
 }
 
 #workspaces button {
     padding: 0 5px;
     background-color: transparent;
-    color: #cdd6f4;
+    color: @text;
 }
 
 #workspaces button:hover {
-    background-color: rgba(30, 30, 46, .9);
+    background-color: alpha(@mantle, .9);
 }
 
 #workspaces button.active {
     background: inherit;
-    box-shadow: inset 0 -3px #f5c2e7;
+    box-shadow: inset 0 -3px @sky;
 }
 
 #workspaces button.focused {
-    background-color: rgba(30, 30, 46, .9);
-    box-shadow: inset 0 -3px #cdd6f4;
+    background-color: alpha(@base, .9);
+    box-shadow: inset 0 -3px @text;
 }
 
 #workspaces button.urgent {
-    background-color: #f38ba8;
-    color: #1e1e2e;
+    background-color: @pink;
+    color: @subtext1;
 }
 
 #clock,
@@ -77,24 +79,24 @@ button:hover {
 
 #clock {
     background-color: transparent;
-    color: #cdd6f4;
+    color: @text;
 }
 
 #battery {
     background-color: transparent;
-    color: #cdd6f4;
+    color: @text;
 }
 
 @keyframes blink {
     to {
-        background-color: #ffffff;
-        color: #000000;
+        background-color: @mantle;
+        color: @subtext0;
     }
 }
 
 /* Using steps() instead of linear as a timing function to limit cpu usage */
 #battery.critical:not(.charging) {
-    background-color: #f38ba8;
+    background-color: @pink;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: steps(12);
@@ -103,22 +105,22 @@ button:hover {
 }
 
 label:focus {
-    background-color: #000000;
+    background-color: @subtext1;
 }
 
 #pulseaudio {
     background-color: transparent;
-    color: #cdd6f4;
+    color: @text;
 }
 
 #wireplumber {
     background-color: transparent;
-    color: #cdd6f4;
+    color: @text;
 }
 
 #tray {
     background-color: transparent;
-    color: #cdd6f4;
+    color: @text;
 }
 
 #tray > .passive {
@@ -127,7 +129,7 @@ label:focus {
 
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
-    background-color: #eb4d4b;
+    background-color: @red;
 }
 
 #scratchpad {
@@ -144,5 +146,5 @@ label:focus {
 
 #privacy-item {
     padding: 0 5px;
-    color: white;
+    color: @crust;
 }

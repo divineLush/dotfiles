@@ -12,7 +12,7 @@ require'nvim-treesitter.configs'.setup {
 	  'bash',
 	  'html',
 	  'json',
-	  'latex',
+	  -- 'latex',
 	  'python',
 	  'scss',
 	  'solidity',

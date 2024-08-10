@@ -24,6 +24,7 @@ o.clipboard = 'unnamedplus'
 o.number = true
 o.rnu = true
 o.guifont = { "Fira Mono", ":h10"}
+o.background = 'light'
 
 -- window-local options
 local wo = vim.wo

@@ -27,7 +27,7 @@ local plugins = {
     priority = 1000,
     config = function ()
       require('catppuccin').setup({
-        flavour = 'mocha',
+        flavour = 'latte',
         transparent_background = true,
         no_italic = true,
         no_underline = true,

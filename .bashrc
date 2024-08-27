@@ -19,6 +19,9 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+shopt -s autocd
+complete -cf sudo
+
 osc7_cwd() {
     local strlen=${#PWD}
     local encoded=""

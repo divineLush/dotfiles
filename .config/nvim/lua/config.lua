@@ -9,7 +9,6 @@ o.ignorecase = true
 o.lazyredraw = true
 o.termguicolors = true
 o.showmatch = true
-o.showmode = false
 o.scrolloff = 6
 o.mouse = 'a'
 o.expandtab = true
@@ -23,8 +22,7 @@ o.fileformat = 'unix'
 o.clipboard = 'unnamedplus'
 o.number = true
 o.rnu = true
-o.guifont = { "Fira Mono", ":h10"}
-o.background = 'light'
+o.guifont = { "Fira Code", ":h12"}
 
 -- window-local options
 local wo = vim.wo
@@ -32,8 +30,6 @@ wo.wrap = true
 wo.foldenable = false
 wo.cursorline = true
 
--- strip trailing whitespace
-vim.cmd[[autocmd BufWritePre * :%s/\s\+$//e]] vim.cmd('filetype on')
 vim.cmd('filetype plugin on')
 vim.cmd('filetype indent on')
 
@@ -46,3 +42,30 @@ if g.neovide then
   g.neovide_cursor_animation_length = 0.16
   g.neovide_cursor_vfx_mode = 'railgun'
 end
+
+-- strip trailing whitespace
+vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
+  pattern = { "*" },
+  command = [[%s/\s\+$//e]],
+})
+
+local function statusline()
+    local file_name = " %f"
+    local modified = "%m"
+    local align_right = "%="
+    local percentage = "    %p%%"
+    local linecol = " %l:%c "
+
+    return string.format(
+        "%s %s %s%s%s%s",
+        "𒆙A",
+        -- " ",
+        file_name,
+        modified,
+        align_right,
+        linecol,
+        percentage
+    )
+end
+
+o.statusline = statusline()

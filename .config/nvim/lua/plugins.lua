@@ -36,10 +36,6 @@ local plugins = {
     end
   },
   {
-    'catppuccin/nvim',
-    as = 'catppuccin',
-  },
-  {
     'numToStr/Comment.nvim',
     lazy = false,
     config = function ()

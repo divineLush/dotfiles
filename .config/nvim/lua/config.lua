@@ -53,16 +53,18 @@ local function statusline()
     local file_name = " %f"
     local modified = "%m"
     local align_right = "%="
-    local percentage = "    %p%%"
+    local gitbranch =" %{get(b:,'gitsigns_head','')}    "
     local linecol = " %l:%c "
+    local percentage = "    %p%%"
 
     return string.format(
-        "%s %s %s%s%s%s",
+        "%s %s %s%s%s%s%s",
         "𒆙A",
         -- " ",
         file_name,
         modified,
         align_right,
+        gitbranch,
         linecol,
         percentage
     )

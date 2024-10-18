@@ -10,10 +10,10 @@ cmp.setup({
     completion = {
       completeopt = 'menu,menuone,noinsert',
     },
-    window = {
-      completion = cmp.config.window.bordered(),
-      documentation = cmp.config.window.bordered(),
-    },
+    -- window = {
+    --   completion = cmp.config.window.bordered(),
+    --   documentation = cmp.config.window.bordered(),
+    -- },
     mapping = cmp.mapping.preset.insert({
       ['<C-b>'] = cmp.mapping.scroll_docs(-4),
       ['<C-f>'] = cmp.mapping.scroll_docs(4),
@@ -48,32 +48,32 @@ cmp.setup({
 })
 
 -- Setup lspconfig.
-require'lspconfig'.pyright.setup {}
-require'lspconfig'.tsserver.setup {}
+-- require'lspconfig'.pyright.setup {}
+require'lspconfig'.ts_ls.setup {}
 -- require'lspconfig'.quick_lint_js.setup {}
 -- require'lspconfig'.remark_ls.setup {}
 -- require'lspconfig'.sqls.setup {}
 -- require'lspconfig'.solang.setup {}
 -- require'lspconfig'.sumneko_lua.setup {}
-require'lspconfig'.volar.setup {}
-require'lspconfig'.svelte.setup {}
+-- require'lspconfig'.volar.setup {}
+-- require'lspconfig'.svelte.setup {}
 require'lspconfig'.jsonls.setup {}
 require'lspconfig'.eslint.setup {}
 require'lspconfig'.cssls.setup {}
 -- require'lspconfig'.awk_ls.setup {}
 require'lspconfig'.html.setup {}
-require'lspconfig'.angularls.setup {}
+-- require'lspconfig'.angularls.setup {}
 require'lspconfig'.dockerls.setup {}
 require'lspconfig'.cssmodules_ls.setup {}
 require'lspconfig'.stylelint_lsp.setup {}
 -- require'lspconfig'.elixirls.setup {}
 -- require'lspconfig'.gopls.setup {}
-require'lspconfig'.bashls.setup {}
+-- require'lspconfig'.bashls.setup {}
 
 -- vim.diagnostic.disable()
 vim.diagnostic.config({
   -- disable = true,
-  signs = false,
+  -- signs = false,
   virtual_text = false,
   update_in_insert = false,
 })

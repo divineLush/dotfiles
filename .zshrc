@@ -1,8 +1,12 @@
+autoload -Uz compinit promptinit
+compinit
+promptinit
+
+prompt walters
+
 unsetopt beep
 setopt autocd
 
 bindkey -v
-
-PROMPT="%~ %# "
 
 source ~/.zsh_aliases

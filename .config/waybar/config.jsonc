@@ -15,16 +15,21 @@
     ],
     "hyprland/workspaces": {
         "format": "{icon}",
+        "format-icons": {
+            "default": "&#11044;"
+        },
         "on-scroll-up": "hyprctl dispatch workspace e+1",
         "on-scroll-down": "hyprctl dispatch workspace e-1"
     },
     "hyprland/window": {
         "max-length": 200,
         "separate-outputs": true,
-        "icon": false
+        "icon": true,
+        "icon-size": 16
     },
     "tray": {
-        "spacing": 10
+        "spacing": 10,
+        "icon-size": 16
     },
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",

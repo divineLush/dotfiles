@@ -13,7 +13,7 @@ local text = wibox.widget {
 }
 
 local function set_text(arg)
-    text:set_text('ti:'..arg)
+    text:set_text('t:'..arg)
 end
 
 local time = 25

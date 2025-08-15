@@ -11,11 +11,11 @@ local themes_path = gfs.get_themes_dir()
 
 local theme = {}
 
-theme.font          = "Hack 10"
+theme.font          = "Hack 9"
 
 -- mocha
 theme.bg_normal     = "#1E1E2E"
-theme.bg_focus      = "#89B4FA"
+theme.bg_focus      = "#4c4f69"
 theme.bg_urgent     = "#F38BA8"
 theme.bg_minimize   = "#A6E3A1"
 -- latte
@@ -28,8 +28,8 @@ theme.bg_systray    = theme.bg_normal
 -- mocha
 theme.fg_normal     = "#CDD6F4"
 -- latte
--- theme.fg_normal     = "#4C4F69"
-theme.fg_focus      = theme.bg_normal
+-- theme.fg_normal     = "#6c6f85"
+theme.fg_focus      = theme.fg_normal
 theme.fg_urgent     = theme.bg_normal
 theme.fg_minimize   = theme.bg_normal
 
@@ -73,7 +73,7 @@ theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
 -- theme.menu_submenu_icon = themes_path.."default/submenu.png"
-theme.menu_height = dpi(30)
+theme.menu_height = dpi(25)
 theme.menu_width  = dpi(200)
 
 -- You can add as many variables as
@@ -134,7 +134,7 @@ theme.menu_width  = dpi(200)
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
 theme.icon_theme = 'Papirus-Dark'
-theme.wallpaper = "~/Wallpapers/clouds2.jpg"
+theme.wallpaper = "~/Downloads/wallhaven-9dqy61_3840x2160.png"
 
 return theme
 

@@ -76,9 +76,9 @@ altkey = "Mod1"
 awful.layout.layouts = {
     awful.layout.suit.max,
     awful.layout.suit.tile,
-    awful.layout.suit.tile.left,
-    awful.layout.suit.tile.bottom,
-    awful.layout.suit.tile.top,
+    -- awful.layout.suit.tile.left,
+    -- awful.layout.suit.tile.bottom,
+    -- awful.layout.suit.tile.top,
     awful.layout.suit.floating,
     -- awful.layout.suit.max.fullscreen,
     -- awful.layout.suit.fair,
@@ -683,6 +683,4 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 -- Startup apps
-awful.spawn("brightnessctl set 23%")
-awful.spawn("amixer -D pipewire sset Master 18%")
 awful.spawn("setxkbmap -layout 'us,ru' -option 'grp:alt_shift_toggle'")

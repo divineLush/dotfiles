@@ -2,7 +2,7 @@ configuration {
   display-drun: "Applications:";
   display-window: "Windows:";
   drun-display-format: "{icon} {name}";
-  font: "Hack 16";
+  font: "Hack 12";
   modi: "window,drun";
   show-icons: true;
   icon-theme: "Papirus";
@@ -11,12 +11,12 @@ configuration {
 @theme "/dev/null"
 
 * {
-  bg: #EFF1F5;
+  bg: #1e1e2e;
   bg-alt: @bg;
 
-  fg: #4C4F69;
+  fg: #cdd6f4;
 
-  focus: #1E66F5;
+  focus: #4c4f69;
 
   background-color: @bg;
 
@@ -28,7 +28,7 @@ configuration {
 
 window {
   width: 30%;
-  border: 3;
+  border: 2;
   border-color: @focus;
 }
 
@@ -38,7 +38,6 @@ element {
 }
 
 element selected {
-  text-color: @bg;
   background-color: @focus;
 }
 

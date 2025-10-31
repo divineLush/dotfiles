@@ -19,7 +19,8 @@
     "hyprland/workspaces": {
         "format": "{icon}",
         "format-icons": {
-            "default": "&#11044;"
+            "active": "&#11044;",
+            "default": "&#9675;"
         },
         "on-scroll-up": "hyprctl dispatch workspace e+1",
         "on-scroll-down": "hyprctl dispatch workspace e-1"
@@ -63,7 +64,7 @@
         }
     },
     "network": {
-        "interface": "wlan0",
+        "interface": "wlp1s0",
         "format": "{ifname}",
         "format-wifi": "{essid}  ",
         "format-ethernet": "{ipaddr}/{cidr} 󰊗 ",

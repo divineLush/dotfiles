@@ -24,9 +24,11 @@ set $menu fuzzel
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/Wallpapers/abstract/wallhaven-393g5v_3840x2160.png fill
+output * bg ~/Wallpapers/abstract/wallhaven-766qdo_3840x2160.png fill
 output * scale 1
+
 output eDP-1 pos 0 0
+output HDMI-A-1 mode 1920x1080@144.000Hz pos 1920 0
 #
 # Example configuration:
 #
@@ -61,6 +63,15 @@ output eDP-1 pos 0 0
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
+input type:touchpad {
+    tap enabled
+    dwt enabled
+    natural_scroll enabled
+}
+
+bindgesture swipe:3:left workspace prev
+bindgesture swipe:3:right workspace next
+
 input * {
     xkb_layout us,ru
     xkb_variant ,
@@ -70,8 +81,8 @@ input * {
 default_border none
 default_floating_border none
 
-gaps inner 4
-gaps outer 4
+gaps inner 3
+gaps outer 3
 
 ### Key bindings
 #
@@ -104,6 +115,7 @@ gaps outer 4
     bindsym $mod+semicolon exec pamixer -d 2
 
     bindsym $mod+Alt+v exec pavucontrol
+    bindsym $mod+Shift+e exec pcmanfm
 
     bindsym $mod+plus exec playerctl -a next
     bindsym $mod+minus exec playerctl -a previous
@@ -238,12 +250,13 @@ bindsym $mod+r mode "resize"
 # Read `man 5 sway-bar` for more information about this section.
 bar {
     position top
-    font pango:Geist Medium 12
+    font pango:GeistMono Medium 12
     tray_output *
     tray_padding 2
     tray_bindsym button1 Activate
     tray_bindsym button2 SecondaryActivate
     tray_bindsym button3 ContextMenu
+    workspace_min_width 35
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
@@ -251,7 +264,7 @@ bar {
 
     colors {
         statusline #cdd6f4
-        background #1e1e2e60
+        background #1e1e2e80
         focused_workspace    #00000000 #00000000 #cdd6f4
         active_workspace     #00000000 #00000000 #cdd6f4
         inactive_workspace   #00000000 #00000000 #6c7086

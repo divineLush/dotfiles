@@ -4,6 +4,14 @@
 #
 # Read `man 5 sway` for a complete reference.
 
+# Global client colors (affects all windows' titlebars/borders)
+client.focused          #585b70 #585b70 #cdd6f4 #292929 #585b70
+client.unfocused        #313244 #313244 #cdd6f4 #292929 #313244
+client.urgent           #f38ba8 #f38ba8 #cdd6f4 #292929 #f38ba8
+client.placeholder      #585b70 #313244 #cdd6f4 #292929 #585b70
+client.background       #cdd6f4
+font pango:GeistMono Medium 12
+
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -81,8 +89,8 @@ input * {
 default_border none
 default_floating_border none
 
-gaps inner 3
-gaps outer 3
+gaps inner 4
+gaps outer 4
 
 ### Key bindings
 #
@@ -91,6 +99,8 @@ gaps outer 3
     # Start a terminal
     bindsym $mod+Return exec $term
     bindsym $mod+Alt+f exec firefox
+    bindsym $mod+Alt+t exec telegram-desktop
+    bindsym $mod+Alt+c exec chromium
 
     # Kill focused window
     bindsym $mod+c kill
@@ -278,6 +288,6 @@ exec pamixer --set-volume 30
 exec dunst
 exec swayidle -w timeout 300 'swaylock'
 
-seat seat0 xcursor_theme Adwaita 32
+seat seat0 xcursor_theme Adwaita 28
 
 include /etc/sway/config.d/*

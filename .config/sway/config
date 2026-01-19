@@ -7,7 +7,7 @@
 # Global client colors (affects all windows' titlebars/borders)
 client.focused          #585b70 #585b70 #cdd6f4 #292929 #585b70
 client.unfocused        #313244 #313244 #cdd6f4 #292929 #313244
-client.urgent           #f38ba8 #f38ba8 #cdd6f4 #292929 #f38ba8
+client.urgent           #f5c2e7 #f5c2e7 #cdd6f4 #292929 #f5c2e7
 client.placeholder      #585b70 #313244 #cdd6f4 #292929 #585b70
 client.background       #cdd6f4
 font pango:GeistMono Medium 12
@@ -33,7 +33,7 @@ set $menu fuzzel
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg ~/Wallpapers/abstract/wallhaven-jxz1dp_3840x2160.png fill
-output * bg #313244 solid_color
+output * bg #181825 solid_color
 output * scale 1
 
 output eDP-1 pos 0 0
@@ -102,8 +102,8 @@ input * {
 default_border none
 default_floating_border none
 
-gaps inner 2
-gaps outer 2
+gaps inner 4
+gaps outer 0
 
 ### Key bindings
 #
@@ -279,7 +279,7 @@ bar {
     tray_bindsym button1 Activate
     tray_bindsym button2 SecondaryActivate
     tray_bindsym button3 ContextMenu
-    workspace_min_width 35
+    workspace_min_width 40
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
@@ -287,11 +287,11 @@ bar {
 
     colors {
         statusline #cdd6f4
-        background #1e1e2e70
-        focused_workspace    #1e1e2e70 #1e1e2e70 #cdd6f4
-        active_workspace     #1e1e2e70 #1e1e2e70 #cdd6f4
-        inactive_workspace   #1e1e2e70 #1e1e2e70 #7f849c
-        urgent_workspace     #1e1e2e70 #1e1e2e70 #f38ba8
+        background #181825
+        focused_workspace    #181825 #181825 #cdd6f4
+        active_workspace     #181825 #181825 #cdd6f4
+        inactive_workspace   #181825 #181825 #7f849c
+        urgent_workspace     #181825 #181825 #f5c2e7
     }
 }
 
@@ -301,6 +301,6 @@ exec pamixer --set-volume 30
 exec dunst
 exec swayidle -w timeout 300 'swaylock'
 
-seat seat0 xcursor_theme Adwaita 28
+seat seat0 xcursor_theme DMZ-Black 32
 
 include /etc/sway/config.d/*

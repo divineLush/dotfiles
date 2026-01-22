@@ -1,0 +1,5 @@
+set aaa_mode=album
+set repeat=true
+set repeat_current=false
+set continue=true
+set shuffle=off

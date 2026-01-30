@@ -1,5 +1,6 @@
 {
     "spacing": 4,
+    "height": 30,
     "modules-left": [
         "hyprland/workspaces"
     ],
@@ -7,7 +8,6 @@
         "hyprland/window"
     ],
     "modules-right": [
-        "keyboard-state",
         "hyprland/language",
         "pulseaudio",
         "network",
@@ -17,11 +17,7 @@
         "tray"
     ],
     "hyprland/workspaces": {
-        "format": "{icon}",
-        "format-icons": {
-            "active": "&#11044;",
-            "default": "&#9675;"
-        },
+        "format": "",
         "on-scroll-up": "hyprctl dispatch workspace e+1",
         "on-scroll-down": "hyprctl dispatch workspace e-1"
     },
@@ -43,31 +39,21 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity} {icon}",
-        "format-full": "{capacity} {icon}",
-        "format-charging": "{capacity} ",
-        "format-plugged": "{capacity} ",
+        "format": "{icon}",
+        "format-full": "{icon}",
+        "format-charging": "",
+        "format-plugged": "",
         "format-alt": "{time} {icon}",
         "format-icons": ["", "", "", "", ""]
     },
     "battery#bat2": {
         "bat": "BAT2"
     },
-    "keyboard-state": {
-        "capslock": true,
-        "format": {
-            "capslock": "{icon} "
-        },
-        "format-icons": {
-            "locked": " ",
-            "unlocked": ""
-        }
-    },
     "network": {
         "interface": "wlp1s0",
         "format": "{ifname}",
-        "format-wifi": "{essid}  ",
-        "format-ethernet": "{ipaddr}/{cidr} 󰊗 ",
+        "format-wifi": " ",
+        "format-ethernet": "󰊗 ",
         "format-disconnected": "",
         "tooltip-format": "{ifname} via {gwaddr} 󰊗 ",
         "tooltip-format-wifi": "{essid} ({signalStrength}%)  ",

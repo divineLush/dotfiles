@@ -1,12 +1,12 @@
 @import "colors.css";
 
 * {
-    font-family: Geist Medium;
-    font-size: 12px;
+    font-family: Roboto Medium;
+    font-size: 16px;
 }
 
 window#waybar {
-    background-color: rgba(30, 30, 46, 0.8);
+    background: rgba(49, 50, 68, 0.4);
     color: @text;
     transition-property: color;
     transition-duration: .5s;
@@ -29,26 +29,36 @@ button:hover {
     background: inherit;
 }
 
+#workspaces {
+  padding-left: 5px;
+}
+
 #workspaces button {
-    padding: 0 5px;
-    background-color: transparent;
-    color: @text;
+    min-width: 24px;
+    margin-right: 5px;
+    padding: 0 10px;
+    border-bottom: 3px solid @subtext0;
+    transition: all .4s ease-out;
 }
 
 #workspaces button:hover {
-    color: @subtext0;
+    background: rgba(127, 132, 156, 0.4);
+    border-color: @overlay1;
 }
 
-/* #workspaces button.active { */
-/*     color: @blue; */
-/* } */
+#workspaces button.active {
+    background: rgba(180, 190, 254, 0.4);
+    border-color: @lavender;
+}
 
-/* #workspaces button.focused { */
-/*     color: @sky; */
-/* } */
+#workspaces button.focused {
+    background: rgba(180, 190, 254, 0.4);
+    border-color: @lavender;
+}
 
 #workspaces button.urgent {
-    color: @pink;
+    background: rgba(243, 139, 168, 0.4);
+    border-color: @red;
 }
 
 #clock,

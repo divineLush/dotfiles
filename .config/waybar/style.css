@@ -1,12 +1,12 @@
 @import "colors.css";
 
 * {
-    font-family: Roboto Medium;
+    font-family: Fira Sans Medium;
     font-size: 16px;
 }
 
 window#waybar {
-    background: rgba(49, 50, 68, 0.4);
+    background: @base;
     color: @text;
     transition-property: color;
     transition-duration: .5s;
@@ -29,71 +29,45 @@ button:hover {
     background: inherit;
 }
 
-#workspaces {
-  padding-left: 5px;
-}
-
 #workspaces button {
-    min-width: 24px;
-    margin-right: 5px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    margin-right: 6px;
     padding: 0 10px;
-    border-bottom: 3px solid @subtext0;
+    background: rgba(180, 190, 254, 0.4);
     transition: all .4s ease-out;
 }
 
 #workspaces button:hover {
-    background: rgba(127, 132, 156, 0.4);
-    border-color: @overlay1;
+    background: rgba(127, 132, 156, 0.8);
 }
 
 #workspaces button.active {
-    background: rgba(180, 190, 254, 0.4);
-    border-color: @lavender;
+    background: rgba(180, 190, 254, 0.8);
 }
 
 #workspaces button.focused {
-    background: rgba(180, 190, 254, 0.4);
-    border-color: @lavender;
+    background: rgba(180, 190, 254, 0.8);
 }
 
 #workspaces button.urgent {
-    background: rgba(243, 139, 168, 0.4);
-    border-color: @red;
+    background: rgba(243, 139, 168, 0.8);
 }
 
 #clock,
 #battery,
-#disk,
 #pulseaudio,
-#wireplumber,
 #custom-media,
 #tray,
 #scratchpad,
+#language,
 #mpd {
     padding: 0 10px;
 }
 
 #window,
 #workspaces {
-    margin: 0 4px;
-}
-
-.modules-left > widget:first-child > #workspaces {
-    margin-left: 0;
-}
-
-.modules-right > widget:last-child > #workspaces {
-    margin-right: 0;
-}
-
-#clock {
-    background-color: transparent;
-    color: @text;
-}
-
-#battery {
-    background-color: transparent;
-    color: @text;
+    margin: 0 5px;
 }
 
 @keyframes blink {
@@ -115,21 +89,6 @@ button:hover {
 
 label:focus {
     background-color: @subtext1;
-}
-
-#pulseaudio {
-    background-color: transparent;
-    color: @text;
-}
-
-#wireplumber {
-    background-color: transparent;
-    color: @text;
-}
-
-#tray {
-    background-color: transparent;
-    color: @text;
 }
 
 #tray > .passive {

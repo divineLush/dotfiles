@@ -1,5 +1,5 @@
 {
-    "spacing": 4,
+    "spacing": 8,
     "height": 30,
     "modules-left": [
         "hyprland/workspaces"
@@ -9,7 +9,6 @@
     ],
     "modules-right": [
         "hyprland/language",
-        "pulseaudio",
         "network",
         "battery",
         "battery#bat2",
@@ -58,28 +57,12 @@
         "tooltip-format": "{ifname} via {gwaddr} 󰊗 ",
         "tooltip-format-wifi": "{essid} ({signalStrength}%)  ",
         "tooltip-format-ethernet": "{ifname}  ",
-        "tooltip-format-disconnected": "Disconnected",
+        "tooltip-format-disconnected": "",
         "max-length": 50
     },
     "hyprland/language": {
         "format": "{} ",
-        "format-en": "EN",
-        "format-ru": "RU"
-    },
-    "pulseaudio": {
-        "format": "{volume} {icon} {format_source}",
-        "format-bluetooth": "{volume} {icon} {format_source}",
-        "format-bluetooth-muted": "{icon} {format_source}",
-        "format-muted": "{format_source}",
-        "format-source": "{volume} ",
-        "format-source-muted": "",
-        "format-icons": {
-            "headphone": " ",
-            "phone": " ",
-            "portable": " ",
-            "car": " ",
-            "default": [" ", " ", "  "]
-        },
-        "on-click": "pavucontrol"
+        "format-en": "en",
+        "format-ru": "ru"
     }
 }

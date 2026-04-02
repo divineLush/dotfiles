@@ -21,7 +21,6 @@ o.title = true
 o.fileformat = 'unix'
 o.clipboard = 'unnamedplus'
 o.number = true
-o.rnu = true
 o.guifont = { "Fira Code", ":h12"}
 
 -- window-local options
@@ -38,9 +37,9 @@ g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 
 if g.neovide then
-  g.neovide_scroll_animation_length = 0.16
-  g.neovide_cursor_animation_length = 0.16
-  g.neovide_cursor_vfx_mode = 'railgun'
+  g.neovide_scroll_animation_length = 0.1
+  g.neovide_cursor_animation_length = 0
+  g.neovide_scale_factor = 1.0
 end
 
 -- strip trailing whitespace
@@ -49,25 +48,38 @@ vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
   command = [[%s/\s\+$//e]],
 })
 
-local function statusline()
-    local file_name = " %f"
-    local modified = "%m"
-    local align_right = "%="
-    local gitbranch =" %{get(b:,'gitsigns_head','')}    "
-    local linecol = " %l:%c "
-    local percentage = "    %p%%"
+-- automatic formatting via gofmt
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.go",
+  callback = function()
+    vim.lsp.buf.format({ async = false })
+  end,
+})
 
-    return string.format(
-        "%s %s %s%s%s%s%s",
-        "𒆙A",
-        -- " ",
+function statusline()
+    local file_name = "%<%f"
+    local modified = " %m%r"
+    local align_right = "%="
+    local gitbranch = "    "
+    local linecol = " %l:%c"
+
+    if vim.g.loaded_gitsigns then
+        local status = vim.b.gitsigns_status_dict
+        if status and status.head then
+            gitbranch = status.head .. "    "
+        end
+    end
+
+    return table.concat({
+        " ",
+        " ",
         file_name,
         modified,
         align_right,
         gitbranch,
         linecol,
-        percentage
-    )
+        " "
+    })
 end
 
-o.statusline = statusline()
+vim.o.statusline = "%!v:lua.statusline()"

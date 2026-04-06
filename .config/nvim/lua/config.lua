@@ -63,11 +63,8 @@ function statusline()
     local gitbranch = "    "
     local linecol = " %l:%c"
 
-    if vim.g.loaded_gitsigns then
-        local status = vim.b.gitsigns_status_dict
-        if status and status.head then
-            gitbranch = status.head .. "    "
-        end
+    if vim.b.gitsigns_head then
+        gitbranch = " " .. vim.b.gitsigns_head .. "    "
     end
 
     return table.concat({

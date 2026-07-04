@@ -45,3 +45,8 @@ hl.config({
     disable_hyprland_logo = true,
   },
 })
+
+hl.animation({ leaf = "workspaces", enabled = true, speed = 3, bezier = "default", style = "slide" })
+hl.animation({ leaf = "windows", enabled = true, speed = 3, bezier = "default" })
+hl.animation({ leaf = "fade", enabled = true, speed = 3, bezier = "default" })
+

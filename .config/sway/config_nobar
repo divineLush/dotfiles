@@ -22,6 +22,7 @@ set $term alacritty
 # on the original workspace that the command was run on.
 # set $menu dmenu_path | wmenu | xargs swaymsg exec --
 set $menu fuzzel
+set $filemanager pcmanfm
 
 ### Output configuration
 #
@@ -108,6 +109,7 @@ gaps outer 0
     bindsym --to-code $mod+Alt+f exec firefox
     bindsym --to-code $mod+Alt+t exec telegram-desktop
     bindsym --to-code $mod+Alt+c exec chromium
+    bindsym --to-code $mod+e exec $filemanager
 
     # Area screenshot
     bindsym --to-code $mod+p exec grim -g "$(slurp)" - | swappy -f -
@@ -212,9 +214,8 @@ gaps outer 0
     bindsym --to-code $mod+v splitv
 
     # Switch the current container between different layout styles
-    bindsym --to-code $mod+s layout stacking
+    bindsym --to-code $mod+s layout toggle split
     bindsym --to-code $mod+w layout tabbed
-    bindsym --to-code $mod+e layout toggle split
 
     # Make the current focus fullscreen
     bindsym --to-code $mod+f fullscreen
@@ -239,4 +240,3 @@ exec swayidle -w \
 seat seat0 xcursor_theme DMZ-Black 32
 
 include /etc/sway/config.d/*
-

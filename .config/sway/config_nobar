@@ -232,7 +232,6 @@ exec gammastep -O 4900
 exec brightnessctl set 30%
 exec pamixer --set-volume 30
 exec mako
-exec swayidle -w timeout 300 'swaylock'
 exec swayidle -w \
     timeout 300 'swaylock -f' \
     before-sleep 'swaylock -f'
@@ -240,3 +239,4 @@ exec swayidle -w \
 seat seat0 xcursor_theme DMZ-Black 32
 
 include /etc/sway/config.d/*
+

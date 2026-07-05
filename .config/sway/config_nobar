@@ -1,0 +1,242 @@
+# Global client colors (affects all windows' titlebars/borders)
+client.focused          #585b70 #585b70 #cdd6f4 #292929 #585b70
+client.unfocused        #313244 #313244 #cdd6f4 #292929 #313244
+client.urgent           #f5c2e7 #f5c2e7 #cdd6f4 #292929 #f5c2e7
+client.placeholder      #585b70 #313244 #cdd6f4 #292929 #585b70
+client.background       #cdd6f4
+font pango:GeistMono Medium 12
+
+### Variables
+#
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+# Your preferred terminal emulator
+set $term alacritty
+# Your preferred application launcher
+# Note: pass the final command to swaymsg so that the resulting window can be opened
+# on the original workspace that the command was run on.
+# set $menu dmenu_path | wmenu | xargs swaymsg exec --
+set $menu fuzzel
+
+### Output configuration
+#
+# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+# output * bg ~/Wallpapers/abstract/wallhaven-jxz1dp_3840x2160.png fill
+output * bg #181825 solid_color
+output * scale 1
+
+output eDP-1 pos 0 0
+output HDMI-A-1 mode 1920x1080@144.000Hz pos 1920 0
+
+workspace 1 output eDP-1
+workspace 2 output eDP-1
+workspace 3 output eDP-1
+workspace 4 output eDP-1
+workspace 5 output eDP-1
+workspace 6 output HDMI-A-1
+workspace 7 output HDMI-A-1
+workspace 8 output HDMI-A-1
+workspace 9 output HDMI-A-1
+workspace 10 output HDMI-A-1
+
+#
+# Example configuration:
+#
+#   output HDMI-A-1 resolution 1920x1080 position 1920,0
+#
+# You can get the names of your outputs by running: swaymsg -t get_outputs
+
+### Idle configuration
+#
+# Example configuration:
+#
+# exec swayidle -w \
+#          timeout 300 'swaylock -f -c 000000' \
+#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+#          before-sleep 'swaylock -f -c 000000'
+#
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+
+### Input configuration
+#
+# Example configuration:
+#
+#   input "2:14:SynPS/2_Synaptics_TouchPad" {
+#       dwt enabled
+#       tap enabled
+#       natural_scroll enabled
+#       middle_emulation enabled
+#   }
+#
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
+
+input type:touchpad {
+    tap enabled
+    dwt enabled
+    natural_scroll enabled
+}
+
+bindgesture swipe:3:left workspace prev
+bindgesture swipe:3:right workspace next
+
+input * {
+    xkb_layout us,ru
+    xkb_variant ,
+    xkb_options grp:alt_shift_toggle
+}
+
+default_border none
+default_floating_border none
+
+gaps inner 4
+gaps outer 0
+
+### Key bindings
+#
+# Basics:
+#
+    # Start a terminal
+    bindsym $mod+Return exec $term
+    bindsym --to-code $mod+Alt+f exec firefox
+    bindsym --to-code $mod+Alt+t exec telegram-desktop
+    bindsym --to-code $mod+Alt+c exec chromium
+
+    # Area screenshot
+    bindsym --to-code $mod+p exec grim -g "$(slurp)" - | swappy -f -
+
+    # Kill focused window
+    bindsym --to-code $mod+c kill
+
+    # Start your launcher
+    bindsym Alt+Space exec $menu
+
+    # Drag floating windows by holding down $mod and left mouse button.
+    # Resize them with right mouse button + $mod.
+    # Despite the name, also works for non-floating windows.
+    # Change normal to inverse to use left mouse button for resizing and right
+    # mouse button for dragging.
+    floating_modifier $mod normal
+
+    # Reload the configuration file
+    bindsym --to-code $mod+Shift+c reload
+
+    bindsym --to-code $mod+bracketleft exec brightnessctl set 2%-
+    bindsym --to-code $mod+bracketright exec brightnessctl set +2%
+
+    bindsym --to-code $mod+apostrophe exec pamixer -i 2
+    bindsym --to-code $mod+semicolon exec pamixer -d 2
+
+    bindsym --to-code $mod+Alt+v exec pavucontrol
+    bindsym --to-code $mod+Shift+e exec pcmanfm
+
+    bindsym --to-code $mod+plus exec playerctl -a next
+    bindsym --to-code $mod+minus exec playerctl -a previous
+    bindsym --to-code $mod+backspace exec playerctl -a play-pause
+
+    # Exit sway (logs you out of your Wayland session)
+    bindsym --to-code $mod+m exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    bindsym --to-code $mod+Shift+r exec reboot
+    bindsym --to-code $mod+Shift+p exec poweroff
+
+    bindsym --to-code $mod+z exec swaylock
+#
+# Moving around:
+#
+    # Move your focus around
+    bindsym --to-code $mod+$left focus left
+    bindsym --to-code $mod+$down focus down
+    bindsym --to-code $mod+$up focus up
+    bindsym --to-code $mod+$right focus right
+    # Or use $mod+[up|down|left|right]
+    bindsym $mod+Left focus left
+    bindsym $mod+Down focus down
+    bindsym $mod+Up focus up
+    bindsym $mod+Right focus right
+
+    # Move the focused window with the same, but add Shift
+    bindsym --to-code $mod+Shift+$left move left
+    bindsym --to-code $mod+Shift+$down move down
+    bindsym --to-code $mod+Shift+$up move up
+    bindsym --to-code $mod+Shift+$right move right
+    # Ditto, with arrow keys
+    bindsym $mod+Shift+Left move left
+    bindsym $mod+Shift+Down move down
+    bindsym $mod+Shift+Up move up
+    bindsym $mod+Shift+Right move right
+#
+# Workspaces:
+#
+    # Switch to workspace
+    bindsym $mod+1 workspace number 1
+    bindsym $mod+2 workspace number 2
+    bindsym $mod+3 workspace number 3
+    bindsym $mod+4 workspace number 4
+    bindsym $mod+5 workspace number 5
+    bindsym $mod+6 workspace number 6
+    bindsym $mod+7 workspace number 7
+    bindsym $mod+8 workspace number 8
+    bindsym $mod+9 workspace number 9
+    bindsym $mod+0 workspace number 10
+    # Move focused container to workspace
+    bindsym $mod+Shift+1 move container to workspace number 1
+    bindsym $mod+Shift+2 move container to workspace number 2
+    bindsym $mod+Shift+3 move container to workspace number 3
+    bindsym $mod+Shift+4 move container to workspace number 4
+    bindsym $mod+Shift+5 move container to workspace number 5
+    bindsym $mod+Shift+6 move container to workspace number 6
+    bindsym $mod+Shift+7 move container to workspace number 7
+    bindsym $mod+Shift+8 move container to workspace number 8
+    bindsym $mod+Shift+9 move container to workspace number 9
+    bindsym $mod+Shift+0 move container to workspace number 10
+
+    bindsym --to-code $mod+comma workspace prev
+    bindsym --to-code $mod+period workspace next
+
+    # Note: workspaces can have any name you want, not just numbers.
+    # We just use 1-10 as the default.
+#
+# Layout stuff:
+#
+    # You can "split" the current object of your focus with
+    # $mod+b or $mod+v, for horizontal and vertical splits
+    # respectively.
+    bindsym --to-code $mod+b splith
+    bindsym --to-code $mod+v splitv
+
+    # Switch the current container between different layout styles
+    bindsym --to-code $mod+s layout stacking
+    bindsym --to-code $mod+w layout tabbed
+    bindsym --to-code $mod+e layout toggle split
+
+    # Make the current focus fullscreen
+    bindsym --to-code $mod+f fullscreen
+
+    # Toggle the current focus between tiling and floating mode
+    bindsym --to-code $mod+Shift+space floating toggle
+
+    # Swap focus between the tiling area and the floating area
+    bindsym --to-code $mod+space focus mode_toggle
+
+    # Move focus to the parent container
+    bindsym --to-code $mod+a focus parent
+exec gammastep -O 4900
+exec brightnessctl set 30%
+exec pamixer --set-volume 30
+exec mako
+exec swayidle -w timeout 300 'swaylock'
+exec swayidle -w \
+    timeout 300 'swaylock -f' \
+    before-sleep 'swaylock -f'
+
+seat seat0 xcursor_theme DMZ-Black 32
+
+include /etc/sway/config.d/*
+

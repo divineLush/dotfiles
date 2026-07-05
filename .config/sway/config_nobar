@@ -24,6 +24,8 @@ set $term alacritty
 set $menu fuzzel
 set $filemanager pcmanfm
 
+mouse_warping container
+
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -97,7 +99,7 @@ input * {
 default_border none
 default_floating_border none
 
-gaps inner 4
+gaps inner 8
 gaps outer 0
 
 ### Key bindings
@@ -235,6 +237,7 @@ exec mako
 exec swayidle -w \
     timeout 300 'swaylock -f' \
     before-sleep 'swaylock -f'
+exec swaybg -i ~/Wallpapers/wallhaven-gpx88d_4224x2376.png -m fill
 
 seat seat0 xcursor_theme DMZ-Black 32
 

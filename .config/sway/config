@@ -1,9 +1,3 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
-# Read `man 5 sway` for a complete reference.
-
 # Global client colors (affects all windows' titlebars/borders)
 client.focused          #585b70 #585b70 #cdd6f4 #292929 #585b70
 client.unfocused        #313244 #313244 #cdd6f4 #292929 #313244
@@ -22,12 +16,15 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term alacritty
+set $term footclient
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 # set $menu dmenu_path | wmenu | xargs swaymsg exec --
 set $menu fuzzel
+set $filemanager pcmanfm
+
+# mouse_warping container
 
 ### Output configuration
 #
@@ -102,7 +99,7 @@ input * {
 default_border none
 default_floating_border none
 
-gaps inner 4
+gaps inner 6
 gaps outer 0
 
 ### Key bindings
@@ -111,12 +108,16 @@ gaps outer 0
 #
     # Start a terminal
     bindsym $mod+Return exec $term
-    bindsym $mod+Alt+f exec firefox
-    bindsym $mod+Alt+t exec telegram-desktop
-    bindsym $mod+Alt+c exec chromium
+    bindsym --to-code $mod+Alt+f exec firefox
+    bindsym --to-code $mod+Alt+t exec telegram-desktop
+    bindsym --to-code $mod+Alt+c exec chromium
+    bindsym --to-code $mod+e exec $filemanager
+
+    # Area screenshot
+    bindsym --to-code $mod+p exec grim -g "$(slurp)" - | swappy -f -
 
     # Kill focused window
-    bindsym $mod+c kill
+    bindsym --to-code $mod+c kill
 
     # Start your launcher
     bindsym Alt+Space exec $menu
@@ -129,35 +130,35 @@ gaps outer 0
     floating_modifier $mod normal
 
     # Reload the configuration file
-    bindsym $mod+Shift+c reload
+    bindsym --to-code $mod+Shift+c reload
 
-    bindsym $mod+bracketleft exec brightnessctl set 2%-
-    bindsym $mod+bracketright exec brightnessctl set +2%
+    bindsym --to-code $mod+bracketleft exec brightnessctl set 2%-
+    bindsym --to-code $mod+bracketright exec brightnessctl set +2%
 
-    bindsym $mod+apostrophe exec pamixer -i 2
-    bindsym $mod+semicolon exec pamixer -d 2
+    bindsym --to-code $mod+apostrophe exec pamixer -i 2
+    bindsym --to-code $mod+semicolon exec pamixer -d 2
 
-    bindsym $mod+Alt+v exec pavucontrol
-    bindsym $mod+Shift+e exec pcmanfm
+    bindsym --to-code $mod+Alt+v exec pavucontrol
+    bindsym --to-code $mod+Shift+e exec pcmanfm
 
-    bindsym $mod+plus exec playerctl -a next
-    bindsym $mod+minus exec playerctl -a previous
-    bindsym $mod+backspace exec playerctl -a play-pause
+    bindsym --to-code $mod+plus exec playerctl -a next
+    bindsym --to-code $mod+minus exec playerctl -a previous
+    bindsym --to-code $mod+backspace exec playerctl -a play-pause
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+m exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
-    bindsym $mod+Shift+r exec reboot
-    bindsym $mod+Shift+p exec poweroff
+    bindsym --to-code $mod+m exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    bindsym --to-code $mod+Shift+r exec reboot
+    bindsym --to-code $mod+Shift+p exec poweroff
 
-    bindsym $mod+z exec swaylock
+    bindsym --to-code $mod+z exec swaylock
 #
 # Moving around:
 #
     # Move your focus around
-    bindsym $mod+$left focus left
-    bindsym $mod+$down focus down
-    bindsym $mod+$up focus up
-    bindsym $mod+$right focus right
+    bindsym --to-code $mod+$left focus left
+    bindsym --to-code $mod+$down focus down
+    bindsym --to-code $mod+$up focus up
+    bindsym --to-code $mod+$right focus right
     # Or use $mod+[up|down|left|right]
     bindsym $mod+Left focus left
     bindsym $mod+Down focus down
@@ -165,10 +166,10 @@ gaps outer 0
     bindsym $mod+Right focus right
 
     # Move the focused window with the same, but add Shift
-    bindsym $mod+Shift+$left move left
-    bindsym $mod+Shift+$down move down
-    bindsym $mod+Shift+$up move up
-    bindsym $mod+Shift+$right move right
+    bindsym --to-code $mod+Shift+$left move left
+    bindsym --to-code $mod+Shift+$down move down
+    bindsym --to-code $mod+Shift+$up move up
+    bindsym --to-code $mod+Shift+$right move right
     # Ditto, with arrow keys
     bindsym $mod+Shift+Left move left
     bindsym $mod+Shift+Down move down
@@ -189,19 +190,19 @@ gaps outer 0
     bindsym $mod+9 workspace number 9
     bindsym $mod+0 workspace number 10
     # Move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace number 1, workspace 1
-    bindsym $mod+Shift+2 move container to workspace number 2, workspace 2
-    bindsym $mod+Shift+3 move container to workspace number 3, workspace 3
-    bindsym $mod+Shift+4 move container to workspace number 4, workspace 4
-    bindsym $mod+Shift+5 move container to workspace number 5, workspace 5
-    bindsym $mod+Shift+6 move container to workspace number 6, workspace 6
-    bindsym $mod+Shift+7 move container to workspace number 7, workspace 7
-    bindsym $mod+Shift+8 move container to workspace number 8, workspace 8
-    bindsym $mod+Shift+9 move container to workspace number 9, workspace 9
-    bindsym $mod+Shift+0 move container to workspace number 10, workspace 10
+    bindsym $mod+Shift+1 move container to workspace number 1
+    bindsym $mod+Shift+2 move container to workspace number 2
+    bindsym $mod+Shift+3 move container to workspace number 3
+    bindsym $mod+Shift+4 move container to workspace number 4
+    bindsym $mod+Shift+5 move container to workspace number 5
+    bindsym $mod+Shift+6 move container to workspace number 6
+    bindsym $mod+Shift+7 move container to workspace number 7
+    bindsym $mod+Shift+8 move container to workspace number 8
+    bindsym $mod+Shift+9 move container to workspace number 9
+    bindsym $mod+Shift+0 move container to workspace number 10
 
-    bindsym $mod+comma workspace prev
-    bindsym $mod+period workspace next
+    bindsym --to-code $mod+comma workspace prev
+    bindsym --to-code $mod+period workspace next
 
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
@@ -211,69 +212,28 @@ gaps outer 0
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    bindsym $mod+b splith
-    bindsym $mod+v splitv
+    bindsym --to-code $mod+b splith
+    bindsym --to-code $mod+v splitv
 
     # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
-    bindsym $mod+e layout toggle split
+    bindsym --to-code $mod+s layout toggle split
+    bindsym --to-code $mod+w layout tabbed
 
     # Make the current focus fullscreen
-    bindsym $mod+f fullscreen
+    bindsym --to-code $mod+f fullscreen
 
     # Toggle the current focus between tiling and floating mode
-    bindsym $mod+Shift+space floating toggle
+    bindsym --to-code $mod+Shift+space floating toggle
 
     # Swap focus between the tiling area and the floating area
-    bindsym $mod+space focus mode_toggle
+    bindsym --to-code $mod+space focus mode_toggle
 
     # Move focus to the parent container
-    bindsym $mod+a focus parent
-#
-# Scratchpad:
-#
-    # Sway has a "scratchpad", which is a bag of holding for windows.
-    # You can send windows there and get them back later.
+    bindsym --to-code $mod+a focus parent
 
-    # Move the currently focused window to the scratchpad
-    # bindsym $mod+Shift+minus move scratchpad
-
-    # Show the next scratchpad window or hide the focused scratchpad window.
-    # If there are multiple scratchpad windows, this command cycles through them.
-    # bindsym $mod+minus scratchpad show
-#
-# Resizing containers:
-#
-mode "resize" {
-    # left will shrink the containers width
-    # right will grow the containers width
-    # up will shrink the containers height
-    # down will grow the containers height
-    bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
-    bindsym $right resize grow width 10px
-
-    # Ditto, with arrow keys
-    bindsym Left resize shrink width 10px
-    bindsym Down resize grow height 10px
-    bindsym Up resize shrink height 10px
-    bindsym Right resize grow width 10px
-
-    # Return to default mode
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+r mode "resize"
-
-#
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
 bar {
     position top
-    font pango:GeistMono Medium 12
+    font pango:Fira Sans Medium 12
     tray_output *
     tray_padding 2
     tray_bindsym button1 Activate
@@ -295,12 +255,21 @@ bar {
     }
 }
 
-exec wlsunset -t 3900
-exec brightnessctl set 30%
+exec foot --server
+exec gammastep -O 4800
+exec brightnessctl set 50%
 exec pamixer --set-volume 30
-exec dunst
-exec swayidle -w timeout 300 'swaylock'
+exec mako
+exec swayidle -w \
+    timeout 300 'swaylock -f' \
+    before-sleep 'swaylock -f'
 
-seat seat0 xcursor_theme DMZ-Black 32
+seat * xcursor_theme DMZ-Black 32
+
+# Assign Telegram to workspace 1
+assign [app_id="org.telegram.desktop"] workspace 1
+
+# Assign pavucontrol to workspace 2
+assign [app_id="org.pulseaudio.pavucontrol"] workspace 2
 
 include /etc/sway/config.d/*

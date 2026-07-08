@@ -2,7 +2,7 @@
 client.focused          #585b70 #585b70 #cdd6f4 #292929 #585b70
 client.unfocused        #313244 #313244 #cdd6f4 #292929 #313244
 client.urgent           #f5c2e7 #f5c2e7 #cdd6f4 #292929 #f5c2e7
-client.placeholder      #585b70 #313244 #cdd6f4 #292929 #585b70
+client.placeholder      #313244 #313244 #cdd6f4 #292929 #313244
 client.background       #cdd6f4
 font pango:GeistMono Medium 12
 
@@ -96,8 +96,8 @@ input * {
     xkb_options grp:alt_shift_toggle
 }
 
-default_border none
-default_floating_border none
+default_border pixel 2
+default_floating_border pixel 2
 
 gaps inner 6
 gaps outer 0

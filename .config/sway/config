@@ -152,10 +152,17 @@ gaps outer 0
     bindsym --to-code $mod+minus exec playerctl -a previous
     bindsym --to-code $mod+backspace exec playerctl -a play-pause
 
-    # Exit sway (logs you out of your Wayland session)
-    bindsym --to-code $mod+m exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
-    bindsym --to-code $mod+Ctrl+r exec reboot
-    bindsym --to-code $mod+Ctrl+p exec poweroff
+    bindsym --to-code $mod+m exec swaynag -t warning \
+        -m 'Exit Sway?' \
+        -B 'Y' 'swaymsg exit'
+
+    bindsym --to-code $mod+Shift+Escape exec swaynag -t warning \
+        -m 'Reboot the system?' \
+        -B 'Y' 'systemctl reboot'
+
+    bindsym --to-code $mod+Escape exec swaynag -t warning \
+        -m 'Power off the system?' \
+        -B 'Y' 'systemctl poweroff'
 
     bindsym --to-code $mod+z exec swaylock
 #

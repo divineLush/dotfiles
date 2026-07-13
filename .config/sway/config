@@ -102,7 +102,7 @@ bindgesture swipe:3:right workspace next
 input * {
     xkb_layout us,ru
     xkb_variant ,
-    xkb_options grp:alt_tab_toggle
+    xkb_options grp:alt_shift_toggle
 }
 
 default_border pixel 2
@@ -120,10 +120,11 @@ gaps outer 0
     bindsym --to-code $mod+Alt+f exec firefox
     bindsym --to-code $mod+Alt+t exec telegram-desktop
     bindsym --to-code $mod+Alt+c exec chromium
-    bindsym --to-code $mod+e exec $filemanager
+    bindsym --to-code $mod+Alt+e exec $filemanager
+    bindsym --to-code $mod+Alt+v exec pavucontrol
 
     # Area screenshot
-    bindsym --to-code $mod+p exec grim -g "$(slurp)" - | swappy -f -
+    bindsym --to-code $mod+Alt+p exec grim -g "$(slurp)" - | swappy -f -
 
     # Kill focused window
     bindsym --to-code $mod+c kill
@@ -147,17 +148,14 @@ gaps outer 0
     bindsym --to-code $mod+apostrophe exec pamixer -i 2
     bindsym --to-code $mod+semicolon exec pamixer -d 2
 
-    bindsym --to-code $mod+Alt+v exec pavucontrol
-    bindsym --to-code $mod+Shift+e exec pcmanfm
-
     bindsym --to-code $mod+plus exec playerctl -a next
     bindsym --to-code $mod+minus exec playerctl -a previous
     bindsym --to-code $mod+backspace exec playerctl -a play-pause
 
     # Exit sway (logs you out of your Wayland session)
     bindsym --to-code $mod+m exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
-    bindsym --to-code $mod+Shift+r exec reboot
-    bindsym --to-code $mod+Shift+p exec poweroff
+    bindsym --to-code $mod+Ctrl+r exec reboot
+    bindsym --to-code $mod+Ctrl+p exec poweroff
 
     bindsym --to-code $mod+z exec swaylock
 #
@@ -198,16 +196,16 @@ gaps outer 0
     bindsym $mod+8 workspace number 8
     bindsym $mod+9 workspace number 9
     bindsym $mod+0 workspace number 10
-    bindsym Alt+1 workspace number 11
-    bindsym Alt+2 workspace number 12
-    bindsym Alt+3 workspace number 13
-    bindsym Alt+4 workspace number 14
-    bindsym Alt+5 workspace number 15
-    bindsym Alt+6 workspace number 16
-    bindsym Alt+7 workspace number 17
-    bindsym Alt+8 workspace number 18
-    bindsym Alt+9 workspace number 19
-    bindsym Alt+0 workspace number 20
+    bindsym --to-code $mod+q workspace number 11
+    bindsym --to-code $mod+w workspace number 12
+    bindsym --to-code $mod+e workspace number 13
+    bindsym --to-code $mod+r workspace number 14
+    bindsym --to-code $mod+t workspace number 15
+    bindsym --to-code $mod+y workspace number 16
+    bindsym --to-code $mod+u workspace number 17
+    bindsym --to-code $mod+i workspace number 18
+    bindsym --to-code $mod+o workspace number 19
+    bindsym --to-code $mod+p workspace number 20
     # Move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace number 1, workspace 1
     bindsym $mod+Shift+2 move container to workspace number 2, workspace 2
@@ -219,16 +217,16 @@ gaps outer 0
     bindsym $mod+Shift+8 move container to workspace number 8, workspace 8
     bindsym $mod+Shift+9 move container to workspace number 9, workspace 9
     bindsym $mod+Shift+0 move container to workspace number 10, workspace 10
-    bindsym Alt+Shift+1 move container to workspace number 11, workspace 11
-    bindsym Alt+Shift+2 move container to workspace number 12, workspace 12
-    bindsym Alt+Shift+3 move container to workspace number 13, workspace 13
-    bindsym Alt+Shift+4 move container to workspace number 14, workspace 14
-    bindsym Alt+Shift+5 move container to workspace number 15, workspace 15
-    bindsym Alt+Shift+6 move container to workspace number 16, workspace 16
-    bindsym Alt+Shift+7 move container to workspace number 17, workspace 17
-    bindsym Alt+Shift+8 move container to workspace number 18, workspace 18
-    bindsym Alt+Shift+9 move container to workspace number 19, workspace 19
-    bindsym Alt+Shift+0 move container to workspace number 20, workspace 20
+    bindsym --to-code $mod+Shift+q move container to workspace number 11, workspace 11
+    bindsym --to-code $mod+Shift+w move container to workspace number 12, workspace 12
+    bindsym --to-code $mod+Shift+e move container to workspace number 13, workspace 13
+    bindsym --to-code $mod+Shift+r move container to workspace number 14, workspace 14
+    bindsym --to-code $mod+Shift+t move container to workspace number 15, workspace 15
+    bindsym --to-code $mod+Shift+y move container to workspace number 16, workspace 16
+    bindsym --to-code $mod+Shift+u move container to workspace number 17, workspace 17
+    bindsym --to-code $mod+Shift+i move container to workspace number 18, workspace 18
+    bindsym --to-code $mod+Shift+o move container to workspace number 19, workspace 19
+    bindsym --to-code $mod+Shift+p move container to workspace number 20, workspace 20
 
     bindsym --to-code $mod+comma workspace prev
     bindsym --to-code $mod+period workspace next
@@ -249,7 +247,7 @@ gaps outer 0
 
     # Switch the current container between different layout styles
     bindsym --to-code $mod+s layout toggle split
-    bindsym --to-code $mod+w layout tabbed
+    bindsym --to-code $mod+d layout tabbed
 
     # Make the current focus fullscreen
     bindsym --to-code $mod+f fullscreen
@@ -303,3 +301,4 @@ exec swayidle -w \
 seat * xcursor_theme DMZ-Black 32
 
 include /etc/sway/config.d/*
+

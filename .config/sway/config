@@ -154,15 +154,15 @@ gaps outer 0
 
     bindsym --to-code $mod+m exec swaynag -t warning \
         -m 'Exit Sway?' \
-        -B 'Y' 'swaymsg exit'
+        -B 'Yes' 'swaymsg exit'
 
     bindsym --to-code $mod+Shift+Escape exec swaynag -t warning \
         -m 'Reboot the system?' \
-        -B 'Y' 'systemctl reboot'
+        -B 'Yes' 'systemctl reboot'
 
     bindsym --to-code $mod+Escape exec swaynag -t warning \
         -m 'Power off the system?' \
-        -B 'Y' 'systemctl poweroff'
+        -B 'Yes' 'systemctl poweroff'
 
     bindsym --to-code $mod+z exec swaylock
 #

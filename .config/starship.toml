@@ -1,1 +1,7 @@
-add_newline = false
+right_format = "$time"
+
+[time]
+disabled = false
+time_format = "%H:%M"
+format = "[$time]($style)"
+style = "bold blue"

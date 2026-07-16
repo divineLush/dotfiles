@@ -115,172 +115,161 @@ gaps outer 0
 #
 # Basics:
 #
-    # Start a terminal
-    bindsym $mod+Return exec $term
-    bindsym --to-code $mod+Alt+f exec firefox
-    bindsym --to-code $mod+Alt+t exec telegram-desktop
-    bindsym --to-code $mod+Alt+c exec chromium
-    bindsym --to-code $mod+Alt+e exec $filemanager
-    bindsym --to-code $mod+Alt+v exec pavucontrol
+# Start a terminal
+bindsym $mod+Return exec $term
+bindsym --to-code $mod+Alt+f exec firefox
+bindsym --to-code $mod+Alt+t exec telegram-desktop
+bindsym --to-code $mod+Alt+c exec chromium
+bindsym --to-code $mod+Alt+e exec $filemanager
+bindsym --to-code $mod+Alt+v exec pavucontrol
 
-    # Area screenshot
-    bindsym --to-code $mod+Alt+p exec grim -g "$(slurp)" - | swappy -f -
+# Area screenshot
+bindsym --to-code $mod+Alt+p exec grim -g "$(slurp)" - | swappy -f -
 
-    # Kill focused window
-    bindsym --to-code $mod+c kill
+# Kill focused window
+bindsym --to-code $mod+c kill
 
-    # Start your launcher
-    bindsym Alt+Space exec $menu
+# Start your launcher
+bindsym Alt+Space exec $menu
 
-    # Drag floating windows by holding down $mod and left mouse button.
-    # Resize them with right mouse button + $mod.
-    # Despite the name, also works for non-floating windows.
-    # Change normal to inverse to use left mouse button for resizing and right
-    # mouse button for dragging.
-    floating_modifier $mod normal
+# Drag floating windows by holding down $mod and left mouse button.
+# Resize them with right mouse button + $mod.
+# Despite the name, also works for non-floating windows.
+# Change normal to inverse to use left mouse button for resizing and right
+# mouse button for dragging.
+floating_modifier $mod normal
 
-    # Reload the configuration file
-    bindsym --to-code $mod+Shift+c reload
+# Reload the configuration file
+bindsym --to-code $mod+Shift+c reload
 
-    bindsym --to-code $mod+bracketleft exec brightnessctl set 2%-
-    bindsym --to-code $mod+bracketright exec brightnessctl set +2%
+bindsym --to-code $mod+bracketleft exec brightnessctl set 2%-
+bindsym --to-code $mod+bracketright exec brightnessctl set +2%
 
-    bindsym --to-code $mod+apostrophe exec pamixer -i 2
-    bindsym --to-code $mod+semicolon exec pamixer -d 2
+bindsym --to-code $mod+apostrophe exec pamixer -i 2
+bindsym --to-code $mod+semicolon exec pamixer -d 2
 
-    bindsym --to-code $mod+plus exec playerctl -a next
-    bindsym --to-code $mod+minus exec playerctl -a previous
-    bindsym --to-code $mod+backspace exec playerctl -a play-pause
+bindsym --to-code $mod+plus exec playerctl -a next
+bindsym --to-code $mod+minus exec playerctl -a previous
+bindsym --to-code $mod+backspace exec playerctl -a play-pause
 
-    bindsym --to-code $mod+m exec swaynag -t warning \
-        -m 'Exit Sway?' \
-        -B 'Yes' 'swaymsg exit'
+bindsym --to-code $mod+m exec swaynag -t warning \
+    -m 'Exit Sway?' \
+    -B 'Yes' 'swaymsg exit'
 
-    bindsym --to-code $mod+Shift+Escape exec swaynag -t warning \
-        -m 'Reboot the system?' \
-        -B 'Yes' 'systemctl reboot'
+bindsym --to-code $mod+Shift+Escape exec systemctl reboot
+bindsym --to-code $mod+Escape exec systemctl poweroff
 
-    bindsym --to-code $mod+Escape exec swaynag -t warning \
-        -m 'Power off the system?' \
-        -B 'Yes' 'systemctl poweroff'
-
-    bindsym --to-code $mod+z exec swaylock
+bindsym --to-code $mod+z exec swaylock
 #
 # Moving around:
 #
-    # Move your focus around
-    bindsym --to-code $mod+$left focus left
-    bindsym --to-code $mod+$down focus down
-    bindsym --to-code $mod+$up focus up
-    bindsym --to-code $mod+$right focus right
-    # Or use $mod+[up|down|left|right]
-    bindsym $mod+Left focus left
-    bindsym $mod+Down focus down
-    bindsym $mod+Up focus up
-    bindsym $mod+Right focus right
+# Move your focus around
+bindsym --to-code $mod+$left focus left
+bindsym --to-code $mod+$down focus down
+bindsym --to-code $mod+$up focus up
+bindsym --to-code $mod+$right focus right
+# Or use $mod+[up|down|left|right]
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
 
-    # Move the focused window with the same, but add Shift
-    bindsym --to-code $mod+Shift+$left move left
-    bindsym --to-code $mod+Shift+$down move down
-    bindsym --to-code $mod+Shift+$up move up
-    bindsym --to-code $mod+Shift+$right move right
-    # Ditto, with arrow keys
-    bindsym $mod+Shift+Left move left
-    bindsym $mod+Shift+Down move down
-    bindsym $mod+Shift+Up move up
-    bindsym $mod+Shift+Right move right
+# Move the focused window with the same, but add Shift
+bindsym --to-code $mod+Shift+$left move left
+bindsym --to-code $mod+Shift+$down move down
+bindsym --to-code $mod+Shift+$up move up
+bindsym --to-code $mod+Shift+$right move right
+# Ditto, with arrow keys
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
 #
 # Workspaces:
 #
-    # Switch to workspace
-    bindsym $mod+1 workspace number 1
-    bindsym $mod+2 workspace number 2
-    bindsym $mod+3 workspace number 3
-    bindsym $mod+4 workspace number 4
-    bindsym $mod+5 workspace number 5
-    bindsym $mod+6 workspace number 6
-    bindsym $mod+7 workspace number 7
-    bindsym $mod+8 workspace number 8
-    bindsym $mod+9 workspace number 9
-    bindsym $mod+0 workspace number 10
-    bindsym --to-code $mod+q workspace number 11
-    bindsym --to-code $mod+w workspace number 12
-    bindsym --to-code $mod+e workspace number 13
-    bindsym --to-code $mod+r workspace number 14
-    bindsym --to-code $mod+t workspace number 15
-    bindsym --to-code $mod+y workspace number 16
-    bindsym --to-code $mod+u workspace number 17
-    bindsym --to-code $mod+i workspace number 18
-    bindsym --to-code $mod+o workspace number 19
-    bindsym --to-code $mod+p workspace number 20
-    # Move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace number 1, workspace 1
-    bindsym $mod+Shift+2 move container to workspace number 2, workspace 2
-    bindsym $mod+Shift+3 move container to workspace number 3, workspace 3
-    bindsym $mod+Shift+4 move container to workspace number 4, workspace 4
-    bindsym $mod+Shift+5 move container to workspace number 5, workspace 5
-    bindsym $mod+Shift+6 move container to workspace number 6, workspace 6
-    bindsym $mod+Shift+7 move container to workspace number 7, workspace 7
-    bindsym $mod+Shift+8 move container to workspace number 8, workspace 8
-    bindsym $mod+Shift+9 move container to workspace number 9, workspace 9
-    bindsym $mod+Shift+0 move container to workspace number 10, workspace 10
-    bindsym --to-code $mod+Shift+q move container to workspace number 11, workspace 11
-    bindsym --to-code $mod+Shift+w move container to workspace number 12, workspace 12
-    bindsym --to-code $mod+Shift+e move container to workspace number 13, workspace 13
-    bindsym --to-code $mod+Shift+r move container to workspace number 14, workspace 14
-    bindsym --to-code $mod+Shift+t move container to workspace number 15, workspace 15
-    bindsym --to-code $mod+Shift+y move container to workspace number 16, workspace 16
-    bindsym --to-code $mod+Shift+u move container to workspace number 17, workspace 17
-    bindsym --to-code $mod+Shift+i move container to workspace number 18, workspace 18
-    bindsym --to-code $mod+Shift+o move container to workspace number 19, workspace 19
-    bindsym --to-code $mod+Shift+p move container to workspace number 20, workspace 20
+# Switch to workspace
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+bindsym --to-code $mod+q workspace number 11
+bindsym --to-code $mod+w workspace number 12
+bindsym --to-code $mod+e workspace number 13
+bindsym --to-code $mod+r workspace number 14
+bindsym --to-code $mod+t workspace number 15
+bindsym --to-code $mod+y workspace number 16
+bindsym --to-code $mod+u workspace number 17
+bindsym --to-code $mod+i workspace number 18
+bindsym --to-code $mod+o workspace number 19
+bindsym --to-code $mod+p workspace number 20
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number 1, workspace 1
+bindsym $mod+Shift+2 move container to workspace number 2, workspace 2
+bindsym $mod+Shift+3 move container to workspace number 3, workspace 3
+bindsym $mod+Shift+4 move container to workspace number 4, workspace 4
+bindsym $mod+Shift+5 move container to workspace number 5, workspace 5
+bindsym $mod+Shift+6 move container to workspace number 6, workspace 6
+bindsym $mod+Shift+7 move container to workspace number 7, workspace 7
+bindsym $mod+Shift+8 move container to workspace number 8, workspace 8
+bindsym $mod+Shift+9 move container to workspace number 9, workspace 9
+bindsym $mod+Shift+0 move container to workspace number 10, workspace 10
+bindsym --to-code $mod+Shift+q move container to workspace number 11, workspace 11
+bindsym --to-code $mod+Shift+w move container to workspace number 12, workspace 12
+bindsym --to-code $mod+Shift+e move container to workspace number 13, workspace 13
+bindsym --to-code $mod+Shift+r move container to workspace number 14, workspace 14
+bindsym --to-code $mod+Shift+t move container to workspace number 15, workspace 15
+bindsym --to-code $mod+Shift+y move container to workspace number 16, workspace 16
+bindsym --to-code $mod+Shift+u move container to workspace number 17, workspace 17
+bindsym --to-code $mod+Shift+i move container to workspace number 18, workspace 18
+bindsym --to-code $mod+Shift+o move container to workspace number 19, workspace 19
+bindsym --to-code $mod+Shift+p move container to workspace number 20, workspace 20
 
-    bindsym --to-code $mod+comma workspace prev
-    bindsym --to-code $mod+period workspace next
+bindsym --to-code $mod+comma workspace prev
+bindsym --to-code $mod+period workspace next
 
-    bindsym --to-code $mod+Shift+comma move container to workspace prev, workspace prev
-    bindsym --to-code $mod+Shift+period move container to workspace next, workspace next
+bindsym --to-code $mod+Shift+comma move container to workspace prev, workspace prev
+bindsym --to-code $mod+Shift+period move container to workspace next, workspace next
 
-    # Note: workspaces can have any name you want, not just numbers.
-    # We just use 1-10 as the default.
+# Note: workspaces can have any name you want, not just numbers.
+# We just use 1-10 as the default.
 #
 # Layout stuff:
 #
-    # You can "split" the current object of your focus with
-    # $mod+b or $mod+v, for horizontal and vertical splits
-    # respectively.
-    bindsym --to-code $mod+b splith
-    bindsym --to-code $mod+v splitv
+# You can "split" the current object of your focus with
+# $mod+b or $mod+v, for horizontal and vertical splits
+# respectively.
+bindsym --to-code $mod+b splith
+bindsym --to-code $mod+v splitv
 
-    # Switch the current container between different layout styles
-    bindsym --to-code $mod+s layout toggle split
-    bindsym --to-code $mod+d layout tabbed
+# Make the current focus fullscreen
+bindsym --to-code $mod+f fullscreen
 
-    # Make the current focus fullscreen
-    bindsym --to-code $mod+f fullscreen
+# Toggle the current focus between tiling and floating mode
+bindsym --to-code $mod+Shift+space floating toggle
 
-    # Toggle the current focus between tiling and floating mode
-    bindsym --to-code $mod+Shift+space floating toggle
+# Swap focus between the tiling area and the floating area
+bindsym --to-code $mod+space focus mode_toggle
 
-    # Swap focus between the tiling area and the floating area
-    bindsym --to-code $mod+space focus mode_toggle
-
-    # Move focus to the parent container
-    bindsym --to-code $mod+a focus parent
+# Move focus to the parent container
+bindsym --to-code $mod+a focus parent
 
 bar {
     position top
     font pango:Fira Sans Medium 12
     tray_output *
     tray_padding 2
-    tray_bindsym button1 Activate
-    tray_bindsym button2 SecondaryActivate
-    tray_bindsym button3 ContextMenu
     workspace_min_width 40
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
     status_command while date +'%a %b %d  %H:%M'; do sleep 60; done
+    icon_theme Papirus-Dark
 
     colors {
         statusline #cdd6f4
@@ -308,4 +297,3 @@ exec swayidle -w \
 seat * xcursor_theme DMZ-Black 32
 
 include /etc/sway/config.d/*
-

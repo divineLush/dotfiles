@@ -144,13 +144,24 @@ bindsym --to-code $mod+Shift+c reload
 
 bindsym --to-code $mod+bracketleft exec brightnessctl set 2%-
 bindsym --to-code $mod+bracketright exec brightnessctl set +2%
+bindsym XF86MonBrightnessUp exec brightnessctl set +2%
+bindsym XF86MonBrightnessDown exec brightnessctl set 2%-
 
 bindsym --to-code $mod+apostrophe exec pamixer -i 2
 bindsym --to-code $mod+semicolon exec pamixer -d 2
+bindsym XF86AudioRaiseVolume exec pamixer -i 2
+bindsym XF86AudioLowerVolume exec pamixer -d 2
+bindsym XF86AudioMute exec pamixer -t
 
-bindsym --to-code $mod+plus exec playerctl -a next
-bindsym --to-code $mod+minus exec playerctl -a previous
-bindsym --to-code $mod+backspace exec playerctl -a play-pause
+# mute mic
+bindsym XF86AudioMicMute exec pamixer --default-source -t
+
+bindsym --to-code $mod+plus exec playerctl next
+bindsym --to-code $mod+minus exec playerctl previous
+bindsym --to-code $mod+backspace exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec playerctl play-pause
 
 bindsym --to-code $mod+m exec swaynag -t warning \
     -m 'Exit Sway?' \
@@ -287,8 +298,6 @@ workspace_auto_back_and_forth yes
 
 exec foot --server
 exec gammastep -O 4800
-exec brightnessctl set 50%
-exec pamixer --set-volume 30
 exec mako
 exec swayidle -w \
     timeout 300 'swaylock -f' \

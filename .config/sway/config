@@ -163,13 +163,16 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioPlay exec playerctl play-pause
 
-bindsym --to-code $mod+m exec swaynag -t warning \
-    -m 'Exit Sway?' \
-    -B 'Yes' 'swaymsg exit'
+mode "Exit" {
+    bindsym p exec systemctl poweroff, mode "default"
+    bindsym r exec systemctl reboot, mode "default"
+    bindsym l exec swaymsg exit, mode "default"
 
-bindsym --to-code $mod+Shift+Escape exec systemctl reboot
-bindsym --to-code $mod+Escape exec systemctl poweroff
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
 
+bindsym --to-code $mod+Escape mode "Exit"
 bindsym --to-code $mod+z exec swaylock
 #
 # Moving around:
@@ -285,7 +288,6 @@ bar {
     colors {
         statusline #cdd6f4
         background #00000000
-        # background #181825
         focused_workspace    #00000000 #00000000 #cdd6f4
         active_workspace     #00000000 #00000000 #cdd6f4
         inactive_workspace   #00000000 #00000000 #7f849c
@@ -303,6 +305,6 @@ exec swayidle -w \
     timeout 300 'swaylock -f' \
     before-sleep 'swaylock -f'
 
-seat * xcursor_theme DMZ-Black 32
+seat * xcursor_theme Adwaita 32
 
 include /etc/sway/config.d/*

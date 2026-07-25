@@ -260,18 +260,23 @@ bindsym --to-code $mod+Shift+period move container to workspace next, workspace 
 # respectively.
 bindsym --to-code $mod+b splith
 bindsym --to-code $mod+v splitv
+bindsym --to-code $mod+n layout toggle split
 
 # Make the current focus fullscreen
 bindsym --to-code $mod+f fullscreen
 
 # Toggle the current focus between tiling and floating mode
-bindsym --to-code $mod+Shift+space floating toggle
+bindsym --to-code $mod+Shift+f floating toggle
 
 # Swap focus between the tiling area and the floating area
 bindsym --to-code $mod+space focus mode_toggle
 
 # Move focus to the parent container
 bindsym --to-code $mod+a focus parent
+
+# Scratchpad
+bindsym $mod+Shift+slash move scratchpad
+bindsym $mod+slash scratchpad show
 
 bar {
     position top

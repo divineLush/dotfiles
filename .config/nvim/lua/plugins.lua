@@ -20,10 +20,6 @@ local plugins = {
   'windwp/nvim-ts-autotag',
   'lewis6991/gitsigns.nvim',
   {
-    "ibhagwan/fzf-lua",
-    opts = {}
-  },
-  {
     'catppuccin/nvim',
     name = 'catppuccin',
     priority = 1000,
@@ -48,6 +44,10 @@ local plugins = {
     config = function ()
       require('colorizer').setup()
     end
+  },
+  {
+    "ibhagwan/fzf-lua",
+    opts = {}
   },
   'neovim/nvim-lspconfig',
   'hrsh7th/nvim-cmp',

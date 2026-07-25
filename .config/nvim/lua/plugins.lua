@@ -14,21 +14,22 @@ vim.opt.rtp:prepend(lazypath)
 local plugins = {
   'nvim-tree/nvim-web-devicons',
   'windwp/nvim-autopairs',
-  'editorconfig/editorconfig-vim',
   { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
   'nvim-tree/nvim-tree.lua',
   'nvim-lua/plenary.nvim',
-  'nvim-telescope/telescope.nvim',
   'windwp/nvim-ts-autotag',
   'lewis6991/gitsigns.nvim',
+  {
+    "ibhagwan/fzf-lua",
+    opts = {}
+  },
   {
     'catppuccin/nvim',
     name = 'catppuccin',
     priority = 1000,
     config = function ()
       require('catppuccin').setup({
-        flavour = 'latte',
-        transparent_background = true,
+        flavour = 'frappe',
         no_italic = true,
         no_underline = true,
       })

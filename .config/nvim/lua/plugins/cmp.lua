@@ -4,7 +4,7 @@ local ls = require('luasnip')
 cmp.setup({
     snippet = {
       expand = function(args)
-        require('ls').lsp_expand(args.body)
+        require('luasnip').lsp_expand(args.body)
       end,
     },
     completion = {
@@ -48,29 +48,19 @@ cmp.setup({
 })
 
 -- Setup lspconfig.
--- require'lspconfig'.pyright.setup {}
-require'lspconfig'.ts_ls.setup {}
--- require'lspconfig'.quick_lint_js.setup {}
--- require'lspconfig'.remark_ls.setup {}
--- require'lspconfig'.sqls.setup {}
--- require'lspconfig'.solang.setup {}
--- require'lspconfig'.sumneko_lua.setup {}
--- require'lspconfig'.volar.setup {}
--- require'lspconfig'.svelte.setup {}
-require'lspconfig'.jsonls.setup {}
-require'lspconfig'.eslint.setup {}
-require'lspconfig'.cssls.setup {}
--- require'lspconfig'.awk_ls.setup {}
-require'lspconfig'.html.setup {}
--- require'lspconfig'.angularls.setup {}
-require'lspconfig'.dockerls.setup {}
-require'lspconfig'.cssmodules_ls.setup {}
-require'lspconfig'.stylelint_lsp.setup {}
--- require'lspconfig'.elixirls.setup {}
--- require'lspconfig'.gopls.setup {}
--- require'lspconfig'.bashls.setup {}
+vim.lsp.enable('ts_ls')
+vim.lsp.enable('sqls')
+vim.lsp.enable('jsonls')
+-- vim.lsp.enable('eslint')
+-- vim.lsp.enable('cssls')
+vim.lsp.enable('yamlls')
+vim.lsp.enable('gopls')
+-- vim.lsp.enable('html')
+-- vim.lsp.enable('angularls')
+vim.lsp.enable('dockerls')
+-- vim.lsp.enable('cssmodules_ls')
+-- vim.lsp.enable('stylelint_lsp')
 
--- vim.diagnostic.disable()
 vim.diagnostic.config({
   -- disable = true,
   -- signs = false,

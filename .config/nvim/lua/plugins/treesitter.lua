@@ -39,6 +39,7 @@ require'nvim-treesitter.configs'.setup {
 	  'sql',
 	  'editorconfig',
 	  'angular',
+	  'prisma',
   },
   sync_install = false,
   highlight = {
@@ -53,5 +54,5 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 
-vim.opt.foldmethod = 'expr'
-vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.opt.foldmethod = 'manual'
+vim.opt.foldenable = false

@@ -1,67 +1,43 @@
 -- maps
-local map = vim.api.nvim_set_keymap
+vim.g.mapleader = ' '
 local kmap = vim.keymap.set
 
-map('n', '<Space>', '', {})
-
-vim.g.mapleader = ' '
+kmap('n', '<Space>', '', {})
 
 options = { noremap = true }
-map('n', '<leader>]', ':bn<cr>', options)
-map('n', '<leader>[', ':bp<cr>', options)
-map('n', '<leader>k', ':bd<cr>', options)
-map('n', '<leader>K', ':bd!<cr>', options)
-map('n', '<leader>w', ':w<cr>', options)
-map('n', '<leader>q', ':q<cr>', options)
-map('n', '<leader>i', ':e!<cr>', options)
-
--- prettier
-map('n', '<leader>p', ':silent %!prettier --stdin-filepath %<CR>', options)
+kmap('n', '<leader>]', ':bn<cr>', options)
+kmap('n', '<leader>[', ':bp<cr>', options)
+kmap('n', '<leader>k', ':bd<cr>', options)
+kmap('n', '<leader>K', ':bd!<cr>', options)
+kmap('n', '<leader>w', ':w<cr>', options)
+kmap('n', '<leader>q', ':q<cr>', options)
+kmap('n', '<leader>i', ':e!<cr>', options)
 
 -- show full path
-map('n', '<leader>L', ':! ls %:p<CR>', options)
+kmap('n', '<leader>L', ':! ls %:p<CR>', options)
 
 -- vertical split
-map('n', '<leader>sv', '<C-w>v', options)
+kmap('n', '<leader>v', ':vs', options)
 
 -- replace all
-map('n', 'S', ':%s//g<Left><Left>', options)
+kmap('n', 'S', ':%s//g<Left><Left>', options)
 
 -- shortcutting split navigation
-map('n', '<leader>sh', '<C-w>h', options)
-map('n', '<leader>sj', '<C-w>j', options)
-map('n', '<leader>sk', '<C-w>k', options)
-map('n', '<leader>sl', '<C-w>l', options)
+kmap('n', '<leader>sh', '<C-w>h', options)
+kmap('n', '<leader>sj', '<C-w>j', options)
+kmap('n', '<leader>sk', '<C-w>k', options)
+kmap('n', '<leader>sl', '<C-w>l', options)
 
 -- nvim-tree
-map('n', '<leader>e', ':NvimTreeToggle<cr>', options)
-map('n', '<leader>n', ':NvimTreeFindFile<cr>', options)
+kmap('n', '<leader>e', ':NvimTreeToggle<cr>', options)
+kmap('n', '<leader>n', ':NvimTreeFindFile<cr>', options)
 
--- telescope
-local telescope = require('telescope.builtin')
-kmap('n', '<leader>f', telescope.find_files, options)
-kmap('n', '<leader>c', telescope.commands, options)
-kmap('n', '<leader>;', telescope.current_buffer_fuzzy_find, options)
-kmap('n', '<leader>"', telescope.registers, options)
-kmap('n', '<leader>s', telescope.grep_string, options)
-kmap('n', '<leader>fg', telescope.git_files, options)
-kmap('n', '<leader>h', telescope.search_history, options)
-kmap('n', '<leader>r', telescope.live_grep, options)
-kmap('n', '<leader>b', telescope.buffers, options)
-
--- telescope git
-kmap('n', '<leader>gs', telescope.git_status, options)
-kmap('n', '<leader>gc', telescope.git_commits, options)
-kmap('n', '<leader>gbc', telescope.git_bcommits, options)
-kmap('n', '<leader>gh', telescope.git_stash, options)
-kmap('n', '<leader>gB', telescope.git_branches, options)
-
--- telescope lsp
-kmap('n', '<leader>lr', telescope.lsp_references, options)
-kmap('n', '<leader>li', telescope.lsp_implementations, options)
-kmap('n', '<leader>ld', telescope.lsp_definitions, options)
-kmap('n', '<leader>ltd', telescope.lsp_type_definitions, options)
-kmap('n', '<leader>d', vim.diagnostic.open_float, options)
+local fzf = require("fzf-lua")
+kmap('n', '<leader>f', fzf.files, options)
+kmap('n', '<leader>r', fzf.live_grep, options)
+kmap('n', '<leader>b', fzf.buffers, options)
+kmap('n', '<leader>lr', fzf.lsp_references, options)
+kmap('n', '<leader>ld', fzf.lsp_definitions, options)
 
 -- lsp
 local lspopts = { noremap = true, silent = true }
@@ -79,5 +55,3 @@ kmap('n', 'ct', vim.lsp.buf.type_definition, lspopts)
 kmap('n', 'cr', vim.lsp.buf.references, lspopts)
 kmap('n', 'cf', vim.lsp.buf.format, lspopts)
 kmap('n', 'ca', vim.lsp.buf.code_action, lspopts)
-
--- vim.cmd[[autocmd BufNewFile, BufRead *.vue set filetype=vue]]

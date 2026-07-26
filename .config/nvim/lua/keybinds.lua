@@ -5,19 +5,19 @@ local kmap = vim.keymap.set
 kmap('n', '<Space>', '', {})
 
 options = { noremap = true }
-kmap('n', '<leader>]', ':bn<cr>', options)
-kmap('n', '<leader>[', ':bp<cr>', options)
-kmap('n', '<leader>k', ':bd<cr>', options)
-kmap('n', '<leader>K', ':bd!<cr>', options)
-kmap('n', '<leader>w', ':w<cr>', options)
-kmap('n', '<leader>q', ':q<cr>', options)
-kmap('n', '<leader>i', ':e!<cr>', options)
+kmap("n", "<leader>]", vim.cmd.bnext, options)
+kmap("n", "<leader>[", vim.cmd.bprevious(), options)
+kmap("n", "<leader>k", vim.cmd.bdelete(), options)
+kmap("n", "<leader>K", vim.cmd("bdelete!"), options)
+kmap("n", "<leader>w", vim.cmd.write(), options)
+kmap("n", "<leader>q", vim.cmd.quit(), options)
+kmap("n", "<leader>i", vim.cmd.edit({ bang = true }), options)
 
 -- show full path
 kmap('n', '<leader>L', ':! ls %:p<CR>', options)
 
 -- vertical split
-kmap('n', '<leader>v', ':vs', options)
+kmap("n", "<leader>v", vim.cmd.vsplit, option)
 
 -- replace all
 kmap('n', 'S', ':%s//g<Left><Left>', options)
@@ -29,8 +29,8 @@ kmap('n', '<leader>sk', '<C-w>k', options)
 kmap('n', '<leader>sl', '<C-w>l', options)
 
 -- nvim-tree
-kmap('n', '<leader>e', ':NvimTreeToggle<cr>', options)
-kmap('n', '<leader>n', ':NvimTreeFindFile<cr>', options)
+kmap("n", "<leader>e", vim.cmd.NvimTreeToggle, options)
+kmap("n", "<leader>n", vim.cmd.NvimTreeFindFile, options)
 
 local fzf = require("fzf-lua")
 kmap('n', '<leader>f', fzf.files, options)

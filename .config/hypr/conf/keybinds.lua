@@ -9,6 +9,7 @@ hl.bind(mainMod .. " + ALT + F", hl.dsp.exec_cmd("firefox"))
 hl.bind(mainMod .. " + ALT + C", hl.dsp.exec_cmd("chromium"))
 hl.bind(mainMod .. " + ALT + T", hl.dsp.exec_cmd("telegram-desktop"))
 hl.bind(mainMod .. " + ALT + V", hl.dsp.exec_cmd("pavucontrol"))
+hl.bind(mainMod .. " + ALT + P", hl.dsp.exec_cmd("grim -g \"$(slurp)\" - | swappy -f -"))
 hl.bind("ALT + SPACE", hl.dsp.exec_cmd(menu))
 
 hl.bind(mainMod .. " + Z", hl.dsp.exec_cmd("hyprlock"))

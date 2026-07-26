@@ -1,7 +1,9 @@
-font-family = Fira Code Medium
-font-family-bold = Fira Code Bold
-font-family-italic = Fira Code Medium
-font-family-bold-italic = Fira Code Bold
+font-family = Fira Code
+font-family = Symbols Nerd Font Mono
+font-style = Medium
+font-style-bold = Bold
+font-style-italic = Medium
+font-style-bold-italic = Bold
 
 window-padding-x = 2
 window-padding-y = 2

@@ -1,0 +1,51 @@
+font-family = Fira Code Medium
+font-family-bold = Fira Code Bold
+font-family-italic = Fira Code Medium
+font-family-bold-italic = Fira Code Bold
+
+window-padding-x = 2
+window-padding-y = 2
+
+confirm-close-surface = false
+adjust-cursor-thickness = 1
+shell-integration = zsh
+
+keybind = alt+n=new_window
+keybind = alt+p=new_tab
+keybind = alt+]=next_tab
+keybind = alt+[=previous_tab
+keybind = alt+w=close_surface
+
+keybind = alt+shift+k=scroll_page_up
+keybind = alt+shift+j=scroll_page_down
+
+keybind = alt+v=new_split:right
+keybind = alt+s=new_split:down
+keybind = alt+h=goto_split:left
+keybind = alt+j=goto_split:down
+keybind = alt+k=goto_split:up
+keybind = alt+l=goto_split:right
+
+palette = 0=#51576d
+palette = 1=#e78284
+palette = 2=#a6d189
+palette = 3=#e5c890
+palette = 4=#8caaee
+palette = 5=#f4b8e4
+palette = 6=#81c8be
+palette = 7=#a5adce
+palette = 8=#626880
+palette = 9=#e78284
+palette = 10=#a6d189
+palette = 11=#e5c890
+palette = 12=#8caaee
+palette = 13=#f4b8e4
+palette = 14=#81c8be
+palette = 15=#b5bfe2
+background = 303446
+foreground = c6d0f5
+cursor-color = f2d5cf
+cursor-text = 232634
+selection-background = 44495d
+selection-foreground = c6d0f5
+split-divider-color = 414559

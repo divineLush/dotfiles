@@ -6,12 +6,11 @@ kmap('n', '<Space>', '', {})
 
 options = { noremap = true }
 kmap("n", "<leader>]", vim.cmd.bnext, options)
-kmap("n", "<leader>[", vim.cmd.bprevious(), options)
-kmap("n", "<leader>k", vim.cmd.bdelete(), options)
-kmap("n", "<leader>K", vim.cmd("bdelete!"), options)
-kmap("n", "<leader>w", vim.cmd.write(), options)
-kmap("n", "<leader>q", vim.cmd.quit(), options)
-kmap("n", "<leader>i", vim.cmd.edit({ bang = true }), options)
+kmap("n", "<leader>[", vim.cmd.bprevious, options)
+kmap("n", "<leader>k", vim.cmd.bdelete, options)
+kmap("n", "<leader>K", function() vim.cmd("bdelete!") end, options)
+kmap("n", "<leader>w", vim.cmd.write, options)
+kmap("n", "<leader>q", vim.cmd.quit, options)
 
 -- show full path
 kmap('n', '<leader>L', ':! ls %:p<CR>', options)

@@ -11,23 +11,25 @@ hl.monitor({
 hl.on("hyprland.start", function ()
   hl.exec_cmd("hyprsunset")
   hl.exec_cmd("mako")
-  hl.exec_cmd("waybar")
+  -- hl.exec_cmd("waybar")
   hl.exec_cmd("hyprpaper")
-  hl.exec_cmd("brightnessctl set 50%")
-  hl.exec_cmd("pamixer --set-volume 30")
 end)
-
 
 hl.config({
   general = {
     gaps_in = 6,
     gaps_out = 6,
-    border_size = 0,
-    layout = "master",
+    border_size = 2,
+    col = {
+      active_border = "#babbf1",
+      inactive_border = "#414559",
+    },
+    layout = "dwindle",
     allow_tearing = false,
   },
   dwindle = {
     preserve_split = true,
+    force_split = 2,
   },
   decoration = {
     shadow = {
@@ -49,4 +51,3 @@ hl.config({
 hl.animation({ leaf = "workspaces", enabled = true, speed = 3, bezier = "default", style = "slide" })
 hl.animation({ leaf = "windows", enabled = true, speed = 3, bezier = "default" })
 hl.animation({ leaf = "fade", enabled = true, speed = 3, bezier = "default" })
-

@@ -1,4 +1,4 @@
-local terminal = "alacritty"
+local terminal = "ghostty"
 local fileManager = "pcmanfm"
 local menu = "fuzzel"
 local mainMod = "SUPER"
@@ -9,8 +9,13 @@ hl.bind(mainMod .. " + ALT + F", hl.dsp.exec_cmd("firefox"))
 hl.bind(mainMod .. " + ALT + C", hl.dsp.exec_cmd("chromium"))
 hl.bind(mainMod .. " + ALT + T", hl.dsp.exec_cmd("telegram-desktop"))
 hl.bind(mainMod .. " + ALT + V", hl.dsp.exec_cmd("pavucontrol"))
-hl.bind(mainMod .. " + Z", hl.dsp.exec_cmd("hyprlock"))
 hl.bind("ALT + SPACE", hl.dsp.exec_cmd(menu))
+
+hl.bind(mainMod .. " + Z", hl.dsp.exec_cmd("hyprlock"))
+
+hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("hyprshutdown --post-cmd 'reboot'"))
+hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd("hyprshutdown --post-cmd 'poweroff'"))
+hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exit())
 
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + C", hl.dsp.window.close())
@@ -34,8 +39,8 @@ hl.bind(mainMod .. " + SHIFT + N", hl.dsp.window.move({ workspace = "r-1" }))
 hl.bind(mainMod .. " + code:34", hl.dsp.exec_cmd("brightnessctl set 2%-"))
 hl.bind(mainMod .. " + code:35", hl.dsp.exec_cmd("brightnessctl set +2%"))
 
-hl.bind(mainMod .. " + code:47", hl.dsp.exec_cmd("pamixer -i 2"))
-hl.bind(mainMod .. " + code:48", hl.dsp.exec_cmd("pamixer -d 2"))
+hl.bind(mainMod .. " + code:47", hl.dsp.exec_cmd("pamixer -d 2"))
+hl.bind(mainMod .. " + code:48", hl.dsp.exec_cmd("pamixer -i 2"))
 
 hl.bind(mainMod .. " + code:20", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
 hl.bind(mainMod .. " + code:21", hl.dsp.exec_cmd("playerctl next"), { locked = true })

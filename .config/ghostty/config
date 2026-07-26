@@ -16,8 +16,8 @@ keybind = alt+]=next_tab
 keybind = alt+[=previous_tab
 keybind = alt+w=close_surface
 
-keybind = alt+shift+k=scroll_page_up
-keybind = alt+shift+j=scroll_page_down
+keybind = alt+u=scroll_page_up
+keybind = alt+d=scroll_page_down
 
 keybind = alt+v=new_split:right
 keybind = alt+s=new_split:down

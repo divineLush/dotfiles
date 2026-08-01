@@ -12,7 +12,7 @@ hl.bind(mainMod .. " + ALT + V", hl.dsp.exec_cmd("pavucontrol"))
 hl.bind(mainMod .. " + ALT + P", hl.dsp.exec_cmd("grim -g \"$(slurp)\" - | swappy -f -"))
 hl.bind("ALT + SPACE", hl.dsp.exec_cmd(menu))
 
-hl.bind(mainMod .. " + Z", hl.dsp.exec_cmd("hyprlock"))
+hl.bind(mainMod .. " + Z", hl.dsp.exec_cmd("hyprctl switchxkblayout current 0 && hyprlock"))
 
 hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("hyprshutdown --post-cmd 'reboot'"))
 hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd("hyprshutdown --post-cmd 'poweroff'"))

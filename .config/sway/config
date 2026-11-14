@@ -1,8 +1,8 @@
 # Global client colors (affects all windows' titlebars/borders)
-client.focused          #babbf1 #babbf2 #cdd6f4 #babbf1 #babbf1
-client.unfocused        #414559 #414559 #cdd6f4 #414559 #414559
-client.urgent           #f5c2e7 #f5c2e7 #cdd6f4 #f5c2e7 #f5c2e7
-client.placeholder      #414559 #414559 #cdd6f4 #414559 #414559
+client.focused          #babbf1 #babbf2 #414559 #181825 #babbf1
+client.unfocused        #414559 #414559 #cdd6f4 #181825 #414559
+client.urgent           #f5c2e7 #f5c2e7 #cdd6f4 #181825 #f5c2e7
+client.placeholder      #414559 #414559 #cdd6f4 #181825 #414559
 client.background       #181825
 font pango:Fira Sans Medium 12
 
@@ -16,7 +16,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term footclient
+set $term ghostty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -138,6 +138,9 @@ bindsym Alt+Space exec $menu
 # Change normal to inverse to use left mouse button for resizing and right
 # mouse button for dragging.
 floating_modifier $mod normal
+
+# Toggle between tabbed and default tiling
+bindsym $mod+tab layout toggle tabbed splith
 
 # Reload the configuration file
 bindsym --to-code $mod+Shift+c reload
@@ -303,7 +306,6 @@ bar {
 for_window [floating] move position center
 workspace_auto_back_and_forth yes
 
-exec foot --server
 exec gammastep -O 4800
 exec mako
 exec swayidle -w \
